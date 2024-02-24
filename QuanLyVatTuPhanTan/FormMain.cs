@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,10 +39,19 @@ namespace QuanLyVatTuPhanTan
             if (f != null) f.Activate();
             else
             {
-FormLogin login = new FormLogin();
-            login.Show();
+                FormLogin login = new FormLogin();
+                login.Show();
             }
 
+        }
+
+        private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult result = XtraMessageBox.Show("Ban co muon thoat chuong trinh?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
