@@ -7,38 +7,43 @@ using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using System.Data.SqlClient;
 using System.Data;
-using QuanLyVatTuPhanTan;
 
-namespace QuanLiVatTu_PhanTan
+namespace QuanLyVatTuPhanTan
 {
     internal static class Program
     {
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
 
 
         public static SqlDataReader myReader;
 
         public static String servername = "";
-        public static String username = "";
-        public static String mLogin = "";
-        public static String mPassword = "";
+        public static String userID = "";
+        public static String loginName = "";
+        public static String loginPass = "";
 
         public static String database = "QLVT";
 
         public static String mloginDN = "";
         public static String passwordDN = "";
 
-        public static int mChinhanh = 0;
+        public static int chiNhanh = 0;
 
-        public static string mHoten = "";
-        public static string mGroup = "";
+        public static string hoTen = "";
+        public static string role = "";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
+
+        /// <summary>
+        /// Biến toàn cục của các form sẽ được viết dưới đây
+        /// </summary>
+        public static FormLogin formLogin;
+        public static FormMain formMain;
 
         public static bool Connect()
         {
-            // if the server open, we will close
+            // Đóng server nếu server đã được open trước đó
             if (Program.conn != null && Program.conn.State == ConnectionState.Open)
             {
                 Program.conn.Close();
@@ -47,7 +52,7 @@ namespace QuanLiVatTu_PhanTan
             try
             {
                 Program.connstr = "Data Source=" + Program.servername + "; Initial Catalog=" +
-                  Program.database + ";User ID=" + Program.mLogin + ";password=" + Program.mPassword;
+                  Program.database + ";User ID=" + Program.loginName + ";password=" + Program.loginPass;
                 Console.WriteLine(connstr);
                 Program.conn.ConnectionString = connstr;
                 Program.conn.Open();
@@ -120,7 +125,8 @@ namespace QuanLiVatTu_PhanTan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Program.formMain = new FormMain();
+            Application.Run(formMain);
         }
     }
 }

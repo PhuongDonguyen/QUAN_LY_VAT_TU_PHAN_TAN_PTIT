@@ -33,6 +33,22 @@ namespace QuanLyVatTuPhanTan
             return null;
         }
 
+        public void enableButtons()
+        {
+            btnDangNhap.Enabled = false;
+            btnDangXuat.Enabled = true;
+
+            pageNhapXuat.Visible = true;
+            pageBaoCao.Visible = true;
+            btnLapTaiKhoan.Enabled = true;
+
+            if (Program.role == "USER")
+            {
+                btnLapTaiKhoan.Enabled = false;
+            }
+
+        }
+
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form f = checkFormOpen(typeof(FormLogin));
@@ -52,6 +68,11 @@ namespace QuanLyVatTuPhanTan
             {
                 Application.Exit();
             }
+        }
+
+        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

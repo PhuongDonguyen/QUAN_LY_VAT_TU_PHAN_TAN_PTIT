@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.usernameInput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pwdInput = new System.Windows.Forms.TextBox();
+            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -58,12 +58,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Ten dang nhap: ";
             // 
-            // textBox1
+            // usernameInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 21);
-            this.textBox1.TabIndex = 2;
+            this.usernameInput.Location = new System.Drawing.Point(142, 120);
+            this.usernameInput.Name = "usernameInput";
+            this.usernameInput.Size = new System.Drawing.Size(194, 21);
+            this.usernameInput.TabIndex = 2;
             // 
             // label3
             // 
@@ -77,27 +77,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 82);
+            this.label4.Location = new System.Drawing.Point(50, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Chi nhanh:";
             // 
-            // textBox2
+            // pwdInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 161);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 21);
-            this.textBox2.TabIndex = 2;
+            this.pwdInput.Location = new System.Drawing.Point(142, 161);
+            this.pwdInput.Name = "pwdInput";
+            this.pwdInput.PasswordChar = '*';
+            this.pwdInput.Size = new System.Drawing.Size(194, 21);
+            this.pwdInput.TabIndex = 2;
+            this.pwdInput.TextChanged += new System.EventHandler(this.pwdInput_TextChanged);
             // 
-            // comboBox1
+            // cmbChiNhanh
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChiNhanh.FormattingEnabled = true;
+            this.cmbChiNhanh.Location = new System.Drawing.Point(142, 80);
+            this.cmbChiNhanh.Name = "cmbChiNhanh";
+            this.cmbChiNhanh.Size = new System.Drawing.Size(194, 21);
+            this.cmbChiNhanh.TabIndex = 3;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged_1);
             // 
             // btnDangNhap
             // 
@@ -115,15 +118,13 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCancel.Location = new System.Drawing.Point(200, 207);
+            this.btnCancel.Location = new System.Drawing.Point(215, 207);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 28);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Huy";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnDangNhap_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormLogin
             // 
@@ -132,15 +133,16 @@
             this.ClientSize = new System.Drawing.Size(373, 272);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cmbChiNhanh);
+            this.Controls.Add(this.pwdInput);
+            this.Controls.Add(this.usernameInput);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,11 +152,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox usernameInput;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox pwdInput;
+        private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnCancel;
     }
