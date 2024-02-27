@@ -30,6 +30,12 @@ namespace QuanLyVatTuPhanTan
 
         }
 
+        /// <summary>
+        /// Check xem form người dùng đang click đã mở từ trước hay chưa
+        /// Tránh việc mở chồng cửa sổ
+        /// </summary>
+        /// <param name="formType"></param>
+        /// <returns>Trả về kiểu form đó nếu form đã tồn tại trong MdiChildren</returns>
         private Form checkFormOpen(Type formType)
         {
             foreach (Form f in MdiChildren)
@@ -39,6 +45,19 @@ namespace QuanLyVatTuPhanTan
             return null;
         }
 
+        /// <summary>
+        /// Giải phóng các form trong bộ nhớ khi người dùng logout
+        /// </summary>
+        private void logout()
+        {
+            foreach (Form f in MdiChildren)
+                f.Dispose();
+        }
+
+        /// <summary>
+        /// Hiển thị các chức năng như NHẬP/XUẤT, v.v...
+        /// khi đăng nhập thành công
+        /// </summary>
         public void enableButtons()
         {
             btnDangNhap.Enabled = false;
@@ -52,7 +71,20 @@ namespace QuanLyVatTuPhanTan
             {
                 btnLapTaiKhoan.Enabled = false;
             }
+        }
 
+        /// <summary>
+        /// Disable các chức năng như NHẬP/XUẤT, v.v...
+        /// khi người dùng đăng xuất
+        /// </summary>
+        private void disableButtons()
+        {
+            btnDangNhap.Enabled = true;
+            btnDangXuat.Enabled = false;
+
+            pageNhapXuat.Visible = false;
+            pageBaoCao.Visible = false;
+            btnLapTaiKhoan.Enabled = false;
         }
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
@@ -70,7 +102,7 @@ namespace QuanLyVatTuPhanTan
 
         private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DialogResult result = XtraMessageBox.Show("Ban co muon thoat chuong trinh?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = XtraMessageBox.Show("Bạn có muốn thoát chương trình?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
@@ -79,6 +111,12 @@ namespace QuanLyVatTuPhanTan
 
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            DialogResult result = XtraMessageBox.Show("Bạn có muốn đăng xuất?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                logout();
+                disableButtons();
+            }
 
         }
 
