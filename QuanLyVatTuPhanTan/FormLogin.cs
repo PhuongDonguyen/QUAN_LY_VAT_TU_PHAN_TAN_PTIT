@@ -102,7 +102,6 @@ namespace QuanLyVatTuPhanTan
             Program.myReader.Close();
             Program.conn.Close();
 
-            Console.WriteLine("Your userID: " + Program.userID);
             Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userID;
             Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen;
             Program.formMain.NHOM.Text = "VAI TRÒ: " + Program.role;
@@ -123,16 +122,20 @@ namespace QuanLyVatTuPhanTan
         private void FormLogin_Load(object sender, EventArgs e)
         {
             usernameInput.Text = "LT";
-            pwdInput.Text = "123456";
+          /*  pwdInput.Text = "123456";*/
+            pwdInput.Text = "12";
+
             if (!ConnectToMainServer()) return;
-            LayDanhSachPhanManh("Select Top 2 [TENSERVER] from [dbo].[V_DS_PHANMANH]");
+            LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
+            cmbChiNhanh.SelectedIndex = 1;
             cmbChiNhanh.SelectedIndex = 0;
-            //cmbChiNhanh.SelectedIndex = 1;
+            Login();
+            this.Close();
         }
 
         private void cmbChiNhanh_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            Program.servername = cmbChiNhanh.Text;
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
         }
 
         private void pwdInput_TextChanged(object sender, EventArgs e)
@@ -141,6 +144,11 @@ namespace QuanLyVatTuPhanTan
             {
                 Login();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

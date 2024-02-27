@@ -18,7 +18,13 @@ namespace QuanLyVatTuPhanTan
         {
             InitializeComponent();
         }
-
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+        }
         private void FormMain_Load(object sender, EventArgs e)
         {
 
@@ -52,6 +58,7 @@ namespace QuanLyVatTuPhanTan
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
             Form f = checkFormOpen(typeof(FormLogin));
+            Console.WriteLine("Check f",f);
             if (f != null) f.Activate();
             else
             {
@@ -73,6 +80,21 @@ namespace QuanLyVatTuPhanTan
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormNhanVien form = new FormNhanVien();
+                form.MdiParent = this;
+                form.Show();
+            }
         }
     }
 }

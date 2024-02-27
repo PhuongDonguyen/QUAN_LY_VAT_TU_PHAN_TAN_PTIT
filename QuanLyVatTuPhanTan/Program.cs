@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using System.Data.SqlClient;
 using System.Data;
+using DevExpress.XtraEditors;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -14,7 +15,9 @@ namespace QuanLyVatTuPhanTan
     {
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        //public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
+
 
 
         public static SqlDataReader myReader;
@@ -40,7 +43,28 @@ namespace QuanLyVatTuPhanTan
         /// </summary>
         public static FormLogin formLogin;
         public static FormMain formMain;
+        public static void checkText(TextEdit txtEdit, String value, int min = 0, int max=0)
+        {
+            if (txtEdit.Text.Trim() == "")
+            {
+                XtraMessageBox.Show($"{value} không được đẻ trống", "", MessageBoxButtons.OK);
+                txtEdit.Focus();
+                return;
+            }
+            if (txtEdit.Text.Length < max)
+            {
+                XtraMessageBox.Show($"Địa chỉ phải bé hơn {max.ToString()} kí tự", "", MessageBoxButtons.OK);
+                txtEdit.Focus();
+                return;
+            }
+            if (txtEdit.Text.Length > min)
+            {
+                XtraMessageBox.Show($"Địa chỉ phải lớn hơn {min.ToString()} kí tự", "", MessageBoxButtons.OK);
+                txtEdit.Focus();
+                return;
+            }
 
+        }
         public static bool Connect()
         {
             // Đóng server nếu server đã được open trước đó

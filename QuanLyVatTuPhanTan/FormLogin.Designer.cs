@@ -43,52 +43,59 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(115, 25);
+            this.label1.Location = new System.Drawing.Point(172, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 30);
+            this.label1.Size = new System.Drawing.Size(209, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dang Nhap";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 123);
+            this.label2.Location = new System.Drawing.Point(75, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(127, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ten dang nhap: ";
             // 
             // usernameInput
             // 
-            this.usernameInput.Location = new System.Drawing.Point(142, 120);
+            this.usernameInput.Location = new System.Drawing.Point(213, 175);
+            this.usernameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usernameInput.Name = "usernameInput";
-            this.usernameInput.Size = new System.Drawing.Size(194, 21);
+            this.usernameInput.Size = new System.Drawing.Size(289, 27);
             this.usernameInput.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 163);
+            this.label3.Location = new System.Drawing.Point(75, 238);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(79, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "Mat khau:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 83);
+            this.label4.Location = new System.Drawing.Point(75, 121);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(87, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Chi nhanh:";
             // 
             // pwdInput
             // 
-            this.pwdInput.Location = new System.Drawing.Point(142, 161);
+            this.pwdInput.Location = new System.Drawing.Point(213, 235);
+            this.pwdInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pwdInput.Name = "pwdInput";
             this.pwdInput.PasswordChar = '*';
-            this.pwdInput.Size = new System.Drawing.Size(194, 21);
+            this.pwdInput.Size = new System.Drawing.Size(289, 27);
             this.pwdInput.TabIndex = 2;
             this.pwdInput.TextChanged += new System.EventHandler(this.pwdInput_TextChanged);
             // 
@@ -96,9 +103,10 @@
             // 
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(142, 80);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(213, 117);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(194, 21);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(289, 27);
             this.cmbChiNhanh.TabIndex = 3;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged_1);
             // 
@@ -107,9 +115,10 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnDangNhap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDangNhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnDangNhap.Location = new System.Drawing.Point(93, 207);
+            this.btnDangNhap.Location = new System.Drawing.Point(140, 303);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(86, 28);
+            this.btnDangNhap.Size = new System.Drawing.Size(129, 41);
             this.btnDangNhap.TabIndex = 4;
             this.btnDangNhap.Text = "Dang Nhap";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -118,9 +127,10 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancel.Location = new System.Drawing.Point(215, 207);
+            this.btnCancel.Location = new System.Drawing.Point(322, 303);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 28);
+            this.btnCancel.Size = new System.Drawing.Size(129, 41);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Huy";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -128,9 +138,9 @@
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 272);
+            this.ClientSize = new System.Drawing.Size(560, 398);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.cmbChiNhanh);
@@ -140,6 +150,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
