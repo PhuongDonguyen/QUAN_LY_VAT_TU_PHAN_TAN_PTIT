@@ -18,13 +18,7 @@ namespace QuanLyVatTuPhanTan
         {
             InitializeComponent();
         }
-        private Form CheckExists(Type ftype)
-        {
-            foreach (Form f in this.MdiChildren)
-                if (f.GetType() == ftype)
-                    return f;
-            return null;
-        }
+  
         private void FormMain_Load(object sender, EventArgs e)
         {
 
@@ -36,7 +30,7 @@ namespace QuanLyVatTuPhanTan
         /// </summary>
         /// <param name="formType"></param>
         /// <returns>Trả về kiểu form đó nếu form đã tồn tại trong MdiChildren</returns>
-        private Form checkFormOpen(Type formType)
+        private Form CheckFormOpen(Type formType)
         {
             foreach (Form f in MdiChildren)
             {
@@ -89,7 +83,7 @@ namespace QuanLyVatTuPhanTan
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = checkFormOpen(typeof(FormLogin));
+            Form f = CheckFormOpen(typeof(FormLogin));
             Console.WriteLine("Check f",f);
             if (f != null) f.Activate();
             else
@@ -122,7 +116,7 @@ namespace QuanLyVatTuPhanTan
 
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormNhanVien));
+            Form f = this.CheckFormOpen(typeof(FormNhanVien));
             if (f != null)
             {
                 f.Activate();

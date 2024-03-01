@@ -122,15 +122,15 @@ namespace QuanLyVatTuPhanTan
         private void FormLogin_Load(object sender, EventArgs e)
         {
             usernameInput.Text = "LT";
-          /*  pwdInput.Text = "123456";*/
-            pwdInput.Text = "12";
+            pwdInput.Text = "123456";
+            //pwdInput.Text = "12";
 
             if (!ConnectToMainServer()) return;
             LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
             cmbChiNhanh.SelectedIndex = 1;
             cmbChiNhanh.SelectedIndex = 0;
-            Login();
-            this.Close();
+            //Login();
+            //this.Close();
         }
 
         private void cmbChiNhanh_SelectedIndexChanged_1(object sender, EventArgs e)

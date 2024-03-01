@@ -15,8 +15,8 @@ namespace QuanLyVatTuPhanTan
     {
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        //public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
-        public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        //public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
 
 
 
