@@ -121,7 +121,7 @@ namespace QuanLyVatTuPhanTan
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            usernameInput.Text = "LT";
+            usernameInput.Text = "TT";
           /*  pwdInput.Text = "123456";*/
             pwdInput.Text = "12";
 
