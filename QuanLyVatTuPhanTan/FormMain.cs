@@ -56,6 +56,7 @@ namespace QuanLyVatTuPhanTan
         {
             btnDangNhap.Enabled = false;
             btnDangXuat.Enabled = true;
+            btnVatTu.Enabled = true;
 
             pageNhapXuat.Visible = true;
             pageBaoCao.Visible = true;
@@ -143,5 +144,20 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+        private void btnVatTu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(formVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                formVatTu form = new formVatTu();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
     }
 }
