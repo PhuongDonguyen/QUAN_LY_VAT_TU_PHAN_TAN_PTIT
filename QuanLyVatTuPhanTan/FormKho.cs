@@ -25,7 +25,7 @@ namespace QuanLyVatTuPhanTan
 
         private void FormKho_Load(object sender, EventArgs e)
         {
-            // Tắt kiểm tra khóa ngoại
+            //Tắt kiểm tra khóa ngoại
             dS.EnforceConstraints = false;
 
             // TODO: This line of code loads data into the 'dS.Kho' table. You can move, or remove it, as needed.
