@@ -73,13 +73,17 @@ namespace QuanLyVatTuPhanTan
             // cái này đẻ lấy data hiện tại để kết nối, nếu dòng dưới nó sẻ lấy dS
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
             // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
-            this.datHangTableAdapter.Fill(this.dS.DatHang);
-            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
-            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
+
+            this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
+
+            this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.datHangTableAdapter.Fill(this.dS.DatHang);
+            
+            this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
             // còn phát sinh lỗi
             maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
             Console.WriteLine("CHi nhanh " + maChiNhanh);

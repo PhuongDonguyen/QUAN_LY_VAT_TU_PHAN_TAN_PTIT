@@ -159,7 +159,7 @@
             this.btnPhieuXuat,
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -415,8 +415,8 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 896);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 728);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1021, 30);
@@ -468,6 +468,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("FormMain.IconOptions.LargeImage")));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
