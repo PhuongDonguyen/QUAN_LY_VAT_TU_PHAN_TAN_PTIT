@@ -103,8 +103,8 @@ namespace QuanLyVatTuPhanTan
             Program.conn.Close();
 
             Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userID;
-            Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen;
-            Program.formMain.NHOM.Text = "VAI TRÒ: " + Program.role;
+            Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen.ToUpper();
+            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY": "CHI NHÁNH");
 
             this.Hide();
             Program.formMain.enableButtons();
