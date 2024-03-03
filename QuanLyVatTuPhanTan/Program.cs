@@ -51,15 +51,15 @@ namespace QuanLyVatTuPhanTan
                 txtEdit.Focus();
                 return;
             }
-            if (txtEdit.Text.Length < max)
+            if (txtEdit.Text.Length > max)
             {
-                XtraMessageBox.Show($"Địa chỉ phải bé hơn {max.ToString()} kí tự", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"{value} phải bé hơn {max} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
                 return;
             }
-            if (txtEdit.Text.Length > min)
+            if (txtEdit.Text.Length < min)
             {
-                XtraMessageBox.Show($"Địa chỉ phải lớn hơn {min.ToString()} kí tự", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"{value} phải lớn hơn {min} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
                 return;
             }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -19,9 +20,46 @@ namespace QuanLyVatTuPhanTan
         }
         String maChiNhanh = "";
         int vitri = 0;
-        public int CalculateAge(DateTime date)
+
+        public void KiemTraLoiKhiGhi()
         {
-            int age = DateTime.Now.Year - date.Year;
+            //Check ma nhan vien trung
+            String queryStr = $"DECLARE @return_value int " +
+                $"EXEC @return_value = [dbo].[SP_KiemTraNhanVienTonTai] '{txtMaNV.Text}' " +
+                $"SELECT 'value' = @return_value";
+            Console.WriteLine(queryStr);
+            Program.myReader = Program.ExecSqlDataReader(queryStr);
+            if (Program.myReader == null) return;
+            Program.myReader.Read();
+            int result = (Program.myReader.GetInt32(0));
+            Program.myReader.Close();
+            if (result > 0)
+            {
+                XtraMessageBox.Show($"Mã nhân viên đã được sử dụng", "", MessageBoxButtons.OK);
+                return;
+            }
+            Program.checkText(txtDiaChi, "Địa chỉ", 0, 100);
+            Program.checkText(txtHo, "Họ", 0, 20);
+            Program.checkText(txtTen, "Ten", 0, 10);
+            Program.checkText(txtCMND, "CMND", 0, 20);
+            if (seLuong.Value < 4000)
+            {
+                XtraMessageBox.Show($"Lương phải >= 4000", "", MessageBoxButtons.OK);
+                seLuong.Focus();
+                return;
+            }
+            if (CalculateAge(dteNgaySinh.DateTime) < 18)
+            {
+                XtraMessageBox.Show($"Nhân viên chưa đủ 18 tuổi", "", MessageBoxButtons.OK);
+                dteNgaySinh.Focus();
+                return;
+            }
+        }
+        public int CalculateAge(DateTime birthday)
+        {
+            int age = DateTime.Now.Year - birthday.Year;
+            if (DateTime.Now.DayOfYear < birthday.DayOfYear)
+                age = age - 1;
             return age;
         }
         private void panelControl1_Paint(object sender, PaintEventArgs e)
@@ -31,7 +69,6 @@ namespace QuanLyVatTuPhanTan
 
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
-
             dS.EnforceConstraints = false;
             // cái này đẻ lấy data hiện tại để kết nối, nếu dòng dưới nó sẻ lấy dS
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -45,19 +82,20 @@ namespace QuanLyVatTuPhanTan
             this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
             // còn phát sinh lỗi
             maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
+            Console.WriteLine("CHi nhanh " + maChiNhanh);
             cmbChiNhanh.DataSource = Program.bds_dspm; 
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             if (Program.role =="CONGTY")
             {
-                cmbChiNhanh.Enabled = btnThem.Enabled = btnGhi.Enabled =  btnXoa.Enabled = true;
+                cmbChiNhanh.Enabled = btnThem.Enabled  = btnXoa.Enabled = true;
                 this.panelNhapLieu.Enabled = false;
-                btnHoanTac.Enabled = false;
+                panelNhapLieu.Enabled = btnSua.Enabled=btnGhi.Enabled = btnHoanTac.Enabled = false;
             }
             else
             {
-                btnThem.Enabled = btnGhi.Enabled = btnHoanTac.Enabled = btnXoa.Enabled = true;
-                cmbChiNhanh.Enabled = false;
+                btnThem.Enabled =  btnHoanTac.Enabled = btnXoa.Enabled = true;
+                panelNhapLieu.Enabled =btnGhi.Enabled = cmbChiNhanh.Enabled = false;
             }
             if (bdsNhanVien.Count == 0)
             {
@@ -83,16 +121,26 @@ namespace QuanLyVatTuPhanTan
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.checkText(txtDIACHI, "Địa chỉ", 0,100);
-            Program.checkText(txtHO, "Họ", 0,20);
-            Program.checkText(txtTEN, "Ten", 0,10);
-            Program.checkText(txtCMND, "CMND",0, 20);
-            Program.checkText(txtLUONG, "Lương", 4000, 9999999);
-            if(CalculateAge(dteNGAYSINH.DateTime) < 18)
+            KiemTraLoiKhiGhi();
+
+            try
             {
+                bdsNhanVien.EndEdit();
+                bdsNhanVien.ResetCurrentItem();
+                nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                nhanVienTableAdapter.Update(dS.NhanVien);
 
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show($"Lỗi khi ghi nhân viên \n"+ ex.Message, "", MessageBoxButtons.OK);
 
+                return;
+            }
+            gcNhanVien.Enabled = true;
+            panelNhapLieu.Enabled = false;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
+            btnGhi.Enabled = btnHoanTac.Enabled = false;
         }
 
         private void nhanVienGridControl_Click(object sender, EventArgs e)
@@ -104,11 +152,17 @@ namespace QuanLyVatTuPhanTan
         {
             vitri = bdsNhanVien.Position;
             this.panelNhapLieu.Enabled = true;
-            cmbChiNhanh.Enabled = btnThem.Enabled = btnXoa.Enabled = false;
+            btnSua.Enabled= btnLamMoi.Enabled =cmbChiNhanh.Enabled = btnThem.Enabled = btnXoa.Enabled = false;
             btnGhi.Enabled = true;
             btnHoanTac.Enabled = true;
             bdsNhanVien.AddNew();
-            txtMACN.Text = maChiNhanh;
+            txtMaCN.Text = maChiNhanh;
+            dteNgaySinh.EditValue = "2003-05-01";
+            seLuong.Value = 4000000;
+            txtCMND.Text = "123456789";
+            txtDiaChi.Text = "HCM";
+            cbTrangThaiXoa.Checked = false;
+
             gcNhanVien.Enabled = false;
         }
 
@@ -139,7 +193,7 @@ namespace QuanLyVatTuPhanTan
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int manv = 0;
-            
+            Console.WriteLine($"{bdsPhieuNhap.Count} \n {bdsPhieuXuat.Count}\n{bdsDatHang.Count}");
             if (bdsPhieuNhap.Count > 0)
             {
                 XtraMessageBox.Show("Cann't remove PHIEU NHAP ( > 0 ) ","", MessageBoxButtons.OK);
@@ -150,7 +204,7 @@ namespace QuanLyVatTuPhanTan
                 XtraMessageBox.Show("Cann't remove PHIEU XUAT ( > 0 ) ", "", MessageBoxButtons.OK);
                 return;
             }
-            if (BdsDatHang.Count > 0)
+            if (bdsDatHang.Count > 0)
             {
                 XtraMessageBox.Show("Cann't remove DAT HANG ( > 0 ) ", "", MessageBoxButtons.OK);
                 return;
@@ -176,6 +230,36 @@ namespace QuanLyVatTuPhanTan
             {
                 btnXoa.Enabled = false;
             };
+
+        }
+
+        private void txtCMND_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nGAYSINHDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nGAYSINHLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            vitri = bdsNhanVien.Position;
+            gcNhanVien.Enabled = false;
+            cmbChiNhanh.Enabled = false;
+            btnThem.Enabled = false;
+            btnXoa.Enabled = false;
+            btnThem.Enabled = false;
+            btnHoanTac.Enabled = true;
+            btnGhi.Enabled = true;
+            btnLamMoi.Enabled = false;
+            panelNhapLieu.Enabled = true;
 
         }
     }

@@ -128,5 +128,20 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        private void btnKho_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormKho));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormKho form = new FormKho();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }
