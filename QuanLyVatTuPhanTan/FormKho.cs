@@ -21,8 +21,6 @@ namespace QuanLyVatTuPhanTan
 
         private void FormKho_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.CTDDH' table. You can move, or remove it, as needed.
-            this.cTDDHTableAdapter.Fill(this.dS.CTDDH);
             //Tắt kiểm tra khóa ngoại
             dS.EnforceConstraints = false;
 
