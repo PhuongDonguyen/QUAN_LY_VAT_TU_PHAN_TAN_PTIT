@@ -91,11 +91,14 @@ namespace QuanLyVatTuPhanTan
                 cmbChiNhanh.Enabled = btnThem.Enabled  = btnXoa.Enabled = true;
                 this.panelNhapLieu.Enabled = false;
                 panelNhapLieu.Enabled = btnSua.Enabled=btnGhi.Enabled = btnHoanTac.Enabled = false;
+                cmbChiNhanh.Enabled = true;
+
             }
             else
             {
                 btnThem.Enabled =  btnHoanTac.Enabled = btnXoa.Enabled = true;
-                panelNhapLieu.Enabled =btnGhi.Enabled = cmbChiNhanh.Enabled = false;
+                panelNhapLieu.Enabled =btnGhi.Enabled =  false;
+                cmbChiNhanh.Enabled = false;
             }
             if (bdsNhanVien.Count == 0)
             {
@@ -260,6 +263,36 @@ namespace QuanLyVatTuPhanTan
             btnGhi.Enabled = true;
             btnLamMoi.Enabled = false;
             panelNhapLieu.Enabled = true;
+
+        }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            if (cmbChiNhanh.SelectedIndex != Program.chiNhanh)
+            {
+                Program.loginName = Program.remoteLogin;
+                Program.loginPass = Program.remotePassword;
+                if (Program.Connect() == false)
+                {
+                    XtraMessageBox.Show("Không thể kết nối đến server");
+                    return;
+                }
+                else
+                {
+                    this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.datHangTableAdapter.Fill(this.dS.DatHang);
+                    this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
+                    this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
+                    this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
+                    maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
+                }
+            }
+            return;
 
         }
     }

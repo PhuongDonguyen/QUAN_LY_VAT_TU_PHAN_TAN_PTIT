@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
