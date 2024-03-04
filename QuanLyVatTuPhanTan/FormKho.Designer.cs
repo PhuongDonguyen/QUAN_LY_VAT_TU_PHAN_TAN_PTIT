@@ -104,7 +104,7 @@
             mAKHOLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mAKHOLabel.Location = new System.Drawing.Point(123, 80);
             mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(54, 16);
+            mAKHOLabel.Size = new System.Drawing.Size(67, 19);
             mAKHOLabel.TabIndex = 28;
             mAKHOLabel.Text = "Mã Kho:";
             // 
@@ -114,7 +114,7 @@
             dIACHILabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dIACHILabel.Location = new System.Drawing.Point(123, 151);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(51, 16);
+            dIACHILabel.Size = new System.Drawing.Size(63, 19);
             dIACHILabel.TabIndex = 29;
             dIACHILabel.Text = "Địa chỉ:";
             // 
@@ -124,7 +124,7 @@
             tENKHOLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tENKHOLabel.Location = new System.Drawing.Point(492, 80);
             tENKHOLabel.Name = "tENKHOLabel";
-            tENKHOLabel.Size = new System.Drawing.Size(59, 16);
+            tENKHOLabel.Size = new System.Drawing.Size(74, 19);
             tENKHOLabel.TabIndex = 30;
             tENKHOLabel.Text = "Tên Kho:";
             // 
@@ -134,7 +134,7 @@
             mACNLabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             mACNLabel.Location = new System.Drawing.Point(457, 151);
             mACNLabel.Name = "mACNLabel";
-            mACNLabel.Size = new System.Drawing.Size(88, 16);
+            mACNLabel.Size = new System.Drawing.Size(109, 19);
             mACNLabel.TabIndex = 31;
             mACNLabel.Text = "Mã chi nhánh:";
             // 

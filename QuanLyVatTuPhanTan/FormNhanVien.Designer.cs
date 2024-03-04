@@ -134,90 +134,81 @@
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(85, 46);
-            mANVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            mANVLabel.Location = new System.Drawing.Point(128, 67);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(39, 13);
+            mANVLabel.Size = new System.Drawing.Size(59, 19);
             mANVLabel.TabIndex = 27;
             mANVLabel.Text = "MANV:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(252, 44);
-            hOLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            hOLabel.Location = new System.Drawing.Point(378, 64);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(26, 13);
+            hOLabel.Size = new System.Drawing.Size(38, 19);
             hOLabel.TabIndex = 28;
             hOLabel.Text = "HO:";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(460, 36);
-            tENLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            tENLabel.Location = new System.Drawing.Point(690, 52);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(30, 13);
+            tENLabel.Size = new System.Drawing.Size(45, 19);
             tENLabel.TabIndex = 29;
             tENLabel.Text = "TEN:";
             // 
             // mACNLabel
             // 
             mACNLabel.AutoSize = true;
-            mACNLabel.Location = new System.Drawing.Point(643, 36);
-            mACNLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            mACNLabel.Location = new System.Drawing.Point(964, 52);
             mACNLabel.Name = "mACNLabel";
-            mACNLabel.Size = new System.Drawing.Size(40, 13);
+            mACNLabel.Size = new System.Drawing.Size(59, 19);
             mACNLabel.TabIndex = 30;
             mACNLabel.Text = "MACN:";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(78, 102);
-            dIACHILabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            dIACHILabel.Location = new System.Drawing.Point(117, 149);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(47, 13);
+            dIACHILabel.Size = new System.Drawing.Size(70, 19);
             dIACHILabel.TabIndex = 31;
             dIACHILabel.Text = "DIACHI:";
             // 
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(252, 100);
-            nGAYSINHLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nGAYSINHLabel.Location = new System.Drawing.Point(378, 146);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(62, 13);
+            nGAYSINHLabel.Size = new System.Drawing.Size(95, 19);
             nGAYSINHLabel.TabIndex = 32;
             nGAYSINHLabel.Text = "NGAYSINH:";
             // 
             // lUONGLabel
             // 
             lUONGLabel.AutoSize = true;
-            lUONGLabel.Location = new System.Drawing.Point(457, 96);
-            lUONGLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lUONGLabel.Location = new System.Drawing.Point(686, 140);
             lUONGLabel.Name = "lUONGLabel";
-            lUONGLabel.Size = new System.Drawing.Size(45, 13);
+            lUONGLabel.Size = new System.Drawing.Size(68, 19);
             lUONGLabel.TabIndex = 33;
             lUONGLabel.Text = "LUONG:";
             // 
             // trangThaiXoaLabel
             // 
             trangThaiXoaLabel.AutoSize = true;
-            trangThaiXoaLabel.Location = new System.Drawing.Point(817, 38);
-            trangThaiXoaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            trangThaiXoaLabel.Location = new System.Drawing.Point(1226, 56);
             trangThaiXoaLabel.Name = "trangThaiXoaLabel";
-            trangThaiXoaLabel.Size = new System.Drawing.Size(83, 13);
+            trangThaiXoaLabel.Size = new System.Drawing.Size(124, 19);
             trangThaiXoaLabel.TabIndex = 34;
             trangThaiXoaLabel.Text = "Trang Thai Xoa:";
             // 
             // sOCMNDLabel
             // 
             sOCMNDLabel.AutoSize = true;
-            sOCMNDLabel.Location = new System.Drawing.Point(643, 96);
-            sOCMNDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            sOCMNDLabel.Location = new System.Drawing.Point(965, 140);
             sOCMNDLabel.Name = "sOCMNDLabel";
-            sOCMNDLabel.Size = new System.Drawing.Size(54, 13);
+            sOCMNDLabel.Size = new System.Drawing.Size(80, 19);
             sOCMNDLabel.TabIndex = 35;
             sOCMNDLabel.Text = "SOCMND:";
             // 
@@ -293,6 +284,7 @@
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(212, 21);
             this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -604,20 +596,18 @@
             // txtCMND
             // 
             this.txtCMND.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "SOCMND", true));
-            this.txtCMND.Location = new System.Drawing.Point(701, 94);
-            this.txtCMND.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCMND.Location = new System.Drawing.Point(1051, 137);
             this.txtCMND.MenuManager = this.barManager1;
             this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(100, 20);
+            this.txtCMND.Size = new System.Drawing.Size(150, 26);
             this.txtCMND.TabIndex = 36;
             // 
             // cbTrangThaiXoa
             // 
             this.cbTrangThaiXoa.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNhanVien, "TrangThaiXoa", true));
-            this.cbTrangThaiXoa.Location = new System.Drawing.Point(904, 35);
-            this.cbTrangThaiXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTrangThaiXoa.Location = new System.Drawing.Point(1356, 51);
             this.cbTrangThaiXoa.Name = "cbTrangThaiXoa";
-            this.cbTrangThaiXoa.Size = new System.Drawing.Size(69, 16);
+            this.cbTrangThaiXoa.Size = new System.Drawing.Size(104, 24);
             this.cbTrangThaiXoa.TabIndex = 35;
             this.cbTrangThaiXoa.UseVisualStyleBackColor = true;
             // 
@@ -629,8 +619,7 @@
             0,
             0,
             0});
-            this.seLuong.Location = new System.Drawing.Point(507, 94);
-            this.seLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seLuong.Location = new System.Drawing.Point(760, 137);
             this.seLuong.MenuManager = this.barManager1;
             this.seLuong.Name = "seLuong";
             this.seLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -639,72 +628,66 @@
             this.seLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.seLuong.Properties.EditFormat.FormatString = "n0";
             this.seLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seLuong.Size = new System.Drawing.Size(100, 20);
+            this.seLuong.Size = new System.Drawing.Size(150, 28);
             this.seLuong.TabIndex = 34;
             // 
             // dteNgaySinh
             // 
             this.dteNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "NGAYSINH", true));
             this.dteNgaySinh.EditValue = null;
-            this.dteNgaySinh.Location = new System.Drawing.Point(319, 98);
-            this.dteNgaySinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dteNgaySinh.Location = new System.Drawing.Point(479, 143);
             this.dteNgaySinh.MenuManager = this.barManager1;
             this.dteNgaySinh.Name = "dteNgaySinh";
             this.dteNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteNgaySinh.Size = new System.Drawing.Size(100, 20);
+            this.dteNgaySinh.Size = new System.Drawing.Size(150, 26);
             this.dteNgaySinh.TabIndex = 33;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "DIACHI", true));
-            this.txtDiaChi.Location = new System.Drawing.Point(129, 100);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDiaChi.Location = new System.Drawing.Point(193, 146);
             this.txtDiaChi.MenuManager = this.barManager1;
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(100, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(150, 26);
             this.txtDiaChi.TabIndex = 32;
             // 
             // txtMaCN
             // 
             this.txtMaCN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MACN", true));
-            this.txtMaCN.Location = new System.Drawing.Point(686, 34);
-            this.txtMaCN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaCN.Location = new System.Drawing.Point(1029, 49);
             this.txtMaCN.MenuManager = this.barManager1;
             this.txtMaCN.Name = "txtMaCN";
-            this.txtMaCN.Size = new System.Drawing.Size(100, 20);
+            this.txtMaCN.Size = new System.Drawing.Size(150, 26);
             this.txtMaCN.TabIndex = 31;
             // 
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "TEN", true));
-            this.txtTen.Location = new System.Drawing.Point(494, 34);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTen.Location = new System.Drawing.Point(741, 49);
             this.txtTen.MenuManager = this.barManager1;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(100, 20);
+            this.txtTen.Size = new System.Drawing.Size(150, 26);
             this.txtTen.TabIndex = 30;
             // 
             // txtHo
             // 
             this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "HO", true));
-            this.txtHo.Location = new System.Drawing.Point(281, 42);
-            this.txtHo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHo.Location = new System.Drawing.Point(422, 61);
             this.txtHo.MenuManager = this.barManager1;
             this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(100, 20);
+            this.txtHo.Size = new System.Drawing.Size(150, 26);
             this.txtHo.TabIndex = 29;
             // 
             // txtMaNV
             // 
             this.txtMaNV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MANV", true));
-            this.txtMaNV.Location = new System.Drawing.Point(129, 44);
-            this.txtMaNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaNV.Location = new System.Drawing.Point(193, 64);
             this.txtMaNV.MenuManager = this.barManager1;
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(100, 20);
+            this.txtMaNV.Size = new System.Drawing.Size(150, 26);
             this.txtMaNV.TabIndex = 28;
             // 
             // panelControl3

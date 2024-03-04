@@ -37,6 +37,8 @@ namespace QuanLyVatTuPhanTan
 
         public static string hoTen = "";
         public static string role = "";
+        public static string remoteLogin = "HTKN";
+        public static string remotePassword = "12";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
         /// <summary>
@@ -78,7 +80,8 @@ namespace QuanLyVatTuPhanTan
             {
                 Program.connstr = "Data Source=" + Program.servername + "; Initial Catalog=" +
                   Program.database + ";User ID=" + Program.loginName + ";password=" + Program.loginPass;
-                Console.WriteLine(connstr);
+
+                Console.WriteLine("Connect:  "+connstr);
                 Program.conn.ConnectionString = connstr;
                 Program.conn.Open();
                 return true;
