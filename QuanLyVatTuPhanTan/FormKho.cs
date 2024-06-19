@@ -271,5 +271,10 @@ namespace QuanLyVatTuPhanTan
         {
             this.Close();
         }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("load cmb kho");
+        }
     }
 }
