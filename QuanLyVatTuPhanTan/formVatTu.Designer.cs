@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formVatTu));
             System.Windows.Forms.Label mAVTLabel;
             System.Windows.Forms.Label tENVTLabel;
             System.Windows.Forms.Label dVTLabel;
             System.Windows.Forms.Label sOLUONGTONLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formVatTu));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -52,23 +52,23 @@
             this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
             this.vattuTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.VattuTableAdapter();
             this.tableAdapterManager = new QuanLyVatTuPhanTan.DSTableAdapters.TableAdapterManager();
+            this.cTDDHTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTDDHTableAdapter();
+            this.cTPNTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTPNTableAdapter();
+            this.cTPXTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTPXTableAdapter();
             this.vattuGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.mAVTTextBox = new System.Windows.Forms.TextBox();
-            this.tENVTTextBox = new System.Windows.Forms.TextBox();
-            this.dVTTextBox = new System.Windows.Forms.TextBox();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.sOLUONGTONTextBox = new System.Windows.Forms.TextBox();
+            this.dVTTextBox = new System.Windows.Forms.TextBox();
+            this.tENVTTextBox = new System.Windows.Forms.TextBox();
+            this.mAVTTextBox = new System.Windows.Forms.TextBox();
             this.bdsCTPX = new System.Windows.Forms.BindingSource(this.components);
-            this.cTPXTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTPXTableAdapter();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
-            this.cTPNTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTPNTableAdapter();
             this.bdsCTĐH = new System.Windows.Forms.BindingSource(this.components);
-            this.cTDDHTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTDDHTableAdapter();
             mAVTLabel = new System.Windows.Forms.Label();
             tENVTLabel = new System.Windows.Forms.Label();
             dVTLabel = new System.Windows.Forms.Label();
@@ -84,6 +84,44 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTĐH)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mAVTLabel
+            // 
+            mAVTLabel.AutoSize = true;
+            mAVTLabel.Location = new System.Drawing.Point(27, 27);
+            mAVTLabel.Name = "mAVTLabel";
+            mAVTLabel.Size = new System.Drawing.Size(79, 16);
+            mAVTLabel.TabIndex = 0;
+            mAVTLabel.Text = "MÃ VẬT TƯ:";
+            // 
+            // tENVTLabel
+            // 
+            tENVTLabel.AutoSize = true;
+            tENVTLabel.Location = new System.Drawing.Point(301, 27);
+            tENVTLabel.Name = "tENVTLabel";
+            tENVTLabel.Size = new System.Drawing.Size(84, 16);
+            tENVTLabel.TabIndex = 2;
+            tENVTLabel.Text = "TÊN VẬT TƯ:";
+            tENVTLabel.Click += new System.EventHandler(this.tENVTLabel_Click);
+            // 
+            // dVTLabel
+            // 
+            dVTLabel.AutoSize = true;
+            dVTLabel.Location = new System.Drawing.Point(649, 27);
+            dVTLabel.Name = "dVTLabel";
+            dVTLabel.Size = new System.Drawing.Size(86, 16);
+            dVTLabel.TabIndex = 4;
+            dVTLabel.Text = "ĐƠN VỊ TÍNH:";
+            dVTLabel.Click += new System.EventHandler(this.dVTLabel_Click);
+            // 
+            // sOLUONGTONLabel
+            // 
+            sOLUONGTONLabel.AutoSize = true;
+            sOLUONGTONLabel.Location = new System.Drawing.Point(954, 27);
+            sOLUONGTONLabel.Name = "sOLUONGTONLabel";
+            sOLUONGTONLabel.Size = new System.Drawing.Size(102, 16);
+            sOLUONGTONLabel.TabIndex = 6;
+            sOLUONGTONLabel.Text = "SỐ LƯỢNG TỒN:";
             // 
             // barManager1
             // 
@@ -170,16 +208,16 @@
             // 
             this.btnReaload.Caption = "RELOAD";
             this.btnReaload.Id = 4;
-            this.btnReaload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.btnReaload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btnReaload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReaload.ImageOptions.Image")));
+            this.btnReaload.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReaload.ImageOptions.LargeImage")));
             this.btnReaload.Name = "btnReaload";
             // 
             // btnThoat
             // 
             this.btnThoat.Caption = "THOÁT";
             this.btnThoat.Id = 5;
-            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
             this.btnThoat.Name = "btnThoat";
             // 
             // bar3
@@ -206,7 +244,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 506);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 729);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1237, 20);
             // 
@@ -216,7 +254,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 455);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 678);
             // 
             // barDockControlRight
             // 
@@ -224,7 +262,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1237, 51);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 455);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 678);
             // 
             // dS
             // 
@@ -254,6 +292,18 @@
             this.tableAdapterManager.UpdateOrder = QuanLyVatTuPhanTan.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = this.vattuTableAdapter;
             // 
+            // cTDDHTableAdapter
+            // 
+            this.cTDDHTableAdapter.ClearBeforeFill = true;
+            // 
+            // cTPNTableAdapter
+            // 
+            this.cTPNTableAdapter.ClearBeforeFill = true;
+            // 
+            // cTPXTableAdapter
+            // 
+            this.cTPXTableAdapter.ClearBeforeFill = true;
+            // 
             // vattuGridControl
             // 
             this.vattuGridControl.DataSource = this.bdsVatTu;
@@ -262,7 +312,7 @@
             this.vattuGridControl.MainView = this.gridView1;
             this.vattuGridControl.MenuManager = this.barManager1;
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(1237, 295);
+            this.vattuGridControl.Size = new System.Drawing.Size(1237, 192);
             this.vattuGridControl.TabIndex = 5;
             this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -276,22 +326,6 @@
             this.colSOLUONGTON});
             this.gridView1.GridControl = this.vattuGridControl;
             this.gridView1.Name = "gridView1";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(sOLUONGTONLabel);
-            this.panelControl1.Controls.Add(this.sOLUONGTONTextBox);
-            this.panelControl1.Controls.Add(dVTLabel);
-            this.panelControl1.Controls.Add(this.dVTTextBox);
-            this.panelControl1.Controls.Add(tENVTLabel);
-            this.panelControl1.Controls.Add(this.tENVTTextBox);
-            this.panelControl1.Controls.Add(mAVTLabel);
-            this.panelControl1.Controls.Add(this.mAVTTextBox);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 346);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1237, 227);
-            this.panelControl1.TabIndex = 6;
             // 
             // colMAVT
             // 
@@ -329,67 +363,21 @@
             this.colSOLUONGTON.VisibleIndex = 3;
             this.colSOLUONGTON.Width = 94;
             // 
-            // mAVTLabel
+            // panelControl1
             // 
-            mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(27, 27);
-            mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(79, 16);
-            mAVTLabel.TabIndex = 0;
-            mAVTLabel.Text = "MÃ VẬT TƯ:";
-            // 
-            // mAVTTextBox
-            // 
-            this.mAVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "MAVT", true));
-            this.mAVTTextBox.Location = new System.Drawing.Point(112, 24);
-            this.mAVTTextBox.Name = "mAVTTextBox";
-            this.mAVTTextBox.Size = new System.Drawing.Size(173, 23);
-            this.mAVTTextBox.TabIndex = 1;
-            // 
-            // tENVTLabel
-            // 
-            tENVTLabel.AutoSize = true;
-            tENVTLabel.Location = new System.Drawing.Point(301, 27);
-            tENVTLabel.Name = "tENVTLabel";
-            tENVTLabel.Size = new System.Drawing.Size(84, 16);
-            tENVTLabel.TabIndex = 2;
-            tENVTLabel.Text = "TÊN VẬT TƯ:";
-            tENVTLabel.Click += new System.EventHandler(this.tENVTLabel_Click);
-            // 
-            // tENVTTextBox
-            // 
-            this.tENVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "TENVT", true));
-            this.tENVTTextBox.Location = new System.Drawing.Point(391, 24);
-            this.tENVTTextBox.Name = "tENVTTextBox";
-            this.tENVTTextBox.Size = new System.Drawing.Size(234, 23);
-            this.tENVTTextBox.TabIndex = 3;
-            // 
-            // dVTLabel
-            // 
-            dVTLabel.AutoSize = true;
-            dVTLabel.Location = new System.Drawing.Point(649, 27);
-            dVTLabel.Name = "dVTLabel";
-            dVTLabel.Size = new System.Drawing.Size(86, 16);
-            dVTLabel.TabIndex = 4;
-            dVTLabel.Text = "ĐƠN VỊ TÍNH:";
-            dVTLabel.Click += new System.EventHandler(this.dVTLabel_Click);
-            // 
-            // dVTTextBox
-            // 
-            this.dVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "DVT", true));
-            this.dVTTextBox.Location = new System.Drawing.Point(736, 24);
-            this.dVTTextBox.Name = "dVTTextBox";
-            this.dVTTextBox.Size = new System.Drawing.Size(168, 23);
-            this.dVTTextBox.TabIndex = 5;
-            // 
-            // sOLUONGTONLabel
-            // 
-            sOLUONGTONLabel.AutoSize = true;
-            sOLUONGTONLabel.Location = new System.Drawing.Point(954, 27);
-            sOLUONGTONLabel.Name = "sOLUONGTONLabel";
-            sOLUONGTONLabel.Size = new System.Drawing.Size(102, 16);
-            sOLUONGTONLabel.TabIndex = 6;
-            sOLUONGTONLabel.Text = "SỐ LƯỢNG TỒN:";
+            this.panelControl1.Controls.Add(sOLUONGTONLabel);
+            this.panelControl1.Controls.Add(this.sOLUONGTONTextBox);
+            this.panelControl1.Controls.Add(dVTLabel);
+            this.panelControl1.Controls.Add(this.dVTTextBox);
+            this.panelControl1.Controls.Add(tENVTLabel);
+            this.panelControl1.Controls.Add(this.tENVTTextBox);
+            this.panelControl1.Controls.Add(mAVTLabel);
+            this.panelControl1.Controls.Add(this.mAVTTextBox);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 243);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1237, 416);
+            this.panelControl1.TabIndex = 6;
             // 
             // sOLUONGTONTextBox
             // 
@@ -399,39 +387,51 @@
             this.sOLUONGTONTextBox.Size = new System.Drawing.Size(151, 23);
             this.sOLUONGTONTextBox.TabIndex = 7;
             // 
+            // dVTTextBox
+            // 
+            this.dVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "DVT", true));
+            this.dVTTextBox.Location = new System.Drawing.Point(736, 24);
+            this.dVTTextBox.Name = "dVTTextBox";
+            this.dVTTextBox.Size = new System.Drawing.Size(168, 23);
+            this.dVTTextBox.TabIndex = 5;
+            // 
+            // tENVTTextBox
+            // 
+            this.tENVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "TENVT", true));
+            this.tENVTTextBox.Location = new System.Drawing.Point(391, 24);
+            this.tENVTTextBox.Name = "tENVTTextBox";
+            this.tENVTTextBox.Size = new System.Drawing.Size(234, 23);
+            this.tENVTTextBox.TabIndex = 3;
+            // 
+            // mAVTTextBox
+            // 
+            this.mAVTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsVatTu, "MAVT", true));
+            this.mAVTTextBox.Location = new System.Drawing.Point(112, 24);
+            this.mAVTTextBox.Name = "mAVTTextBox";
+            this.mAVTTextBox.Size = new System.Drawing.Size(173, 23);
+            this.mAVTTextBox.TabIndex = 1;
+            // 
             // bdsCTPX
             // 
             this.bdsCTPX.DataMember = "FK_CTPX_VatTu";
             this.bdsCTPX.DataSource = this.bdsVatTu;
             this.bdsCTPX.CurrentChanged += new System.EventHandler(this.cTPXBindingSource_CurrentChanged);
             // 
-            // cTPXTableAdapter
-            // 
-            this.cTPXTableAdapter.ClearBeforeFill = true;
-            // 
             // bdsCTPN
             // 
             this.bdsCTPN.DataMember = "FK_CTPN_VatTu";
             this.bdsCTPN.DataSource = this.bdsVatTu;
-            // 
-            // cTPNTableAdapter
-            // 
-            this.cTPNTableAdapter.ClearBeforeFill = true;
             // 
             // bdsCTĐH
             // 
             this.bdsCTĐH.DataMember = "FK_CTDDH_VatTu";
             this.bdsCTĐH.DataSource = this.bdsVatTu;
             // 
-            // cTDDHTableAdapter
-            // 
-            this.cTDDHTableAdapter.ClearBeforeFill = true;
-            // 
             // formVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 526);
+            this.ClientSize = new System.Drawing.Size(1237, 749);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.barDockControlLeft);

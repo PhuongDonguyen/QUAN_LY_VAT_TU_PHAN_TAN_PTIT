@@ -46,7 +46,10 @@ namespace QuanLyVatTuPhanTan
         private void logout()
         {
             foreach (Form f in MdiChildren)
+            {
                 f.Dispose();
+           
+            }
         }
 
         /// <summary>
@@ -85,14 +88,16 @@ namespace QuanLyVatTuPhanTan
 
         private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
+
             Form f = CheckFormOpen(typeof(FormLogin));
-            Console.WriteLine("Check f",f);
             if (f != null) f.Activate();
             else
             {
+             
                 FormLogin login = new FormLogin();
+             
                 login.Show();
-            }
+          }
 
         }
 
@@ -113,7 +118,6 @@ namespace QuanLyVatTuPhanTan
                 logout();
                 disableButtons();
             }
-
         }
 
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)

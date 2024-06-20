@@ -21,7 +21,8 @@ namespace QuanLyVatTuPhanTan
 
 
         public static SqlDataReader myReader;
-
+        // server chuyen chi nhanh toi
+        public static String servernameTranfer="";
         public static String servername = "";
         public static String userID = "";
         public static String loginName = "";
@@ -35,6 +36,7 @@ namespace QuanLyVatTuPhanTan
         public static String currentPass = "";
 
         public static int chiNhanh = 0;
+        public static String maChiNhanhHienTai; 
 
         public static string hoTen = "";
         public static string role = "";
@@ -47,27 +49,42 @@ namespace QuanLyVatTuPhanTan
         /// </summary>
         //public static FormLogin formLogin;
         public static FormMain formMain;
-        public static void checkText(TextEdit txtEdit, String value, int min = 0, int max=0)
+        public static bool checkText(TextEdit txtEdit, String value, int min = 0, int max=0)
         {
             if (txtEdit.Text.Trim() == "")
             {
                 XtraMessageBox.Show($"{value} không được đẻ trống", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
-                return;
+                return false;
             }
             if (txtEdit.Text.Length > max)
             {
                 XtraMessageBox.Show($"{value} phải bé hơn {max} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
-                return;
+                return false;
             }
             if (txtEdit.Text.Length < min)
             {
                 XtraMessageBox.Show($"{value} phải lớn hơn {min} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
-                return;
+                return false;
             }
-
+            return true;
+        }
+        public static bool ConnectToMainServer()
+        {
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) conn_publisher.Close();
+            try
+            {
+                conn_publisher.ConnectionString = Program.connstr_publisher;
+                conn_publisher.Open();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not connect to the main server", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         public static bool Connect()
         {
