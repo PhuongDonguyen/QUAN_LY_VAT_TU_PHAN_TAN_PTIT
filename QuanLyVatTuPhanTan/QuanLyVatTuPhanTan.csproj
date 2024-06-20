@@ -58,10 +58,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatHang.Designer.cs">
+      <DependentUpon>FormDatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -101,6 +112,9 @@
     <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormDatHang.resx">
+      <DependentUpon>FormDatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +144,17 @@
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
     <None Include="DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
