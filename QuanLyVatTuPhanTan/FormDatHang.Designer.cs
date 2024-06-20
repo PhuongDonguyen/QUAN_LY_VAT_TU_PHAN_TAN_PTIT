@@ -95,6 +95,7 @@
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.PhieuNhapTableAdapter();
+            this.colTENNV = new DevExpress.XtraGrid.Columns.GridColumn();
             mAKHOLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -476,7 +477,8 @@
             this.colNGAY,
             this.colNhaCC,
             this.colMANV,
-            this.colMAKHO});
+            this.colMAKHO,
+            this.colTENNV});
             this.gridView1.GridControl = this.datHangGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -817,6 +819,16 @@
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
             // 
+            // colTENNV
+            // 
+            this.colTENNV.Caption = "gridColumn1";
+            this.colTENNV.FieldName = "TENNV";
+            this.colTENNV.MinWidth = 25;
+            this.colTENNV.Name = "colTENNV";
+            this.colTENNV.Visible = true;
+            this.colTENNV.VisibleIndex = 5;
+            this.colTENNV.Width = 94;
+            // 
             // FormDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -927,5 +939,6 @@
         private System.Windows.Forms.BindingSource bdsChiTietDonDatHang;
         private System.Windows.Forms.BindingSource bdsPhieuNhap;
         private DataSetTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENNV;
     }
 }

@@ -7133,11 +7133,17 @@ SELECT MasoDDH, NGAY, NhaCC, MANV, MAKHO FROM DatHang WHERE (MasoDDH = @MasoDDH)
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT MasoDDH, NGAY, NhaCC, MANV, MAKHO FROM dbo.DatHang";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT \r\n    ddh.MasoDDH, \r\n    ddh.NGAY, \r\n    ddh.NhaCC, \r\n    ddh.MANV, \r\n    " +
+                "(RTRIM(LTRIM(nv.HO)) + \' \' + RTRIM(LTRIM(nv.TEN))) AS TENNV, \r\n    ddh.MAKHO\r\nFR" +
+                "OM \r\n    DatHang ddh\r\nJOIN \r\n    NhanVien nv \r\nON \r\n    ddh.MANV = nv.MANV;\r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7159,6 +7165,30 @@ SELECT MasoDDH, NGAY, NhaCC, MANV, MAKHO FROM DatHang WHERE (MasoDDH = @MasoDDH)
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet.DatHangDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet.DatHangDataTable dataTable = new DataSet.DatHangDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DataSet.DatHangDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet.DatHangDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSet.DatHangDataTable dataTable = new DataSet.DatHangDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

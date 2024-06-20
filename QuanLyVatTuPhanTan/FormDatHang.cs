@@ -90,7 +90,7 @@ namespace QuanLyVatTuPhanTan
             this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
 
             this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
+            this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
 
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.dataSet.PhieuNhap);
