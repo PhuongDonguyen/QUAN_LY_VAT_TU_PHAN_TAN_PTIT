@@ -21,6 +21,20 @@ namespace QuanLyVatTuPhanTan
             InitializeComponent();
         }
 
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            usernameInput.Text = "LT";
+            pwdInput.Text = "123456";
+            //pwdInput.Text = "12";
+
+            if (!ConnectToMainServer()) return;
+            LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
+            cmbChiNhanh.SelectedIndex = 1;
+            cmbChiNhanh.SelectedIndex = 0;
+            //Login();
+            //this.Close();
+        }
+
         /// <summary>
         /// Kết nối tới database gốc
         /// </summary>
@@ -83,8 +97,14 @@ namespace QuanLyVatTuPhanTan
             Console.WriteLine(Program.servername);
             if (!Program.Connect()) return;
 
-            // Chạy SP để lấy ra thông tin của user
+            // Cập nhật chi nhánh hiện tại
             Program.chiNhanh = cmbChiNhanh.SelectedIndex;
+
+            // Cập nhật currentLogin & currentPassword
+            Program.currentLogin = Program.loginName;
+            Program.currentPass = Program.loginPass;
+
+            // Chạy SP để lấy ra thông tin của user
             string queryStr = "exec [SP_LayThongTinNhanVien] '" + Program.loginName + "'";
             Program.myReader = Program.ExecSqlDataReader(queryStr);
             if (Program.myReader == null) return;
@@ -119,36 +139,12 @@ namespace QuanLyVatTuPhanTan
             this.Close();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private void pwdInput_KeyDown(object sender, KeyEventArgs e)
         {
-            usernameInput.Text = "LT";
-            pwdInput.Text = "123";
-            //pwdInput.Text = "12";
-
-            if (!ConnectToMainServer()) return;
-            LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
-            cmbChiNhanh.SelectedIndex = 1;
-            cmbChiNhanh.SelectedIndex = 0;
-            //Login();
-            //this.Close();
-        }
-
-        private void cmbChiNhanh_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            Program.servername = cmbChiNhanh.SelectedValue.ToString();
-        }
-
-        private void pwdInput_TextChanged(object sender, EventArgs e)
-        {
-            if (Control.ModifierKeys == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 Login();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

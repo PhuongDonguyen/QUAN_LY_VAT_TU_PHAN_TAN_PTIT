@@ -15,7 +15,7 @@ namespace QuanLyVatTuPhanTan
     {
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT;Integrated Security=True";
         //public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
         //public static String connstr_publisher = "Data Source=MSI\\LONG;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
 
@@ -30,15 +30,16 @@ namespace QuanLyVatTuPhanTan
         public static String database = "QLVT";
         //public static String database = "QLVT_DATHANG";
 
-        public static String mloginDN = "";
-        public static String passwordDN = "";
+
+        public static String currentLogin = "";
+        public static String currentPass = "";
 
         public static int chiNhanh = 0;
 
         public static string hoTen = "";
         public static string role = "";
         public static string remoteLogin = "HTKN";
-        public static string remotePassword = "12";
+        public static string remotePassword = "123456";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
         /// <summary>
