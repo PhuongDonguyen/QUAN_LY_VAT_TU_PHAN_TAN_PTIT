@@ -46,7 +46,10 @@ namespace QuanLyVatTuPhanTan
 
 
 
+
+        public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
+        public static int soLuongVatTu = 0;
 
         /// <summary>
         /// Biến toàn cục của các form sẽ được viết dưới đây

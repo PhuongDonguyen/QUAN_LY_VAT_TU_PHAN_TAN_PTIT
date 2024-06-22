@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using System;
+using QuanLyVatTuPhanTan.SubForm;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +88,7 @@ namespace QuanLyVatTuPhanTan
             dataSet.EnforceConstraints = false;
 
             this.chiTietDonDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+            this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
             this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
@@ -577,6 +578,8 @@ namespace QuanLyVatTuPhanTan
                         this.bdsChiTietDonDatHang.EndEdit();
                         this.donDatHangTableAdapter.Update(this.dataSet.DatHang);
                         this.chiTietDonDatHangTableAdapter.Update(this.dataSet.CTDDH);
+                        this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
+                        this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
 
                         this.btnTHEM.Enabled = true;
                         this.btnXOA.Enabled = true;
@@ -688,7 +691,7 @@ namespace QuanLyVatTuPhanTan
             int n = Program.ExceSqlNoneQuery(cauTruyVanHoanTac);
 
             this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
-            this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+            this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
             bdsDonDatHang.Position = viTri;
         }
@@ -699,7 +702,7 @@ namespace QuanLyVatTuPhanTan
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
-                this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);    
 
                 this.datHangGridControl.Enabled = true;
                 this.gcChiTietDonDatHang.Enabled = true;
@@ -718,19 +721,19 @@ namespace QuanLyVatTuPhanTan
          * 
          * Show is useful when you want to show information to the user but it is not important that you wait fro him to be finished.
          ***************************************************************/
-        //private void btnChonKhoHang_Click(object sender, EventArgs e)
-        //{
-        //    FormChonKhoHang form = new FormChonKhoHang();
-        //    form.ShowDialog();
-        //    this.txtMaKho.Text = Program.maKhoDuocChon;
-        //}
+        private void btnChonKhoHang_Click(object sender, EventArgs e)
+        {
+            FormChonKhoHang form = new FormChonKhoHang();
+            form.ShowDialog();
+            this.txtMaKho.Text = Program.maKhoDuocChon;
+        }
 
-        //private void btnChonVatTu_Click(object sender, EventArgs e)
-        //{
-        //    FormChonVatTu form = new FormChonVatTu();
-        //    form.ShowDialog();
-        //    this.txtMaVatTu.Text = Program.maVatTuDuocChon;
-        //}
+        private void btnChonVatTu_Click(object sender, EventArgs e)
+        {
+            FormChonVatTu form = new FormChonVatTu();
+            form.ShowDialog();
+            this.txtMaVatTu.Text = Program.maVatTuDuocChon;
+        }
 
 
 
@@ -864,7 +867,7 @@ namespace QuanLyVatTuPhanTan
             else
             {
                 this.chiTietDonDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
                 this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
