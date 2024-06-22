@@ -436,7 +436,7 @@
             // 
             // chiTietPhieuXuatTableAdapter
             // 
-            this.chiTietPhieuXuatTableAdapter.ClearBeforeFill = true;
+            this.cTPXTableAdapter.ClearBeforeFill = true;
             // 
             // phieuXuatGridControl
             // 

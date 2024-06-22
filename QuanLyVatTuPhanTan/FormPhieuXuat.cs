@@ -21,8 +21,8 @@ namespace QuanLyVatTuPhanTan
         private void phieuXuatBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsPhieuXuat.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dS);
+            this.phieuXuatBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet_Phuong);
 
         }
 

@@ -446,6 +446,18 @@ namespace QuanLyVatTuPhanTan
                     " AND MAVT = '" + drv["MAVT"].ToString().Trim() + "'";
 
             }
+            /*Dang xoa chi tiet don dat hang*/
+            if (cheDo == "Chi Tiết Đơn Đặt Hàng" && dangThemMoi == true)
+            {
+                drv = ((DataRowView)bdsChiTietDonDatHang[bdsChiTietDonDatHang.Position]);
+
+                cauTruyVan = "INSERT INTO DBO.CTDDH (MasoDDH,MAVT,SOLUONG,DONGIA) " +
+                    "VALUES('" + drv["MasoDDH"] + "', '" +
+                    drv["MAVT"].ToString() + "', '" +
+                    drv["SOLUONG"].ToString() + "', '" +
+                    drv["DONGIA"].ToString() + "' )";
+                
+            }
             return cauTruyVan;
         }
 
@@ -578,6 +590,7 @@ namespace QuanLyVatTuPhanTan
                         this.bdsChiTietDonDatHang.EndEdit();
                         this.donDatHangTableAdapter.Update(this.dataSet.DatHang);
                         this.chiTietDonDatHangTableAdapter.Update(this.dataSet.CTDDH);
+
                         this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
                         this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
 
@@ -690,7 +703,7 @@ namespace QuanLyVatTuPhanTan
             Console.WriteLine(cauTruyVanHoanTac);
             int n = Program.ExceSqlNoneQuery(cauTruyVanHoanTac);
 
-            this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
+            this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
             this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
             bdsDonDatHang.Position = viTri;
@@ -701,7 +714,7 @@ namespace QuanLyVatTuPhanTan
             try
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
-                this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
+                this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
                 this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);    
 
                 this.datHangGridControl.Enabled = true;
@@ -870,7 +883,7 @@ namespace QuanLyVatTuPhanTan
                 this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
                 this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
+                this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
 
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.Fill(this.dataSet.PhieuNhap);
