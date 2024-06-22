@@ -28,9 +28,8 @@ namespace QuanLyVatTuPhanTan
 
         private void FormPhieuXuat_Load(object sender, EventArgs e)
         {
-            this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
-            this.chiTietPhieuXuatTableAdapter.Fill(this.dS.CTPX);
-
+            this.phieuXuatTableAdapter.Fill(this.dataSet_Phuong.PhieuXuat);
+            this.cTPXTableAdapter.Fill(this.dataSet_Phuong.CTPX);
         }
     }
 }

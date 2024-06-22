@@ -178,5 +178,20 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        private void btnPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormPhieuXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuXuat form = new FormPhieuXuat();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }
