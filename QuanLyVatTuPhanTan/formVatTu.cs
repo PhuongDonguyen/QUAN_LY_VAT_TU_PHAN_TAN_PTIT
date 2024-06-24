@@ -115,7 +115,7 @@ namespace QuanLyVatTuPhanTan
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsVatTu.AddNew();
-            txtSOLUONGTON.Value = 1;
+            txtSOLUONGTON.Value = 0;
 
 
             /*Step 3*/
