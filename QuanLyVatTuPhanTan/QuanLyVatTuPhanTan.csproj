@@ -117,6 +117,18 @@
     <Compile Include="FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForm\FormChonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormChonKho.Designer.cs">
+      <DependentUpon>FormChonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\FormChonVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormChonVatTu.Designer.cs">
+      <DependentUpon>FormChonVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\FormChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SubForm\FormChonKho.resx">
+      <DependentUpon>FormChonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormChonVatTu.resx">
+      <DependentUpon>FormChonVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </EmbeddedResource>

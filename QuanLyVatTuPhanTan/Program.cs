@@ -45,9 +45,18 @@ namespace QuanLyVatTuPhanTan
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
 
-
+        /**********************************************
+         * maKhoDuocChon | maVatTuDuocChon biến lưu trữ mã kho được chọn phục vụ 
+         * cho btnChonKhoHang trong phần tạo mới đơn đặt hàng
+         * 
+         * maSoDonDatHangDuocChon luu tru ma don hang duoc chon phuc vu
+         * cho btnChonDonDatHang trong phan tao moi phieu nhap
+         * soLuongVatTu bien luu tru so luong vat tu duoc chon
+         * 
+         **********************************************/
+        public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
-
+        public static int soLuongVatTu;
         /// <summary>
         /// Biến toàn cục của các form sẽ được viết dưới đây
         /// </summary>
