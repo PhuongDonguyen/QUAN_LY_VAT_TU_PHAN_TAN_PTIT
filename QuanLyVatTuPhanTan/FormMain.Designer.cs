@@ -214,6 +214,7 @@
             this.btnDanhSachVatTu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachVatTu.ImageOptions.SvgImage")));
             this.btnDanhSachVatTu.LargeWidth = 100;
             this.btnDanhSachVatTu.Name = "btnDanhSachVatTu";
+            this.btnDanhSachVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachVatTu_ItemClick);
             // 
             // btnChiTietNhapXuat
             // 
@@ -413,9 +414,6 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.btnThoat);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "QUẢN LÝ TÀI KHOẢN";
-            // 
-           
-          
             // 
             // statusStrip1
             // 

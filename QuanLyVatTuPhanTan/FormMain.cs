@@ -209,5 +209,20 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        private void btnDanhSachVatTu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormDanhSachVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachVatTu form = new FormDanhSachVatTu();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }
