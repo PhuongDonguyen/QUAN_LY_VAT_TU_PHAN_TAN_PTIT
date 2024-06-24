@@ -96,6 +96,7 @@ namespace QuanLyVatTuPhanTan
         {
 
             dS.EnforceConstraints = false;
+            this.btnCTPN.Enabled = false;
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
             this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -153,8 +154,8 @@ namespace QuanLyVatTuPhanTan
                 this.btnThem.Enabled = false;
                 this.btnXoa.Enabled = false;
                 this.btnGhi.Enabled = false;
+                this.btnCTPN.Enabled = false;
 
-             
                 this.btnLamMoi.Enabled = true;
                 this.btnChonCheDo.Enabled = true;
                 this.btnThoat.Enabled = true;
@@ -219,7 +220,7 @@ namespace QuanLyVatTuPhanTan
                 this.btnLamMoi.Enabled = true;
                 this.btnChonCheDo.Enabled = true;
                 this.btnThoat.Enabled = true;
-
+               
                 this.gbPN.Enabled = false;
 
 
@@ -619,6 +620,39 @@ namespace QuanLyVatTuPhanTan
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            if (cmbChiNhanh.SelectedIndex != Program.chiNhanh)
+            {
+                Program.loginName = Program.remoteLogin;
+                Program.loginPass = Program.remotePassword;
+            }
+            else
+            {
+                Program.loginName = Program.currentLogin;
+                Program.loginPass = Program.currentPass;
+            }
+            if (Program.Connect() == false)
+            {
+                XtraMessageBox.Show("Không thể kết nối đến server");
+                return;
+            }
+            else
+            {
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
+                this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.CTPNTableAdapter.FillBy(this.dS.CTPN);
+            }
+        }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

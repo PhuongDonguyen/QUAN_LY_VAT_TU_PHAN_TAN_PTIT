@@ -38,8 +38,8 @@
             System.Windows.Forms.Label sOLUONGLabel;
             System.Windows.Forms.Label dONGIALabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuNhap));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleDateOccuring formatConditionRuleDateOccuring1 = new DevExpress.XtraEditors.FormatConditionRuleDateOccuring();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleDateOccuring formatConditionRuleDateOccuring2 = new DevExpress.XtraEditors.FormatConditionRuleDateOccuring();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMan = new DevExpress.XtraBars.Bar();
@@ -458,6 +458,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1308, 63);
             this.panelControl1.TabIndex = 11;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // cmbChiNhanh
             // 
@@ -469,6 +470,7 @@
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(247, 24);
             this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -520,10 +522,10 @@
             this.colTENNV,
             this.colMAKHO,
             this.colTENKHO});
-            gridFormatRule1.Name = "Format0";
-            gridFormatRule1.Rule = formatConditionRuleDateOccuring1;
-            gridFormatRule1.Tag = true;
-            this.gvPN.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.Name = "Format0";
+            gridFormatRule2.Rule = formatConditionRuleDateOccuring2;
+            gridFormatRule2.Tag = true;
+            this.gvPN.FormatRules.Add(gridFormatRule2);
             this.gvPN.GridControl = this.gcPN;
             this.gvPN.Name = "gvPN";
             this.gvPN.OptionsBehavior.Editable = false;

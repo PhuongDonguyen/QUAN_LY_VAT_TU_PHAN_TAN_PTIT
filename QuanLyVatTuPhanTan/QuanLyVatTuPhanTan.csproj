@@ -194,8 +194,7 @@
     <EmbeddedResource Include="FormPhieuNhap.resx">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formVatTu.resx">
-      <DependentUpon>formVatTu.cs</DependentUpon>
+    
     <EmbeddedResource Include="FormPhieuXuat.resx">
       <DependentUpon>FormPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>

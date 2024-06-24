@@ -214,7 +214,6 @@
             this.btnDanhSachVatTu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachVatTu.ImageOptions.SvgImage")));
             this.btnDanhSachVatTu.LargeWidth = 100;
             this.btnDanhSachVatTu.Name = "btnDanhSachVatTu";
-            this.btnDanhSachVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachVatTu_ItemClick);
             // 
             // btnChiTietNhapXuat
             // 
@@ -415,13 +414,8 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 896);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1021, 30);
+           
+          
             // 
             // statusStrip1
             // 
