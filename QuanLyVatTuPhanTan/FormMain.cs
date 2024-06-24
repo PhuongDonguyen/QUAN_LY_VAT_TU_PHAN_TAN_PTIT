@@ -164,5 +164,19 @@ namespace QuanLyVatTuPhanTan
             }
         }
 
+        private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuNhap form = new FormPhieuNhap();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

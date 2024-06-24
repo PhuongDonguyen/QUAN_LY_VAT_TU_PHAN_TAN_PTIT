@@ -18,7 +18,7 @@ namespace QuanLyVatTuPhanTan
 {
     public partial class FormNhanVien : DevExpress.XtraEditors.XtraForm
     {
-        private bool isFormClosing = false;
+
         String maChiNhanh = "";
         Boolean dangThemMoi = false;
         Boolean dangSua = false;
@@ -146,7 +146,6 @@ namespace QuanLyVatTuPhanTan
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
             Console.WriteLine("Load form nhan vien");
-            isFormClosing = false;
             dS.EnforceConstraints = false;
             // cái này đẻ lấy data hiện tại để kết nối, nếu dòng dưới nó sẻ lấy dS
             // TODO: This line of code loads data into the 'dS.DatHang' table. You can move, or remove it, as needed.
@@ -163,10 +162,11 @@ namespace QuanLyVatTuPhanTan
             this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
             // còn phát sinh lỗi
             maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
-            Console.WriteLine("Chi nhanh " + maChiNhanh);
+            //
             cmbChiNhanhNV.DataSource = Program.bds_dspm;
             cmbChiNhanhNV.DisplayMember = "TENCN";
             cmbChiNhanhNV.ValueMember = "TENSERVER";
+            cmbChiNhanhNV.SelectedIndex = Program.chiNhanh;
             if (Program.role == "CONGTY")
             {
                 cmbChiNhanhNV.Enabled = true;
@@ -301,10 +301,9 @@ namespace QuanLyVatTuPhanTan
             {
                 dangSua = false;
                 dangThemMoi = false;
-                bdsNhanVien.Position = vitriNhanVien;
+            
                 bdsNhanVien.CancelEdit();
                 gcNhanVien.Enabled = true;
-                cmbChiNhanhNV.Enabled = true;
                 btnThem.Enabled = true;
                 btnXoa.Enabled = true;
                 btnSua.Enabled = true;
@@ -319,6 +318,8 @@ namespace QuanLyVatTuPhanTan
                 {
                     btnHoanTac.Enabled = btnGhi.Enabled = true;
                 }
+                bdsNhanVien.Position = vitriNhanVien;
+                nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 return;
             }
             String truyVanHoanTac = undoList.Pop().ToString();
@@ -336,7 +337,7 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
                 Program.ExceSqlNoneQuery(truyVanHoanTac);
-                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 Program.servername = chiNhanhHienTai;
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
@@ -385,25 +386,25 @@ namespace QuanLyVatTuPhanTan
             manv = int.Parse(((DataRowView)(bdsNhanVien[bdsNhanVien.Position]))["MANV"].ToString());
             if (manv == int.Parse(Program.userID))
             {
-                XtraMessageBox.Show("Không thể xoá chính mình", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Không thể xoá chính mình", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (bdsPhieuNhap.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá PHIEU NHAP ( > 0 ) ", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Không thể xoá PHIEU NHAP ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (bdsPhieuXuat.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá PHIEU XUAT ( > 0 ) ", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Không thể xoá PHIEU XUAT ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (bdsDatHang.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá DAT HANG ( > 0 ) ", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Không thể xoá DAT HANG ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (XtraMessageBox.Show("Bạn có muốn xoá không ?", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (XtraMessageBox.Show("Bạn có muốn xoá không ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 try
                 {
@@ -519,6 +520,9 @@ namespace QuanLyVatTuPhanTan
 
         }
 
-
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

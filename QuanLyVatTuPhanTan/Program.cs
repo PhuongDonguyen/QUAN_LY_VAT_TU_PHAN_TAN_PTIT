@@ -35,7 +35,12 @@ namespace QuanLyVatTuPhanTan
         public static String currentPass = "";
 
         public static int chiNhanh = 0;
-        public static String maChiNhanhHienTai; 
+        public static String maChiNhanhHienTai;
+        //Kho
+        public static String chonKhoPN = "";
+        //Phieu Nhap
+        public static String chonDdhPN = "";
+
 
         public static string hoTen = "";
         public static string role = "";
