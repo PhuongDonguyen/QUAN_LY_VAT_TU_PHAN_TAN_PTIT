@@ -15,26 +15,55 @@ namespace QuanLyVatTuPhanTan
 {
     public partial class FormLogin : DevExpress.XtraEditors.XtraForm
     {
+        public static SqlConnection conn_publisher = new SqlConnection();
         public FormLogin()
         {
             InitializeComponent();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            usernameInput.Text = "LT";
+            pwdInput.Text = "123456";
+            //pwdInput.Text = "12";
+
+            if (!ConnectToMainServer()) return;
+            LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
+            cmbChiNhanh.SelectedIndex = 1;
+            cmbChiNhanh.SelectedIndex = 0;
+            //Login();
+            //this.Close();
         }
 
         /// <summary>
         /// Kết nối tới database gốc
         /// </summary>
         /// <returns>Trả về true nếu kết nối thành công và ngược lại</returns>
-
+        public bool ConnectToMainServer()
+        {
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) conn_publisher.Close();
+            try
+            {
+                conn_publisher.ConnectionString = Program.connstr_publisher;
+                conn_publisher.Open();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not connect to the main server", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
         public void LayDanhSachPhanManh(String cmd)
         {
             DataTable dt = new DataTable();
-            if (Program.conn_publisher.State == ConnectionState.Closed) Program.conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter(cmd, Program.conn_publisher);
+            if (conn_publisher.State == ConnectionState.Closed) Program.conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
             try
             {
                 da.Fill(dt);
-                Program.conn_publisher.Close();
+                conn_publisher.Close();
                 Program.bds_dspm.DataSource = dt;
                 cmbChiNhanh.DataSource = Program.bds_dspm; // nhận 1 table
                 cmbChiNhanh.DisplayMember = "TENCN"; // cột hiện thị
@@ -42,9 +71,14 @@ namespace QuanLyVatTuPhanTan
             }
             catch (SqlException ex)
             {
-                Program.conn_publisher.Close();
+                conn_publisher.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
         }
 
 
@@ -56,32 +90,28 @@ namespace QuanLyVatTuPhanTan
                 MessageBox.Show("Error", "Username hoac password khong the trong!");
                 return;
             }
-            Program.chiNhanh = cmbChiNhanh.SelectedIndex;
-            DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
-            String tenCN = selectedRow["TENCN"].ToString().ToLower();
-            Program.maChiNhanhHienTai = tenCN.Contains("chi nhánh 1") ? "CN1" : tenCN.Contains("chi nhánh 2") ? "CN2" : "";
-            if (Program.maChiNhanhHienTai == "")
-            {
-                MessageBox.Show("Error", "Tên chi nhánh không hợp lệ phải chứa!");
-                return;
-            }
+
             // Gán username và mật khẩu được đăng nhập vào loginName và loginPass
             Program.loginName = usernameInput.Text.Trim();
             Program.loginPass = pwdInput.Text.Trim();
-            Program.currentLogin = Program.loginName;
-            Program.currentPass = Program.loginPass;
             Console.WriteLine(Program.servername);
             if (!Program.Connect()) return;
 
+            // Cập nhật chi nhánh hiện tại
+            Program.chiNhanh = cmbChiNhanh.SelectedIndex;
+
+            // Cập nhật currentLogin & currentPassword
+            Program.currentLogin = Program.loginName;
+            Program.currentPass = Program.loginPass;
+
             // Chạy SP để lấy ra thông tin của user
-           
             string queryStr = "exec [SP_LayThongTinNhanVien] '" + Program.loginName + "'";
             Program.myReader = Program.ExecSqlDataReader(queryStr);
             if (Program.myReader == null) return;
             Program.myReader.Read();
 
             // Hiển thị mã NV, họ tên và vai trò ở góc dưới màn hình
-            Program.userID =Program.myReader.GetString(0);
+            Program.userID = Program.myReader.GetString(0);
             if (Convert.IsDBNull(Program.userID))
             {
                 MessageBox.Show("Bạn không có quyền truy cập dữ liệu, xem lại phân quyền hoặc thử lại với tài khoản khác");
@@ -94,7 +124,7 @@ namespace QuanLyVatTuPhanTan
 
             Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userID;
             Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen.ToUpper();
-            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY" : Program.role == "CHINHANH" ?"CHI NHÁNH" : "USER");
+            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY": "CHI NHÁNH");
 
             this.Hide();
             Program.formMain.enableButtons();
@@ -109,36 +139,12 @@ namespace QuanLyVatTuPhanTan
             this.Close();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private void pwdInput_KeyDown(object sender, KeyEventArgs e)
         {
-            usernameInput.Text = "TT";
-            //pwdInput.Text = "123";
-            pwdInput.Text = "12";
-
-            if (!Program.ConnectToMainServer()) return;
-            LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
-            cmbChiNhanh.SelectedIndex = 1;
-            cmbChiNhanh.SelectedIndex = 0;
-            //Login();
-            //this.Close();
-        }
-
-        private void cmbChiNhanh_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            Program.servername = cmbChiNhanh.SelectedValue.ToString();
-        }
-
-        private void pwdInput_TextChanged(object sender, EventArgs e)
-        {
-            if (Control.ModifierKeys == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 Login();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

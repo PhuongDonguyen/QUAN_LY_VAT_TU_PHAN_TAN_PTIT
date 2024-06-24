@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
+using QuanLyVatTuPhanTan.ReportForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,14 +152,44 @@ namespace QuanLyVatTuPhanTan
         }
         private void btnVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckFormOpen(typeof(formVatTu));
+            Form f = this.CheckFormOpen(typeof(FormVatTu));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                formVatTu form = new formVatTu();
+                FormVatTu form = new FormVatTu();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormDatHang));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDatHang form = new FormDatHang();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormPhieuXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuXuat form = new FormPhieuXuat();
                 form.MdiParent = this;
                 form.Show();
             }
