@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using System;
+using QuanLyVatTuPhanTan.SubForm;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +88,7 @@ namespace QuanLyVatTuPhanTan
             dataSet.EnforceConstraints = false;
 
             this.chiTietDonDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+            this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
             this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
@@ -445,6 +446,18 @@ namespace QuanLyVatTuPhanTan
                     " AND MAVT = '" + drv["MAVT"].ToString().Trim() + "'";
 
             }
+            /*Dang xoa chi tiet don dat hang*/
+            if (cheDo == "Chi Tiết Đơn Đặt Hàng" && dangThemMoi == true)
+            {
+                drv = ((DataRowView)bdsChiTietDonDatHang[bdsChiTietDonDatHang.Position]);
+
+                cauTruyVan = "INSERT INTO DBO.CTDDH (MasoDDH,MAVT,SOLUONG,DONGIA) " +
+                    "VALUES('" + drv["MasoDDH"] + "', '" +
+                    drv["MAVT"].ToString() + "', '" +
+                    drv["SOLUONG"].ToString() + "', '" +
+                    drv["DONGIA"].ToString() + "' )";
+                
+            }
             return cauTruyVan;
         }
 
@@ -578,6 +591,9 @@ namespace QuanLyVatTuPhanTan
                         this.donDatHangTableAdapter.Update(this.dataSet.DatHang);
                         this.chiTietDonDatHangTableAdapter.Update(this.dataSet.CTDDH);
 
+                        this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
+                        this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
+
                         this.btnTHEM.Enabled = true;
                         this.btnXOA.Enabled = true;
                         this.btnGHI.Enabled = true;
@@ -687,8 +703,8 @@ namespace QuanLyVatTuPhanTan
             Console.WriteLine(cauTruyVanHoanTac);
             int n = Program.ExceSqlNoneQuery(cauTruyVanHoanTac);
 
-            this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
-            this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+            this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
+            this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
             bdsDonDatHang.Position = viTri;
         }
@@ -698,8 +714,8 @@ namespace QuanLyVatTuPhanTan
             try
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
-                this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
-                this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+                this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
+                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);    
 
                 this.datHangGridControl.Enabled = true;
                 this.gcChiTietDonDatHang.Enabled = true;
@@ -718,19 +734,19 @@ namespace QuanLyVatTuPhanTan
          * 
          * Show is useful when you want to show information to the user but it is not important that you wait fro him to be finished.
          ***************************************************************/
-        //private void btnChonKhoHang_Click(object sender, EventArgs e)
-        //{
-        //    FormChonKhoHang form = new FormChonKhoHang();
-        //    form.ShowDialog();
-        //    this.txtMaKho.Text = Program.maKhoDuocChon;
-        //}
+        private void btnChonKhoHang_Click(object sender, EventArgs e)
+        {
+            FormChonKhoHang form = new FormChonKhoHang();
+            form.ShowDialog();
+            this.txtMaKho.Text = Program.maKhoDuocChon;
+        }
 
-        //private void btnChonVatTu_Click(object sender, EventArgs e)
-        //{
-        //    FormChonVatTu form = new FormChonVatTu();
-        //    form.ShowDialog();
-        //    this.txtMaVatTu.Text = Program.maVatTuDuocChon;
-        //}
+        private void btnChonVatTu_Click(object sender, EventArgs e)
+        {
+            SubForm.FormVatTu form = new SubForm.FormVatTu();
+            form.ShowDialog();
+            this.txtMaVatTu.Text = Program.maVatTuDuocChon;
+        }
 
 
 
@@ -864,10 +880,10 @@ namespace QuanLyVatTuPhanTan
             else
             {
                 this.chiTietDonDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.chiTietDonDatHangTableAdapter.Fill(this.dataSet.CTDDH);
+                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
                 this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.donDatHangTableAdapter.Fill(this.dataSet.DatHang);
+                this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
 
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.Fill(this.dataSet.PhieuNhap);

@@ -68,7 +68,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MANHANVIEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
@@ -130,7 +129,6 @@
             // 
             // ribbon
             // 
-            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(26, 24, 26, 24);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -160,6 +158,7 @@
             this.btnPhieuXuat,
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(5);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
@@ -169,7 +168,6 @@
             this.pageBaoCao,
             this.pageHeThong});
             this.ribbon.Size = new System.Drawing.Size(875, 158);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnNhanVien
             // 
@@ -218,6 +216,7 @@
             this.btnDanhSachVatTu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachVatTu.ImageOptions.SvgImage")));
             this.btnDanhSachVatTu.LargeWidth = 100;
             this.btnDanhSachVatTu.Name = "btnDanhSachVatTu";
+            this.btnDanhSachVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachVatTu_ItemClick);
             // 
             // btnChiTietNhapXuat
             // 
@@ -341,6 +340,7 @@
             this.btnPhieuNhap.Id = 25;
             this.btnPhieuNhap.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhieuNhap.ImageOptions.SvgImage")));
             this.btnPhieuNhap.Name = "btnPhieuNhap";
+            this.btnPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuNhap_ItemClick);
             // 
             // btnPhieuXuat
             // 
@@ -417,14 +417,6 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 728);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(875, 24);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -432,29 +424,28 @@
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 706);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 900);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(875, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1140, 26);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // MANHANVIEN
             // 
             this.MANHANVIEN.Name = "MANHANVIEN";
-            this.MANHANVIEN.Size = new System.Drawing.Size(92, 17);
+            this.MANHANVIEN.Size = new System.Drawing.Size(115, 20);
             this.MANHANVIEN.Text = "MÃ NHÂN VIÊN";
             // 
             // HOTEN
             // 
             this.HOTEN.Name = "HOTEN";
-            this.HOTEN.Size = new System.Drawing.Size(49, 17);
+            this.HOTEN.Size = new System.Drawing.Size(62, 20);
             this.HOTEN.Text = "HỌ TÊN";
             // 
             // NHOM
             // 
             this.NHOM.Name = "NHOM";
-            this.NHOM.Size = new System.Drawing.Size(49, 17);
+            this.NHOM.Size = new System.Drawing.Size(63, 20);
             this.NHOM.Text = "VAI TRÒ";
             // 
             // documentManager1
@@ -467,17 +458,16 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 752);
+            this.ClientSize = new System.Drawing.Size(1140, 926);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("FormMain.IconOptions.LargeImage")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
-            this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý vật tư";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -530,7 +520,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPage pageHeThong;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel MANHANVIEN;
         public System.Windows.Forms.ToolStripStatusLabel HOTEN;

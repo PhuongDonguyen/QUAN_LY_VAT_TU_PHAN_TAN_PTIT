@@ -71,6 +71,7 @@
             this.colNhaCC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENNV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.gcChiTietDonDatHang = new DevExpress.XtraGrid.GridControl();
@@ -95,7 +96,7 @@
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.PhieuNhapTableAdapter();
-            this.colTENNV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             mAKHOLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -476,8 +477,8 @@
             this.colMasoDDH,
             this.colNGAY,
             this.colNhaCC,
-            this.colMANV,
             this.colMAKHO,
+            this.colMANV,
             this.colTENNV});
             this.gridView1.GridControl = this.datHangGridControl;
             this.gridView1.Name = "gridView1";
@@ -527,6 +528,16 @@
             this.colMAKHO.VisibleIndex = 4;
             this.colMAKHO.Width = 94;
             // 
+            // colTENNV
+            // 
+            this.colTENNV.Caption = "Tên Nhân Viên";
+            this.colTENNV.FieldName = "TENNV";
+            this.colTENNV.MinWidth = 25;
+            this.colTENNV.Name = "colTENNV";
+            this.colTENNV.Visible = true;
+            this.colTENNV.VisibleIndex = 5;
+            this.colTENNV.Width = 94;
+            // 
             // gcDDH
             // 
             this.gcDDH.Controls.Add(this.panelControl3);
@@ -572,6 +583,7 @@
             this.gvCTDDH.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMasoDDH1,
             this.colMAVT,
+            this.colTENVT,
             this.colSOLUONG,
             this.colDONGIA});
             this.gvCTDDH.GridControl = this.gcChiTietDonDatHang;
@@ -682,6 +694,7 @@
             this.btnChonKhoHang.TabIndex = 10;
             this.btnChonKhoHang.Text = "Chọn Kho Hàng";
             this.btnChonKhoHang.UseVisualStyleBackColor = true;
+            this.btnChonKhoHang.Click += new System.EventHandler(this.btnChonKhoHang_Click);
             // 
             // txtNhaCungCap
             // 
@@ -753,6 +766,7 @@
             this.btnChonVatTu.TabIndex = 13;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
             this.btnChonVatTu.UseVisualStyleBackColor = true;
+            this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
             // 
             // txtDonGia
             // 
@@ -819,15 +833,15 @@
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
             // 
-            // colTENNV
+            // colTENVT
             // 
-            this.colTENNV.Caption = "gridColumn1";
-            this.colTENNV.FieldName = "TENNV";
-            this.colTENNV.MinWidth = 25;
-            this.colTENNV.Name = "colTENNV";
-            this.colTENNV.Visible = true;
-            this.colTENNV.VisibleIndex = 5;
-            this.colTENNV.Width = 94;
+            this.colTENVT.Caption = "Tên Vật Tư";
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 2;
+            this.colTENVT.Width = 94;
             // 
             // FormDatHang
             // 
@@ -940,5 +954,6 @@
         private System.Windows.Forms.BindingSource bdsPhieuNhap;
         private DataSetTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colTENNV;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
     }
 }

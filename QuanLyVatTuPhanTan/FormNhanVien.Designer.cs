@@ -387,6 +387,7 @@
             // btnSua
             // 
             this.btnSua.Caption = "Sửa";
+            this.btnSua.CloseSubMenuOnClickMode = DevExpress.Utils.DefaultBoolean.False;
             this.btnSua.Id = 6;
             this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
             this.btnSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.LargeImage")));
@@ -436,6 +437,7 @@
             this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
             this.barButtonItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
             this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // barDockControlTop
             // 

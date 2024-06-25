@@ -94,6 +94,7 @@ namespace QuanLyVatTuPhanTan
             // Gán username và mật khẩu được đăng nhập vào loginName và loginPass
             Program.loginName = usernameInput.Text.Trim();
             Program.loginPass = pwdInput.Text.Trim();
+
             Console.WriteLine(Program.servername);
             if (!Program.Connect()) return;
 
