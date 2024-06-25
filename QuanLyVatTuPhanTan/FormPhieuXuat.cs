@@ -658,6 +658,7 @@ namespace QuanLyVatTuPhanTan
 
                     this.txtMaKho.Enabled = false;
                     this.btnChonKhoHang.Enabled = true;
+                    bds.CancelEdit();
                 }
 
                 if (btnMenu.Links[0].Caption == "Chi tiết phiếu xuất")
@@ -668,6 +669,7 @@ namespace QuanLyVatTuPhanTan
 
                     this.txtSoLuongChiTietPhieuXuat.Enabled = true;
                     this.txtDonGiaChiTietPhieuXuat.Enabled = true;
+                    bds.CancelEdit();
                 }
 
                 this.btnThem.Enabled = true;
@@ -681,9 +683,9 @@ namespace QuanLyVatTuPhanTan
                 this.gcPhieuXuat.Enabled = true;
                 this.gcChiTietPhieuXuat.Enabled = true;
 
-                bds.CancelEdit();
+                
                 Console.WriteLine("Vi tri hien tai: " + bds.Position);
-                bds.RemoveCurrent();
+                //bds.RemoveCurrent();
 
                 bds.Position = viTri;
                 return;

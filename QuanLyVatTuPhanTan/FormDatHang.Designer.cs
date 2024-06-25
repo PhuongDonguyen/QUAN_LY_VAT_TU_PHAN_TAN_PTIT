@@ -467,7 +467,7 @@
             this.datHangGridControl.MainView = this.gridView1;
             this.datHangGridControl.MenuManager = this.barManager1;
             this.datHangGridControl.Name = "datHangGridControl";
-            this.datHangGridControl.Size = new System.Drawing.Size(1074, 220);
+            this.datHangGridControl.Size = new System.Drawing.Size(1074, 279);
             this.datHangGridControl.TabIndex = 11;
             this.datHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -544,9 +544,9 @@
             this.gcDDH.Controls.Add(this.panelControl3);
             this.gcDDH.Controls.Add(this.panelControl2);
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDH.Location = new System.Drawing.Point(0, 318);
+            this.gcDDH.Location = new System.Drawing.Point(0, 377);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1074, 377);
+            this.gcDDH.Size = new System.Drawing.Size(1074, 318);
             this.gcDDH.TabIndex = 25;
             this.gcDDH.Text = "Thông Tin";
             // 
@@ -556,7 +556,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(490, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(582, 347);
+            this.panelControl3.Size = new System.Drawing.Size(582, 288);
             this.panelControl3.TabIndex = 4;
             // 
             // gcChiTietDonDatHang
@@ -569,7 +569,7 @@
             this.gcChiTietDonDatHang.MainView = this.gvCTDDH;
             this.gcChiTietDonDatHang.MenuManager = this.barManager1;
             this.gcChiTietDonDatHang.Name = "gcChiTietDonDatHang";
-            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(578, 343);
+            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(578, 284);
             this.gcChiTietDonDatHang.TabIndex = 1;
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
@@ -653,7 +653,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(2, 28);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(488, 347);
+            this.panelControl2.Size = new System.Drawing.Size(488, 288);
             this.panelControl2.TabIndex = 3;
             // 
             // groupBoxDonDatHang
@@ -752,7 +752,7 @@
             this.groupBox1.Controls.Add(this.txtSoLuong);
             this.groupBox1.Controls.Add(sOLUONGLabel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(2, 196);
+            this.groupBox1.Location = new System.Drawing.Point(2, 137);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(484, 149);
             this.groupBox1.TabIndex = 2;
