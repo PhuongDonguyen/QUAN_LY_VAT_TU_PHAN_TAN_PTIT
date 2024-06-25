@@ -159,13 +159,15 @@
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(5);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
+            this.ribbon.OptionsMenuMinWidth = 283;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageNhapXuat,
             this.pageBaoCao,
             this.pageHeThong});
-            this.ribbon.Size = new System.Drawing.Size(1140, 193);
+            this.ribbon.Size = new System.Drawing.Size(875, 158);
             // 
             // btnNhanVien
             // 
@@ -467,7 +469,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
-            this.Text = "FormMain";
+            this.Text = "Quản lý vật tư";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();

@@ -36,22 +36,20 @@
             System.Windows.Forms.Label mANVLabel;
             System.Windows.Forms.Label nGAYLabel;
             System.Windows.Forms.Label mAPNLabel;
-            System.Windows.Forms.Label dONGIALabel;
-            System.Windows.Forms.Label sOLUONGLabel;
-            System.Windows.Forms.Label mAVTLabel;
             System.Windows.Forms.Label mAKHOLabel;
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuXuat));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHoanTac = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMenu = new DevExpress.XtraBars.BarSubItem();
+            this.btnCDPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCDCTPX = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -59,43 +57,39 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.dataSet_Phuong = new QuanLyVatTuPhanTan.DataSet_Phuong();
-            this.phieuXuatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.phieuXuatTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.PhieuXuatTableAdapter();
-            this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager();
-            this.phieuXuatGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAPX = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHOTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
             this.gcChiTietPhieuXuat = new DevExpress.XtraGrid.GridControl();
-            this.cTPXBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsChiTietPhieuXuat = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsPhieuXuat = new System.Windows.Forms.BindingSource(this.components);
+            this.DSP = new QuanLyVatTuPhanTan.DataSet_Phuong();
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAPX1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBoxPhieuNhap = new System.Windows.Forms.GroupBox();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            this.groupBoxVatTu = new System.Windows.Forms.GroupBox();
             this.btnChonVatTu = new System.Windows.Forms.Button();
-            this.txtDonGiaChiTietPhieuXuat = new DevExpress.XtraEditors.SpinEdit();
-            this.txtSoLuongChiTietPhieuXuat = new DevExpress.XtraEditors.SpinEdit();
             this.txtMaVatTuChiTietPhieuXuat = new DevExpress.XtraEditors.TextEdit();
+            this.txtSoLuongChiTietPhieuXuat = new DevExpress.XtraEditors.SpinEdit();
+            this.txtDonGiaChiTietPhieuXuat = new DevExpress.XtraEditors.SpinEdit();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtTenKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.dteNgay = new DevExpress.XtraEditors.DateEdit();
             this.txtMaPhieuXuat = new DevExpress.XtraEditors.TextEdit();
             this.btnChonKhoHang = new System.Windows.Forms.Button();
-            this.txtDonGia = new DevExpress.XtraEditors.SpinEdit();
-            this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
-            this.btn = new System.Windows.Forms.Button();
-            this.txtMaVatTu = new DevExpress.XtraEditors.TextEdit();
-            this.cTPXTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.CTPXTableAdapter();
+            this.gcPhieuXuat = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAPX = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHOTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.phieuXuatTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.PhieuXuatTableAdapter();
+            this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager();
+            this.chiTietPhieuXuatTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.CTPXTableAdapter();
             dONGIALabel1 = new System.Windows.Forms.Label();
             sOLUONGLabel1 = new System.Windows.Forms.Label();
             mAVTLabel1 = new System.Windows.Forms.Label();
@@ -103,42 +97,37 @@
             mANVLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             mAPNLabel = new System.Windows.Forms.Label();
-            dONGIALabel = new System.Windows.Forms.Label();
-            sOLUONGLabel = new System.Windows.Forms.Label();
-            mAVTLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuXuatBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuXuatGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDDH)).BeginInit();
             this.gcDDH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTietPhieuXuat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietPhieuXuat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuXuat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).BeginInit();
             this.groupBoxPhieuNhap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDonGiaChiTietPhieuXuat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongChiTietPhieuXuat.Properties)).BeginInit();
+            this.groupBoxVatTu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTuChiTietPhieuXuat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongChiTietPhieuXuat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDonGiaChiTietPhieuXuat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPhieuXuat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPhieuXuat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dONGIALabel1
             // 
             dONGIALabel1.AutoSize = true;
-            dONGIALabel1.Location = new System.Drawing.Point(9, 272);
+            dONGIALabel1.Location = new System.Drawing.Point(58, 104);
             dONGIALabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             dONGIALabel1.Name = "dONGIALabel1";
             dONGIALabel1.Size = new System.Drawing.Size(44, 13);
@@ -148,7 +137,7 @@
             // sOLUONGLabel1
             // 
             sOLUONGLabel1.AutoSize = true;
-            sOLUONGLabel1.Location = new System.Drawing.Point(9, 238);
+            sOLUONGLabel1.Location = new System.Drawing.Point(58, 70);
             sOLUONGLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             sOLUONGLabel1.Name = "sOLUONGLabel1";
             sOLUONGLabel1.Size = new System.Drawing.Size(49, 13);
@@ -158,7 +147,7 @@
             // mAVTLabel1
             // 
             mAVTLabel1.AutoSize = true;
-            mAVTLabel1.Location = new System.Drawing.Point(9, 200);
+            mAVTLabel1.Location = new System.Drawing.Point(58, 32);
             mAVTLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             mAVTLabel1.Name = "mAVTLabel1";
             mAVTLabel1.Size = new System.Drawing.Size(56, 13);
@@ -203,36 +192,6 @@
             mAPNLabel.TabIndex = 18;
             mAPNLabel.Text = "Mã Phiếu Xuất";
             // 
-            // dONGIALabel
-            // 
-            dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(46, 540);
-            dONGIALabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            dONGIALabel.Name = "dONGIALabel";
-            dONGIALabel.Size = new System.Drawing.Size(45, 13);
-            dONGIALabel.TabIndex = 16;
-            dONGIALabel.Text = "Đơn Giá";
-            // 
-            // sOLUONGLabel
-            // 
-            sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(46, 478);
-            sOLUONGLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(52, 13);
-            sOLUONGLabel.TabIndex = 14;
-            sOLUONGLabel.Text = "Số Lượng";
-            // 
-            // mAVTLabel
-            // 
-            mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(46, 416);
-            mAVTLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            mAVTLabel.Name = "mAVTLabel";
-            mAVTLabel.Size = new System.Drawing.Size(56, 13);
-            mAVTLabel.TabIndex = 11;
-            mAVTLabel.Text = "Mã Vật Tư";
-            // 
             // mAKHOLabel
             // 
             mAKHOLabel.AutoSize = true;
@@ -253,15 +212,15 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barButtonItem5,
-            this.barSubItem1,
-            this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8});
+            this.btnThem,
+            this.btnXoa,
+            this.btnGhi,
+            this.btnHoanTac,
+            this.btnLamMoi,
+            this.btnMenu,
+            this.btnThoat,
+            this.btnCDPhieuXuat,
+            this.btnCDCTPX});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 9;
             // 
@@ -272,73 +231,102 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHoanTac, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnMenu),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barButtonItem1
+            // btnThem
             // 
-            this.barButtonItem1.Caption = "Thêm";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnThem.Caption = "Thêm";
+            this.btnThem.Enabled = false;
+            this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
+            this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
+            this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
-            // barButtonItem2
+            // btnXoa
             // 
-            this.barButtonItem2.Caption = "Xóa";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Enabled = false;
+            this.btnXoa.Id = 1;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
-            // barButtonItem3
+            // btnGhi
             // 
-            this.barButtonItem3.Caption = "Ghi";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.btnGhi.Caption = "Ghi";
+            this.btnGhi.Enabled = false;
+            this.btnGhi.Id = 2;
+            this.btnGhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.Image")));
+            this.btnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGhi.ImageOptions.LargeImage")));
+            this.btnGhi.Name = "btnGhi";
+            this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
             // 
-            // barButtonItem4
+            // btnHoanTac
             // 
-            this.barButtonItem4.Caption = "Hoàn tác";
-            this.barButtonItem4.Id = 3;
-            this.barButtonItem4.Name = "barButtonItem4";
+            this.btnHoanTac.Caption = "Hoàn tác";
+            this.btnHoanTac.Enabled = false;
+            this.btnHoanTac.Id = 3;
+            this.btnHoanTac.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHoanTac.ImageOptions.SvgImage")));
+            this.btnHoanTac.Name = "btnHoanTac";
+            this.btnHoanTac.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoanTac_ItemClick);
             // 
-            // barButtonItem5
+            // btnLamMoi
             // 
-            this.barButtonItem5.Caption = "Làm mới";
-            this.barButtonItem5.Id = 4;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btnLamMoi.Caption = "Làm mới";
+            this.btnLamMoi.Enabled = false;
+            this.btnLamMoi.Id = 4;
+            this.btnLamMoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.ImageOptions.Image")));
+            this.btnLamMoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLamMoi.ImageOptions.LargeImage")));
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
             // 
-            // barSubItem1
+            // btnMenu
             // 
-            this.barSubItem1.Caption = "Chọn chế độ";
-            this.barSubItem1.Id = 5;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8)});
-            this.barSubItem1.Name = "barSubItem1";
+            this.btnMenu.Caption = "Chọn chế độ";
+            this.btnMenu.Id = 5;
+            this.btnMenu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMenu.ImageOptions.SvgImage")));
+            this.btnMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCDPhieuXuat),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCDCTPX)});
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // barButtonItem7
+            // btnCDPhieuXuat
             // 
-            this.barButtonItem7.Caption = "Phiếu xuất";
-            this.barButtonItem7.Id = 7;
-            this.barButtonItem7.Name = "barButtonItem7";
+            this.btnCDPhieuXuat.Caption = "Phiếu xuất";
+            this.btnCDPhieuXuat.Id = 7;
+            this.btnCDPhieuXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCDPhieuXuat.ImageOptions.SvgImage")));
+            this.btnCDPhieuXuat.Name = "btnCDPhieuXuat";
+            this.btnCDPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCDPhieuXuat_ItemClick);
             // 
-            // barButtonItem8
+            // btnCDCTPX
             // 
-            this.barButtonItem8.Caption = "Chi tiết phiếu xuất";
-            this.barButtonItem8.Id = 8;
-            this.barButtonItem8.Name = "barButtonItem8";
+            this.btnCDCTPX.Caption = "Chi tiết phiếu xuất";
+            this.btnCDCTPX.Id = 8;
+            this.btnCDCTPX.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCDCTPX.ImageOptions.SvgImage")));
+            this.btnCDCTPX.Name = "btnCDCTPX";
+            this.btnCDCTPX.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCDCTPX_ItemClick);
             // 
-            // barButtonItem6
+            // btnThoat
             // 
-            this.barButtonItem6.Caption = "Thoát";
-            this.barButtonItem6.Id = 6;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.btnThoat.Caption = "Thoát";
+            this.btnThoat.Id = 6;
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -346,13 +334,13 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1077, 20);
+            this.barDockControlTop.Size = new System.Drawing.Size(1077, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 619);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1019);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1077, 0);
             // 
@@ -360,17 +348,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 599);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 995);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1077, 20);
+            this.barDockControlRight.Location = new System.Drawing.Point(1077, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 599);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 995);
             // 
             // label1
             // 
@@ -393,269 +381,65 @@
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(212, 21);
             this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.cmbChiNhanh);
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 20);
+            this.panelControl1.Location = new System.Drawing.Point(0, 24);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1077, 51);
             this.panelControl1.TabIndex = 12;
-            // 
-            // dataSet_Phuong
-            // 
-            this.dataSet_Phuong.DataSetName = "DataSet_Phuong";
-            this.dataSet_Phuong.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // phieuXuatBindingSource
-            // 
-            this.phieuXuatBindingSource.DataMember = "PhieuXuat";
-            this.phieuXuatBindingSource.DataSource = this.dataSet_Phuong;
-            // 
-            // phieuXuatTableAdapter
-            // 
-            this.phieuXuatTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ChiNhanhTableAdapter = null;
-            this.tableAdapterManager.CTDDHTableAdapter = null;
-            this.tableAdapterManager.CTPNTableAdapter = null;
-            this.tableAdapterManager.CTPXTableAdapter = null;
-            this.tableAdapterManager.DatHangTableAdapter = null;
-            this.tableAdapterManager.KhoTableAdapter = null;
-            this.tableAdapterManager.NhanVienTableAdapter = null;
-            this.tableAdapterManager.PhieuNhapTableAdapter = null;
-            this.tableAdapterManager.PhieuXuatTableAdapter = this.phieuXuatTableAdapter;
-            this.tableAdapterManager.UpdateOrder = QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VattuTableAdapter = null;
-            // 
-            // chiTietPhieuXuatTableAdapter
-            // 
-            this.cTPXTableAdapter.ClearBeforeFill = true;
-            // 
-            // phieuXuatGridControl
-            // 
-            this.phieuXuatGridControl.DataSource = this.phieuXuatBindingSource;
-            this.phieuXuatGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.phieuXuatGridControl.Location = new System.Drawing.Point(0, 71);
-            this.phieuXuatGridControl.MainView = this.gridView1;
-            this.phieuXuatGridControl.MenuManager = this.barManager1;
-            this.phieuXuatGridControl.Name = "phieuXuatGridControl";
-            this.phieuXuatGridControl.Size = new System.Drawing.Size(1077, 220);
-            this.phieuXuatGridControl.TabIndex = 18;
-            this.phieuXuatGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.gridView1.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.gridView1.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.gridView1.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
-            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
-            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
-            this.gridView1.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
-            this.gridView1.Appearance.Empty.Options.UseBackColor = true;
-            this.gridView1.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.gridView1.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.EvenRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.FilterCloseButton.Options.UseBackColor = true;
-            this.gridView1.Appearance.FilterCloseButton.Options.UseBorderColor = true;
-            this.gridView1.Appearance.FilterCloseButton.Options.UseForeColor = true;
-            this.gridView1.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
-            this.gridView1.Appearance.FilterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FilterPanel.Options.UseBackColor = true;
-            this.gridView1.Appearance.FilterPanel.Options.UseForeColor = true;
-            this.gridView1.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
-            this.gridView1.Appearance.FixedLine.Options.UseBackColor = true;
-            this.gridView1.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
-            this.gridView1.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.gridView1.Appearance.FocusedCell.Options.UseForeColor = true;
-            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
-            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.FooterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.FooterPanel.Options.UseBackColor = true;
-            this.gridView1.Appearance.FooterPanel.Options.UseBorderColor = true;
-            this.gridView1.Appearance.FooterPanel.Options.UseForeColor = true;
-            this.gridView1.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.GroupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.GroupButton.Options.UseBackColor = true;
-            this.gridView1.Appearance.GroupButton.Options.UseBorderColor = true;
-            this.gridView1.Appearance.GroupButton.Options.UseForeColor = true;
-            this.gridView1.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.GroupFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.GroupFooter.Options.UseBackColor = true;
-            this.gridView1.Appearance.GroupFooter.Options.UseBorderColor = true;
-            this.gridView1.Appearance.GroupFooter.Options.UseForeColor = true;
-            this.gridView1.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
-            this.gridView1.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.GroupPanel.Options.UseBackColor = true;
-            this.gridView1.Appearance.GroupPanel.Options.UseForeColor = true;
-            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.GroupRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.GroupRow.Options.UseBorderColor = true;
-            this.gridView1.Appearance.GroupRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
-            this.gridView1.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gridView1.Appearance.HeaderPanel.Options.UseBorderColor = true;
-            this.gridView1.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(153)))), ((int)(((byte)(195)))));
-            this.gridView1.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.HideSelectionRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
-            this.gridView1.Appearance.HorzLine.Options.UseBackColor = true;
-            this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
-            this.gridView1.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.OddRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
-            this.gridView1.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
-            this.gridView1.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
-            this.gridView1.Appearance.Preview.Options.UseBackColor = true;
-            this.gridView1.Appearance.Preview.Options.UseFont = true;
-            this.gridView1.Appearance.Preview.Options.UseForeColor = true;
-            this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
-            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
-            this.gridView1.Appearance.Row.Options.UseBackColor = true;
-            this.gridView1.Appearance.Row.Options.UseForeColor = true;
-            this.gridView1.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
-            this.gridView1.Appearance.RowSeparator.Options.UseBackColor = true;
-            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(133)))), ((int)(((byte)(179)))));
-            this.gridView1.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.SelectedRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
-            this.gridView1.Appearance.TopNewRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
-            this.gridView1.Appearance.VertLine.Options.UseBackColor = true;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAPX,
-            this.colNGAY,
-            this.colHOTENKH,
-            this.colMANV,
-            this.colHOTEN,
-            this.colMAKHO});
-            this.gridView1.GridControl = this.phieuXuatGridControl;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
-            this.gridView1.OptionsView.EnableAppearanceOddRow = true;
-            this.gridView1.PaintStyleName = "MixedXP";
-            // 
-            // colMAPX
-            // 
-            this.colMAPX.Caption = "Mã phiếu xuất";
-            this.colMAPX.FieldName = "MAPX";
-            this.colMAPX.Name = "colMAPX";
-            this.colMAPX.Visible = true;
-            this.colMAPX.VisibleIndex = 0;
-            // 
-            // colNGAY
-            // 
-            this.colNGAY.Caption = "Ngày lập";
-            this.colNGAY.FieldName = "NGAY";
-            this.colNGAY.Name = "colNGAY";
-            this.colNGAY.Visible = true;
-            this.colNGAY.VisibleIndex = 1;
-            // 
-            // colHOTENKH
-            // 
-            this.colHOTENKH.Caption = "Họ tên khách hàng";
-            this.colHOTENKH.FieldName = "HOTENKH";
-            this.colHOTENKH.Name = "colHOTENKH";
-            this.colHOTENKH.Visible = true;
-            this.colHOTENKH.VisibleIndex = 2;
-            // 
-            // colMANV
-            // 
-            this.colMANV.Caption = "Mã nhân viên";
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.Name = "colMANV";
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 3;
-            // 
-            // colHOTEN
-            // 
-            this.colHOTEN.Caption = "Người lập";
-            this.colHOTEN.FieldName = "HOTEN";
-            this.colHOTEN.Name = "colHOTEN";
-            this.colHOTEN.Visible = true;
-            this.colHOTEN.VisibleIndex = 5;
-            // 
-            // colMAKHO
-            // 
-            this.colMAKHO.Caption = "Mã kho";
-            this.colMAKHO.FieldName = "MAKHO";
-            this.colMAKHO.Name = "colMAKHO";
-            this.colMAKHO.Visible = true;
-            this.colMAKHO.VisibleIndex = 4;
             // 
             // gcDDH
             // 
             this.gcDDH.Controls.Add(this.gcChiTietPhieuXuat);
             this.gcDDH.Controls.Add(this.groupBoxPhieuNhap);
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDH.Location = new System.Drawing.Point(0, 291);
+            this.gcDDH.Location = new System.Drawing.Point(0, 255);
             this.gcDDH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1077, 328);
-            this.gcDDH.TabIndex = 27;
-            this.gcDDH.Text = "Đặt Hàng";
+            this.gcDDH.Size = new System.Drawing.Size(1077, 764);
+            this.gcDDH.TabIndex = 39;
+            this.gcDDH.Text = "Xuất hàng hóa";
             // 
             // gcChiTietPhieuXuat
             // 
-            this.gcChiTietPhieuXuat.DataSource = this.cTPXBindingSource;
+            this.gcChiTietPhieuXuat.DataSource = this.bdsChiTietPhieuXuat;
             this.gcChiTietPhieuXuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcChiTietPhieuXuat.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcChiTietPhieuXuat.Enabled = false;
             this.gcChiTietPhieuXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gcChiTietPhieuXuat.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gcChiTietPhieuXuat.Location = new System.Drawing.Point(441, 23);
+            gridLevelNode2});
+            this.gcChiTietPhieuXuat.Location = new System.Drawing.Point(434, 23);
             this.gcChiTietPhieuXuat.MainView = this.gvCTDDH;
             this.gcChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcChiTietPhieuXuat.MenuManager = this.barManager1;
             this.gcChiTietPhieuXuat.Name = "gcChiTietPhieuXuat";
-            this.gcChiTietPhieuXuat.Size = new System.Drawing.Size(634, 303);
+            this.gcChiTietPhieuXuat.Size = new System.Drawing.Size(641, 739);
             this.gcChiTietPhieuXuat.TabIndex = 1;
             this.gcChiTietPhieuXuat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
             // 
-            // cTPXBindingSource
+            // bdsChiTietPhieuXuat
             // 
-            this.cTPXBindingSource.DataMember = "CTPX";
-            this.cTPXBindingSource.DataSource = this.dataSet_Phuong;
+            this.bdsChiTietPhieuXuat.DataMember = "FK_CTPX_PX";
+            this.bdsChiTietPhieuXuat.DataSource = this.bdsPhieuXuat;
+            // 
+            // bdsPhieuXuat
+            // 
+            this.bdsPhieuXuat.DataMember = "PhieuXuat";
+            this.bdsPhieuXuat.DataSource = this.DSP;
+            // 
+            // DSP
+            // 
+            this.DSP.DataSetName = "DataSet_Phuong";
+            this.DSP.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gvCTDDH
             // 
@@ -823,14 +607,8 @@
             // 
             // groupBoxPhieuNhap
             // 
+            this.groupBoxPhieuNhap.Controls.Add(this.groupBoxVatTu);
             this.groupBoxPhieuNhap.Controls.Add(this.separatorControl1);
-            this.groupBoxPhieuNhap.Controls.Add(this.btnChonVatTu);
-            this.groupBoxPhieuNhap.Controls.Add(dONGIALabel1);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtDonGiaChiTietPhieuXuat);
-            this.groupBoxPhieuNhap.Controls.Add(sOLUONGLabel1);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtSoLuongChiTietPhieuXuat);
-            this.groupBoxPhieuNhap.Controls.Add(mAVTLabel1);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtMaVatTuChiTietPhieuXuat);
             this.groupBoxPhieuNhap.Controls.Add(this.txtMaKho);
             this.groupBoxPhieuNhap.Controls.Add(this.txtMaNhanVien);
             this.groupBoxPhieuNhap.Controls.Add(hOTENKHLabel);
@@ -841,70 +619,66 @@
             this.groupBoxPhieuNhap.Controls.Add(this.btnChonKhoHang);
             this.groupBoxPhieuNhap.Controls.Add(nGAYLabel);
             this.groupBoxPhieuNhap.Controls.Add(mAPNLabel);
-            this.groupBoxPhieuNhap.Controls.Add(dONGIALabel);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtDonGia);
-            this.groupBoxPhieuNhap.Controls.Add(sOLUONGLabel);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtSoLuong);
-            this.groupBoxPhieuNhap.Controls.Add(this.btn);
-            this.groupBoxPhieuNhap.Controls.Add(mAVTLabel);
-            this.groupBoxPhieuNhap.Controls.Add(this.txtMaVatTu);
             this.groupBoxPhieuNhap.Controls.Add(mAKHOLabel);
             this.groupBoxPhieuNhap.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBoxPhieuNhap.Location = new System.Drawing.Point(2, 23);
             this.groupBoxPhieuNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBoxPhieuNhap.Name = "groupBoxPhieuNhap";
             this.groupBoxPhieuNhap.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxPhieuNhap.Size = new System.Drawing.Size(439, 303);
+            this.groupBoxPhieuNhap.Size = new System.Drawing.Size(432, 739);
             this.groupBoxPhieuNhap.TabIndex = 0;
             this.groupBoxPhieuNhap.TabStop = false;
             this.groupBoxPhieuNhap.Text = "Thông Tin";
             // 
-            // separatorControl1
+            // groupBoxVatTu
             // 
-            this.separatorControl1.Location = new System.Drawing.Point(37, 173);
-            this.separatorControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Padding = new System.Windows.Forms.Padding(7);
-            this.separatorControl1.Size = new System.Drawing.Size(364, 20);
-            this.separatorControl1.TabIndex = 38;
+            this.groupBoxVatTu.Controls.Add(this.btnChonVatTu);
+            this.groupBoxVatTu.Controls.Add(this.txtMaVatTuChiTietPhieuXuat);
+            this.groupBoxVatTu.Controls.Add(mAVTLabel1);
+            this.groupBoxVatTu.Controls.Add(dONGIALabel1);
+            this.groupBoxVatTu.Controls.Add(this.txtSoLuongChiTietPhieuXuat);
+            this.groupBoxVatTu.Controls.Add(this.txtDonGiaChiTietPhieuXuat);
+            this.groupBoxVatTu.Controls.Add(sOLUONGLabel1);
+            this.groupBoxVatTu.Location = new System.Drawing.Point(-49, 198);
+            this.groupBoxVatTu.Name = "groupBoxVatTu";
+            this.groupBoxVatTu.Size = new System.Drawing.Size(481, 450);
+            this.groupBoxVatTu.TabIndex = 39;
+            this.groupBoxVatTu.TabStop = false;
+            this.groupBoxVatTu.Text = "fawef";
             // 
             // btnChonVatTu
             // 
             this.btnChonVatTu.Enabled = false;
-            this.btnChonVatTu.Location = new System.Drawing.Point(232, 200);
+            this.btnChonVatTu.Location = new System.Drawing.Point(281, 27);
             this.btnChonVatTu.Margin = new System.Windows.Forms.Padding(2);
             this.btnChonVatTu.Name = "btnChonVatTu";
             this.btnChonVatTu.Size = new System.Drawing.Size(158, 37);
             this.btnChonVatTu.TabIndex = 37;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
             this.btnChonVatTu.UseVisualStyleBackColor = true;
+            this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
             // 
-            // txtDonGiaChiTietPhieuXuat
+            // txtMaVatTuChiTietPhieuXuat
             // 
-            this.txtDonGiaChiTietPhieuXuat.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtDonGiaChiTietPhieuXuat.Enabled = false;
-            this.txtDonGiaChiTietPhieuXuat.Location = new System.Drawing.Point(113, 271);
-            this.txtDonGiaChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDonGiaChiTietPhieuXuat.MenuManager = this.barManager1;
-            this.txtDonGiaChiTietPhieuXuat.Name = "txtDonGiaChiTietPhieuXuat";
-            this.txtDonGiaChiTietPhieuXuat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDonGiaChiTietPhieuXuat.Size = new System.Drawing.Size(94, 20);
-            this.txtDonGiaChiTietPhieuXuat.TabIndex = 36;
+            this.txtMaVatTuChiTietPhieuXuat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietPhieuXuat, "MAVT", true));
+            this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
+            this.txtMaVatTuChiTietPhieuXuat.Location = new System.Drawing.Point(162, 29);
+            this.txtMaVatTuChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaVatTuChiTietPhieuXuat.MenuManager = this.barManager1;
+            this.txtMaVatTuChiTietPhieuXuat.Name = "txtMaVatTuChiTietPhieuXuat";
+            this.txtMaVatTuChiTietPhieuXuat.Size = new System.Drawing.Size(94, 20);
+            this.txtMaVatTuChiTietPhieuXuat.TabIndex = 34;
             // 
             // txtSoLuongChiTietPhieuXuat
             // 
+            this.txtSoLuongChiTietPhieuXuat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietPhieuXuat, "SOLUONG", true));
             this.txtSoLuongChiTietPhieuXuat.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
             this.txtSoLuongChiTietPhieuXuat.Enabled = false;
-            this.txtSoLuongChiTietPhieuXuat.Location = new System.Drawing.Point(113, 236);
+            this.txtSoLuongChiTietPhieuXuat.Location = new System.Drawing.Point(162, 68);
             this.txtSoLuongChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoLuongChiTietPhieuXuat.MenuManager = this.barManager1;
             this.txtSoLuongChiTietPhieuXuat.Name = "txtSoLuongChiTietPhieuXuat";
@@ -913,18 +687,36 @@
             this.txtSoLuongChiTietPhieuXuat.Size = new System.Drawing.Size(94, 20);
             this.txtSoLuongChiTietPhieuXuat.TabIndex = 35;
             // 
-            // txtMaVatTuChiTietPhieuXuat
+            // txtDonGiaChiTietPhieuXuat
             // 
-            this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
-            this.txtMaVatTuChiTietPhieuXuat.Location = new System.Drawing.Point(113, 197);
-            this.txtMaVatTuChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMaVatTuChiTietPhieuXuat.MenuManager = this.barManager1;
-            this.txtMaVatTuChiTietPhieuXuat.Name = "txtMaVatTuChiTietPhieuXuat";
-            this.txtMaVatTuChiTietPhieuXuat.Size = new System.Drawing.Size(94, 20);
-            this.txtMaVatTuChiTietPhieuXuat.TabIndex = 34;
+            this.txtDonGiaChiTietPhieuXuat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietPhieuXuat, "DONGIA", true));
+            this.txtDonGiaChiTietPhieuXuat.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtDonGiaChiTietPhieuXuat.Enabled = false;
+            this.txtDonGiaChiTietPhieuXuat.Location = new System.Drawing.Point(162, 103);
+            this.txtDonGiaChiTietPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDonGiaChiTietPhieuXuat.MenuManager = this.barManager1;
+            this.txtDonGiaChiTietPhieuXuat.Name = "txtDonGiaChiTietPhieuXuat";
+            this.txtDonGiaChiTietPhieuXuat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDonGiaChiTietPhieuXuat.Size = new System.Drawing.Size(94, 20);
+            this.txtDonGiaChiTietPhieuXuat.TabIndex = 36;
+            // 
+            // separatorControl1
+            // 
+            this.separatorControl1.Location = new System.Drawing.Point(-15, 183);
+            this.separatorControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Padding = new System.Windows.Forms.Padding(7);
+            this.separatorControl1.Size = new System.Drawing.Size(459, 20);
+            this.separatorControl1.TabIndex = 38;
             // 
             // txtMaKho
             // 
+            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "MAKHO", true));
             this.txtMaKho.Enabled = false;
             this.txtMaKho.Location = new System.Drawing.Point(113, 148);
             this.txtMaKho.Margin = new System.Windows.Forms.Padding(2);
@@ -935,6 +727,7 @@
             // 
             // txtMaNhanVien
             // 
+            this.txtMaNhanVien.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "MANV", true));
             this.txtMaNhanVien.Enabled = false;
             this.txtMaNhanVien.Location = new System.Drawing.Point(113, 109);
             this.txtMaNhanVien.Margin = new System.Windows.Forms.Padding(2);
@@ -945,6 +738,7 @@
             // 
             // txtTenKhachHang
             // 
+            this.txtTenKhachHang.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "HOTENKH", true));
             this.txtTenKhachHang.Enabled = false;
             this.txtTenKhachHang.Location = new System.Drawing.Point(113, 68);
             this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(2);
@@ -955,9 +749,10 @@
             // 
             // dteNgay
             // 
+            this.dteNgay.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "NGAY", true));
             this.dteNgay.EditValue = null;
             this.dteNgay.Enabled = false;
-            this.dteNgay.Location = new System.Drawing.Point(281, 33);
+            this.dteNgay.Location = new System.Drawing.Point(281, 28);
             this.dteNgay.Margin = new System.Windows.Forms.Padding(2);
             this.dteNgay.MenuManager = this.barManager1;
             this.dteNgay.Name = "dteNgay";
@@ -970,6 +765,7 @@
             // 
             // txtMaPhieuXuat
             // 
+            this.txtMaPhieuXuat.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPhieuXuat, "MAPX", true));
             this.txtMaPhieuXuat.Enabled = false;
             this.txtMaPhieuXuat.Location = new System.Drawing.Point(113, 29);
             this.txtMaPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
@@ -987,97 +783,230 @@
             this.btnChonKhoHang.TabIndex = 22;
             this.btnChonKhoHang.Text = "Chọn Kho Hàng";
             this.btnChonKhoHang.UseVisualStyleBackColor = true;
+            this.btnChonKhoHang.Click += new System.EventHandler(this.btnChonKhoHang_Click);
             // 
-            // txtDonGia
+            // gcPhieuXuat
             // 
-            this.txtDonGia.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtDonGia.Enabled = false;
-            this.txtDonGia.Location = new System.Drawing.Point(270, 530);
-            this.txtDonGia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDonGia.MenuManager = this.barManager1;
-            this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtDonGia.Properties.MaxValue = new decimal(new int[] {
-            1316134911,
-            2328,
-            0,
-            0});
-            this.txtDonGia.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtDonGia.Size = new System.Drawing.Size(183, 20);
-            this.txtDonGia.TabIndex = 17;
+            this.gcPhieuXuat.DataSource = this.bdsPhieuXuat;
+            this.gcPhieuXuat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcPhieuXuat.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gcPhieuXuat.Enabled = false;
+            this.gcPhieuXuat.Location = new System.Drawing.Point(0, 75);
+            this.gcPhieuXuat.MainView = this.gridView1;
+            this.gcPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
+            this.gcPhieuXuat.MenuManager = this.barManager1;
+            this.gcPhieuXuat.Name = "gcPhieuXuat";
+            this.gcPhieuXuat.Size = new System.Drawing.Size(1077, 180);
+            this.gcPhieuXuat.TabIndex = 38;
+            this.gcPhieuXuat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // txtSoLuong
+            // gridView1
             // 
-            this.txtSoLuong.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtSoLuong.Enabled = false;
-            this.txtSoLuong.Location = new System.Drawing.Point(270, 471);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSoLuong.MenuManager = this.barManager1;
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSoLuong.Properties.DisplayFormat.FormatString = "n0";
-            this.txtSoLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSoLuong.Properties.EditFormat.FormatString = "n0";
-            this.txtSoLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtSoLuong.Properties.MaxValue = new decimal(new int[] {
-            1316134911,
-            2328,
-            0,
-            0});
-            this.txtSoLuong.Properties.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtSoLuong.Size = new System.Drawing.Size(183, 20);
-            this.txtSoLuong.TabIndex = 15;
+            this.gridView1.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.gridView1.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
+            this.gridView1.Appearance.Empty.Options.UseBackColor = true;
+            this.gridView1.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.gridView1.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.EvenRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
+            this.gridView1.Appearance.FilterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.FixedLine.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.FooterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.gridView1.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.GroupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.GroupButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.GroupFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
+            this.gridView1.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.GroupRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(109)))), ((int)(((byte)(158)))));
+            this.gridView1.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(153)))), ((int)(((byte)(195)))));
+            this.gridView1.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.HorzLine.Options.UseBackColor = true;
+            this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
+            this.gridView1.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.OddRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(250)))), ((int)(((byte)(248)))));
+            this.gridView1.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
+            this.gridView1.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(87)))), ((int)(((byte)(138)))));
+            this.gridView1.Appearance.Preview.Options.UseBackColor = true;
+            this.gridView1.Appearance.Preview.Options.UseFont = true;
+            this.gridView1.Appearance.Preview.Options.UseForeColor = true;
+            this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
+            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.Row.Options.UseBackColor = true;
+            this.gridView1.Appearance.Row.Options.UseForeColor = true;
+            this.gridView1.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
+            this.gridView1.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(133)))), ((int)(((byte)(179)))));
+            this.gridView1.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.TopNewRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.VertLine.Options.UseBackColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAPX,
+            this.colNGAY,
+            this.colHOTENKH,
+            this.colHOTEN,
+            this.colMAKHO});
+            this.gridView1.DetailHeight = 284;
+            this.gridView1.GridControl = this.gcPhieuXuat;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView1.PaintStyleName = "MixedXP";
             // 
-            // btn
+            // colMAPX
             // 
-            this.btn.Enabled = false;
-            this.btn.Location = new System.Drawing.Point(496, 405);
-            this.btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(174, 50);
-            this.btn.TabIndex = 13;
-            this.btn.Text = "Chọn Vật Tư";
-            this.btn.UseVisualStyleBackColor = true;
+            this.colMAPX.Caption = "Mã Phiếu Xuất";
+            this.colMAPX.FieldName = "MAPX";
+            this.colMAPX.MinWidth = 19;
+            this.colMAPX.Name = "colMAPX";
+            this.colMAPX.OptionsColumn.AllowEdit = false;
+            this.colMAPX.Visible = true;
+            this.colMAPX.VisibleIndex = 0;
+            this.colMAPX.Width = 70;
             // 
-            // txtMaVatTu
+            // colNGAY
             // 
-            this.txtMaVatTu.Enabled = false;
-            this.txtMaVatTu.Location = new System.Drawing.Point(270, 411);
-            this.txtMaVatTu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMaVatTu.MenuManager = this.barManager1;
-            this.txtMaVatTu.Name = "txtMaVatTu";
-            this.txtMaVatTu.Size = new System.Drawing.Size(183, 20);
-            this.txtMaVatTu.TabIndex = 12;
+            this.colNGAY.Caption = "Ngày lập";
+            this.colNGAY.FieldName = "NGAY";
+            this.colNGAY.MinWidth = 19;
+            this.colNGAY.Name = "colNGAY";
+            this.colNGAY.OptionsColumn.AllowEdit = false;
+            this.colNGAY.Visible = true;
+            this.colNGAY.VisibleIndex = 1;
+            this.colNGAY.Width = 70;
             // 
-            // cTPXTableAdapter
+            // colHOTENKH
             // 
-            this.cTPXTableAdapter.ClearBeforeFill = true;
+            this.colHOTENKH.Caption = "Họ Tên Khách Hàng";
+            this.colHOTENKH.FieldName = "HOTENKH";
+            this.colHOTENKH.MinWidth = 19;
+            this.colHOTENKH.Name = "colHOTENKH";
+            this.colHOTENKH.OptionsColumn.AllowEdit = false;
+            this.colHOTENKH.Visible = true;
+            this.colHOTENKH.VisibleIndex = 2;
+            this.colHOTENKH.Width = 70;
+            // 
+            // colHOTEN
+            // 
+            this.colHOTEN.Caption = "Người lập phiếu";
+            this.colHOTEN.FieldName = "HOTEN";
+            this.colHOTEN.MinWidth = 19;
+            this.colHOTEN.Name = "colHOTEN";
+            this.colHOTEN.OptionsColumn.AllowEdit = false;
+            this.colHOTEN.Visible = true;
+            this.colHOTEN.VisibleIndex = 3;
+            this.colHOTEN.Width = 70;
+            // 
+            // colMAKHO
+            // 
+            this.colMAKHO.Caption = "Mã Kho";
+            this.colMAKHO.FieldName = "MAKHO";
+            this.colMAKHO.MinWidth = 19;
+            this.colMAKHO.Name = "colMAKHO";
+            this.colMAKHO.OptionsColumn.AllowEdit = false;
+            this.colMAKHO.Visible = true;
+            this.colMAKHO.VisibleIndex = 4;
+            this.colMAKHO.Width = 70;
+            // 
+            // phieuXuatTableAdapter
+            // 
+            this.phieuXuatTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ChiNhanhTableAdapter = null;
+            this.tableAdapterManager.CTDDHTableAdapter = null;
+            this.tableAdapterManager.CTPNTableAdapter = null;
+            this.tableAdapterManager.CTPXTableAdapter = null;
+            this.tableAdapterManager.DatHangTableAdapter = null;
+            this.tableAdapterManager.KhoTableAdapter = null;
+            this.tableAdapterManager.NhanVienTableAdapter = null;
+            this.tableAdapterManager.PhieuNhapTableAdapter = null;
+            this.tableAdapterManager.PhieuXuatTableAdapter = this.phieuXuatTableAdapter;
+            this.tableAdapterManager.UpdateOrder = QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VattuTableAdapter = null;
+            // 
+            // chiTietPhieuXuatTableAdapter
+            // 
+            this.chiTietPhieuXuatTableAdapter.ClearBeforeFill = true;
             // 
             // FormPhieuXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 619);
+            this.ClientSize = new System.Drawing.Size(1077, 1019);
             this.Controls.Add(this.gcDDH);
-            this.Controls.Add(this.phieuXuatGridControl);
+            this.Controls.Add(this.gcPhieuXuat);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -1090,30 +1019,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuXuatBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phieuXuatGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDDH)).EndInit();
             this.gcDDH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTietPhieuXuat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTPXBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietPhieuXuat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuXuat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).EndInit();
             this.groupBoxPhieuNhap.ResumeLayout(false);
             this.groupBoxPhieuNhap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDonGiaChiTietPhieuXuat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongChiTietPhieuXuat.Properties)).EndInit();
+            this.groupBoxVatTu.ResumeLayout(false);
+            this.groupBoxVatTu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTuChiTietPhieuXuat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongChiTietPhieuXuat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDonGiaChiTietPhieuXuat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPhieuXuat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPhieuXuat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1127,30 +1055,18 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private System.Windows.Forms.BindingSource phieuXuatBindingSource;
-        private DataSet_Phuong dataSet_Phuong;
+        private DevExpress.XtraBars.BarButtonItem btnThem;
+        private DevExpress.XtraBars.BarButtonItem btnXoa;
+        private DevExpress.XtraBars.BarButtonItem btnGhi;
+        private DevExpress.XtraBars.BarButtonItem btnHoanTac;
+        private DevExpress.XtraBars.BarButtonItem btnLamMoi;
+        private DevExpress.XtraBars.BarSubItem btnMenu;
+        private DevExpress.XtraBars.BarButtonItem btnCDPhieuXuat;
+        private DevExpress.XtraBars.BarButtonItem btnCDCTPX;
+        private DevExpress.XtraBars.BarButtonItem btnThoat;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label1;
-        private DataSet_PhuongTableAdapters.PhieuXuatTableAdapter phieuXuatTableAdapter;
-        private DataSet_PhuongTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl phieuXuatGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAPX;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAY;
-        private DevExpress.XtraGrid.Columns.GridColumn colHOTENKH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMANV;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraEditors.GroupControl gcDDH;
         private DevExpress.XtraGrid.GridControl gcChiTietPhieuXuat;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCTDDH;
@@ -1159,7 +1075,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
         private System.Windows.Forms.GroupBox groupBoxPhieuNhap;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.Button btnChonVatTu;
         private DevExpress.XtraEditors.SpinEdit txtDonGiaChiTietPhieuXuat;
         private DevExpress.XtraEditors.SpinEdit txtSoLuongChiTietPhieuXuat;
@@ -1170,11 +1085,20 @@
         private DevExpress.XtraEditors.DateEdit dteNgay;
         private DevExpress.XtraEditors.TextEdit txtMaPhieuXuat;
         private System.Windows.Forms.Button btnChonKhoHang;
-        private DevExpress.XtraEditors.SpinEdit txtDonGia;
-        private DevExpress.XtraEditors.SpinEdit txtSoLuong;
-        private System.Windows.Forms.Button btn;
-        private DevExpress.XtraEditors.TextEdit txtMaVatTu;
-        private System.Windows.Forms.BindingSource cTPXBindingSource;
-        private DataSet_PhuongTableAdapters.CTPXTableAdapter cTPXTableAdapter;
+        private DevExpress.XtraGrid.GridControl gcPhieuXuat;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAPX;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAY;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTENKH;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
+        private DataSet_Phuong DSP;
+        private System.Windows.Forms.BindingSource bdsPhieuXuat;
+        private DataSet_PhuongTableAdapters.PhieuXuatTableAdapter phieuXuatTableAdapter;
+        private DataSet_PhuongTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource bdsChiTietPhieuXuat;
+        private DataSet_PhuongTableAdapters.CTPXTableAdapter chiTietPhieuXuatTableAdapter;
+        private System.Windows.Forms.GroupBox groupBoxVatTu;
+        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
     }
 }
