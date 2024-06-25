@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.SubForm
 {
-    public partial class FormChonVatTu : DevExpress.XtraEditors.XtraForm
+    public partial class FormVatTu : DevExpress.XtraEditors.XtraForm
     {
-        public FormChonVatTu()
+        public FormVatTu()
         {
             InitializeComponent();
         }

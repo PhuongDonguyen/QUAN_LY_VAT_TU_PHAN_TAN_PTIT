@@ -743,7 +743,7 @@ namespace QuanLyVatTuPhanTan
 
         private void btnChonVatTu_Click(object sender, EventArgs e)
         {
-            FormChonVatTu form = new FormChonVatTu();
+            SubForm.FormVatTu form = new SubForm.FormVatTu();
             form.ShowDialog();
             this.txtMaVatTu.Text = Program.maVatTuDuocChon;
         }

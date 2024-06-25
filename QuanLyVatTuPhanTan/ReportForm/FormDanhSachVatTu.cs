@@ -64,7 +64,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
                     if (dr == DialogResult.Yes)
                     {
                         report.ExportToPdf(@"D:\ReportDanhSachVatTu.pdf");
-                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                        MessageBox.Show("File ReportDanhSachVatTu.pdf đã được ghi thành công tại ổ D",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -72,7 +72,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
                 else
                 {
                     report.ExportToPdf(@"D:\ReportDanhSachVatTu.pdf");
-                    MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                    MessageBox.Show("File ReportDanhSachVatTu.pdf đã được ghi thành công tại ổ D",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
