@@ -22,29 +22,13 @@ namespace QuanLyVatTuPhanTan.ReportForm
 
         private void FormDanhSachVatTu_Load(object sender, EventArgs e)
         {
-            CenterFormOnScreen();
+            dataSet.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dataSet.Vattu' table. You can move, or remove it, as needed.
+            this.vattuTableAdapter.Connection.ConnectionString = Program.connstr_publisher;
             this.vattuTableAdapter.Fill(this.dataSet.Vattu);
 
         }
 
-        private void CenterFormOnScreen()
-        {
-            // Lấy kích thước của màn hình
-            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
-            int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
-
-            // Lấy kích thước của form
-            int formWidth = this.Width;
-            int formHeight = this.Height;
-
-            // Tính toán vị trí của form để nó được hiển thị ở giữa màn hình
-            int x = (screenWidth - formWidth) / 2;
-            int y = (screenHeight - formHeight) / 2;
-
-            // Đặt vị trí mới cho form
-            this.Location = new Point(x, y);
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             ReportDanhSachVatTu report = new ReportDanhSachVatTu();
