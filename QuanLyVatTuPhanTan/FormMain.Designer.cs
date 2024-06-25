@@ -208,7 +208,6 @@
             this.btnDanhSachNhanVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachNhanVien.ImageOptions.SvgImage")));
             this.btnDanhSachNhanVien.LargeWidth = 100;
             this.btnDanhSachNhanVien.Name = "btnDanhSachNhanVien";
-            this.btnDanhSachNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachNhanVien_ItemClick);
             // 
             // btnDanhSachVatTu
             // 
