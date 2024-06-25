@@ -134,17 +134,41 @@
     <Compile Include="FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormDanhSachNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormDanhSachNhanVien.Designer.cs">
+      <DependentUpon>FormDanhSachNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\FormDanhSachVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportForm\FormDanhSachVatTu.Designer.cs">
       <DependentUpon>FormDanhSachVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormHoatDongNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormHoatDongNhanVien.Designer.cs">
+      <DependentUpon>FormHoatDongNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportDanhSachNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportDanhSachNhanVien.Designer.cs">
+      <DependentUpon>ReportDanhSachNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportForm\ReportDanhSachVatTu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReportForm\ReportDanhSachVatTu.Designer.cs">
       <DependentUpon>ReportDanhSachVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportHoatDongNhanVien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportHoatDongNhanVien.Designer.cs">
+      <DependentUpon>ReportHoatDongNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="SubForm\FormChonKhoHang.cs">
       <SubType>Form</SubType>
@@ -194,7 +218,6 @@
     <EmbeddedResource Include="FormPhieuNhap.resx">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    
     <EmbeddedResource Include="FormPhieuXuat.resx">
       <DependentUpon>FormPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,11 +234,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportForm\FormDanhSachNhanVien.resx">
+      <DependentUpon>FormDanhSachNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\FormDanhSachVatTu.resx">
       <DependentUpon>FormDanhSachVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormHoatDongNhanVien.resx">
+      <DependentUpon>FormHoatDongNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportDanhSachNhanVien.resx">
+      <DependentUpon>ReportDanhSachNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhSachVatTu.resx">
       <DependentUpon>ReportDanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportHoatDongNhanVien.resx">
+      <DependentUpon>ReportHoatDongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChonKhoHang.resx">
       <DependentUpon>FormChonKhoHang.cs</DependentUpon>

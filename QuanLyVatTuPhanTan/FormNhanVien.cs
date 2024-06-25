@@ -82,7 +82,7 @@ namespace QuanLyVatTuPhanTan
             Program.myReader.Read();
             int result = (Program.myReader.GetInt32(0));
             Program.myReader.Close();
-            Console.WriteLine("contro : " + viTriConTro + " nhan vien: " + vitriNhanVien);
+            
             if (result > 0 && viTriConTro != vitriNhanVien)
             {
                 XtraMessageBox.Show($"Mã nhân viên đã được sử dụng", "", MessageBoxButtons.OK);
