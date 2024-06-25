@@ -66,8 +66,14 @@
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData3_Odd = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.dataSet1 = new QuanLyVatTuPhanTan.DataSet();
+            this.vattuTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.VattuTableAdapter();
+            this.dataSet_Phuong1 = new QuanLyVatTuPhanTan.DataSet_Phuong();
+            this.vattuTableAdapter1 = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.VattuTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -357,6 +363,24 @@
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vattuTableAdapter
+            // 
+            this.vattuTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataSet_Phuong1
+            // 
+            this.dataSet_Phuong1.DataSetName = "DataSet_Phuong";
+            this.dataSet_Phuong1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vattuTableAdapter1
+            // 
+            this.vattuTableAdapter1.ClearBeforeFill = true;
+            // 
             // ReportDanhSachVatTu
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -366,9 +390,12 @@
             this.GroupHeader1,
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1});
+            this.sqlDataSource1,
+            this.dataSet1,
+            this.dataSet_Phuong1});
+            this.DataAdapter = this.vattuTableAdapter;
             this.DataMember = "Vattu";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.dataSet1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.PageHeight = 1169;
             this.PageWidth = 827;
@@ -382,6 +409,8 @@
             this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -414,5 +443,9 @@
         private DevExpress.XtraReports.UI.XRControlStyle DetailData1;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData3_Odd;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
+        private DataSet dataSet1;
+        private DataSetTableAdapters.VattuTableAdapter vattuTableAdapter;
+        private DataSet_Phuong dataSet_Phuong1;
+        private DataSet_PhuongTableAdapters.VattuTableAdapter vattuTableAdapter1;
     }
 }

@@ -33,21 +33,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.vattuGridControl = new DevExpress.XtraGrid.GridControl();
             this.vattuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new QuanLyVatTuPhanTan.DataSet();
+            this.vattuTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.VattuTableAdapter();
+            this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSetTableAdapters.TableAdapterManager();
+            this.vattuGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.vattuTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.VattuTableAdapter();
-            this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,18 +99,6 @@
             this.label1.Text = "Danh Sách Thông Tin Tư";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // vattuGridControl
-            // 
-            this.vattuGridControl.DataSource = this.vattuBindingSource;
-            this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vattuGridControl.Location = new System.Drawing.Point(0, 194);
-            this.vattuGridControl.MainView = this.gridView1;
-            this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(1105, 349);
-            this.vattuGridControl.TabIndex = 5;
-            this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
             // vattuBindingSource
             // 
             this.vattuBindingSource.DataMember = "Vattu";
@@ -120,72 +108,6 @@
             // 
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.gridView1.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.gridView1.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
-            this.gridView1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Transparent;
-            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAVT,
-            this.colTENVT,
-            this.colDVT,
-            this.colSOLUONGTON});
-            this.gridView1.GridControl = this.vattuGridControl;
-            this.gridView1.Name = "gridView1";
-            // 
-            // colMAVT
-            // 
-            this.colMAVT.Caption = "Mã Vật Tư";
-            this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 25;
-            this.colMAVT.Name = "colMAVT";
-            this.colMAVT.OptionsColumn.AllowEdit = false;
-            this.colMAVT.Visible = true;
-            this.colMAVT.VisibleIndex = 0;
-            this.colMAVT.Width = 94;
-            // 
-            // colTENVT
-            // 
-            this.colTENVT.Caption = "Tên Vật Tư";
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.OptionsColumn.AllowEdit = false;
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 1;
-            this.colTENVT.Width = 94;
-            // 
-            // colDVT
-            // 
-            this.colDVT.Caption = "Đơn Vị Tính";
-            this.colDVT.FieldName = "DVT";
-            this.colDVT.MinWidth = 25;
-            this.colDVT.Name = "colDVT";
-            this.colDVT.OptionsColumn.AllowEdit = false;
-            this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 2;
-            this.colDVT.Width = 94;
-            // 
-            // colSOLUONGTON
-            // 
-            this.colSOLUONGTON.Caption = "Số Lượng Tồn";
-            this.colSOLUONGTON.FieldName = "SOLUONGTON";
-            this.colSOLUONGTON.MinWidth = 25;
-            this.colSOLUONGTON.Name = "colSOLUONGTON";
-            this.colSOLUONGTON.OptionsColumn.AllowEdit = false;
-            this.colSOLUONGTON.Visible = true;
-            this.colSOLUONGTON.VisibleIndex = 3;
-            this.colSOLUONGTON.Width = 94;
             // 
             // vattuTableAdapter
             // 
@@ -206,22 +128,85 @@
             this.tableAdapterManager.UpdateOrder = QuanLyVatTuPhanTan.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VattuTableAdapter = this.vattuTableAdapter;
             // 
+            // vattuGridControl
+            // 
+            this.vattuGridControl.DataSource = this.vattuBindingSource;
+            this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vattuGridControl.Location = new System.Drawing.Point(0, 194);
+            this.vattuGridControl.MainView = this.gridView1;
+            this.vattuGridControl.Name = "vattuGridControl";
+            this.vattuGridControl.Size = new System.Drawing.Size(1105, 289);
+            this.vattuGridControl.TabIndex = 1;
+            this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAVT,
+            this.colTENVT,
+            this.colDVT,
+            this.colSOLUONGTON});
+            this.gridView1.GridControl = this.vattuGridControl;
+            this.gridView1.Name = "gridView1";
+            // 
+            // colMAVT
+            // 
+            this.colMAVT.Caption = "Mã Vật Tư";
+            this.colMAVT.FieldName = "MAVT";
+            this.colMAVT.MinWidth = 25;
+            this.colMAVT.Name = "colMAVT";
+            this.colMAVT.Visible = true;
+            this.colMAVT.VisibleIndex = 0;
+            this.colMAVT.Width = 94;
+            // 
+            // colTENVT
+            // 
+            this.colTENVT.Caption = "Tên Vật Tư";
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 1;
+            this.colTENVT.Width = 94;
+            // 
+            // colDVT
+            // 
+            this.colDVT.Caption = "Đơn vị tính";
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.MinWidth = 25;
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 2;
+            this.colDVT.Width = 94;
+            // 
+            // colSOLUONGTON
+            // 
+            this.colSOLUONGTON.Caption = "Số lượng tồn";
+            this.colSOLUONGTON.FieldName = "SOLUONGTON";
+            this.colSOLUONGTON.MinWidth = 25;
+            this.colSOLUONGTON.Name = "colSOLUONGTON";
+            this.colSOLUONGTON.Visible = true;
+            this.colSOLUONGTON.VisibleIndex = 3;
+            this.colSOLUONGTON.Width = 94;
+            // 
             // FormDanhSachVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 543);
+            this.ClientSize = new System.Drawing.Size(1105, 483);
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.panelControl1);
             this.Name = "FormDanhSachVatTu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Sách Vật Tư";
             this.Load += new System.EventHandler(this.FormDanhSachVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -233,15 +218,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private DataSet dataSet;
+        private System.Windows.Forms.BindingSource vattuBindingSource;
+        private DataSetTableAdapters.VattuTableAdapter vattuTableAdapter;
+        private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl vattuGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONGTON;
-        private DataSet dataSet;
-        private System.Windows.Forms.BindingSource vattuBindingSource;
-        private DataSetTableAdapters.VattuTableAdapter vattuTableAdapter;
-        private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

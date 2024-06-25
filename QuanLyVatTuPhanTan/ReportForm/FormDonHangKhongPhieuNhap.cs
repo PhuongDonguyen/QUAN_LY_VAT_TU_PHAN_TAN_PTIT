@@ -18,7 +18,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
     {
         private SqlConnection connPublisher = new SqlConnection();
         private string chiNhanh = "";
-
+        private String macn = "";
         public FormDonHangKhongPhieuNhap()
         {
             InitializeComponent();
@@ -45,6 +45,14 @@ namespace QuanLyVatTuPhanTan.ReportForm
             cmbCHINHANH.ValueMember = "TENSERVER";
 
         }
+
+
+
+        /******************************************************************
+         * mở kết nối tới server 
+         * @return trả về 1 nếu thành công
+         *         trả về 0 nếu thất bại
+         ******************************************************************/
         private int KetNoiDatabaseGoc()
         {
             if (connPublisher != null && connPublisher.State == ConnectionState.Open)
@@ -62,10 +70,66 @@ namespace QuanLyVatTuPhanTan.ReportForm
                 return 0;
             }
         }
+
+        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            /*Neu combobox khong co so lieu thi ket thuc luon*/
+            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
+
+            Program.servername = cmbCHINHANH.SelectedValue.ToString();
+
+            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
+            if (cmbCHINHANH.SelectedIndex != Program.chiNhanh)
+            {
+                Program.loginName = Program.remoteLogin;
+                Program.loginPass = Program.remotePassword;
+            }
+            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
+            else
+            {
+                Program.loginName = Program.currentLogin;
+                Program.loginPass = Program.currentPass;
+            }
+
+            if (Program.Connect() == false)
+            {
+                MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                
+                this.sp_DonHangKhongPhieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sp_DonHangKhongPhieuNhapTableAdapter.Fill(this.dataSet.sp_DonHangKhongPhieuNhap);
+            }
+
+        }
+
+        private void FormDonHangKhongPhieuNhap_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dataSet.sp_DonHangKhongPhieuNhap' table. You can move, or remove it, as needed.
+            dataSet.EnforceConstraints = false;
+            this.sp_DonHangKhongPhieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sp_DonHangKhongPhieuNhapTableAdapter.Fill(this.dataSet.sp_DonHangKhongPhieuNhap);
+
+            if (Program.role == "CONGTY")
+            {
+                this.cmbCHINHANH.Enabled = true;
+            }
+
+            if (KetNoiDatabaseGoc() == 0) //
+                return;
+             layDanhSachPhanManh("Select top 2 * from [dbo].[V_DS_PHANMANH]");
+            //cmbCHINHANH.SelectedIndex = 1;
+            //cmbCHINHANH.SelectedIndex = 0;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             ReportDonHangKhongPhieuNhap report = new ReportDonHangKhongPhieuNhap();
             /*GAN TEN CHI NHANH CHO BAO CAO*/
+            chiNhanh = this.cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
             report.txtChiNhanh.Text = chiNhanh.ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
@@ -103,36 +167,6 @@ namespace QuanLyVatTuPhanTan.ReportForm
                     "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 return;
             }
-        }
-
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
-                return;
-
-            Program.servername = cmbCHINHANH.SelectedValue.ToString();
-
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if (cmbCHINHANH.SelectedIndex != Program.chiNhanh)
-            {
-                Program.loginName = Program.remoteLogin;
-                Program.loginPass = Program.remotePassword;
-            }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
-            else
-            {
-                Program.loginName = Program.currentLogin;
-                Program.loginPass = Program.currentPass;
-            }
-
-            if (Program.Connect() == false)
-            {
-                MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
-            }
-
-            chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
         }
     }
 
