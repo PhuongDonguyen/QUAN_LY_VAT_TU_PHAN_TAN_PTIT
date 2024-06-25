@@ -135,7 +135,7 @@
             this.vattuGridControl.Location = new System.Drawing.Point(0, 194);
             this.vattuGridControl.MainView = this.gridView1;
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(1105, 379);
+            this.vattuGridControl.Size = new System.Drawing.Size(1105, 289);
             this.vattuGridControl.TabIndex = 1;
             this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 573);
+            this.ClientSize = new System.Drawing.Size(1105, 483);
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.panelControl1);
             this.Name = "FormDanhSachVatTu";

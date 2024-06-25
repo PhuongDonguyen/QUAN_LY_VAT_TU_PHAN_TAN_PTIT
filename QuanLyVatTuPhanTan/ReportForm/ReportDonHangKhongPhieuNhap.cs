@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 
 namespace QuanLyVatTuPhanTan.ReportForm
@@ -11,8 +12,11 @@ namespace QuanLyVatTuPhanTan.ReportForm
         public ReportDonHangKhongPhieuNhap()
         {
             InitializeComponent();
-            this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
-            this.sqlDataSource1.Fill();
+            dataSet1.EnforceConstraints = false;
+            this.sp_DonHangKhongPhieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.sp_DonHangKhongPhieuNhapTableAdapter.Fill(this.dataSet1.sp_DonHangKhongPhieuNhap);
+            //this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
+            //this.sqlDataSource1.Fill();
         }
 
     }

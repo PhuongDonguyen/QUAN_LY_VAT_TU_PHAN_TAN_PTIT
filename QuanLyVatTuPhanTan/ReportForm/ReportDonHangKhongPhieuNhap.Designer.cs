@@ -67,8 +67,11 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.xrControlStyle2 = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.dataSet1 = new QuanLyVatTuPhanTan.DataSet();
+            this.sp_DonHangKhongPhieuNhapTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.sp_DonHangKhongPhieuNhapTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -413,6 +416,15 @@
             this.xrControlStyle2.Name = "xrControlStyle2";
             this.xrControlStyle2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sp_DonHangKhongPhieuNhapTableAdapter
+            // 
+            this.sp_DonHangKhongPhieuNhapTableAdapter.ClearBeforeFill = true;
+            // 
             // ReportDonHangKhongPhieuNhap
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -422,9 +434,11 @@
             this.GroupHeader1,
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1});
+            this.sqlDataSource1,
+            this.dataSet1});
+            this.DataAdapter = this.sp_DonHangKhongPhieuNhapTableAdapter;
             this.DataMember = "sp_DonHangKhongPhieuNhap";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.dataSet1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(79F, 82F, 28.33333F, 100F);
             this.PageHeight = 1169;
@@ -441,6 +455,7 @@
             this.Version = "22.2";
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -483,5 +498,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle1;
         private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle2;
+        private DataSet dataSet1;
+        private DataSetTableAdapters.sp_DonHangKhongPhieuNhapTableAdapter sp_DonHangKhongPhieuNhapTableAdapter;
     }
 }
