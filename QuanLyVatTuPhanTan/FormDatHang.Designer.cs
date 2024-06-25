@@ -462,6 +462,7 @@
             // 
             this.datHangGridControl.DataSource = this.bdsDonDatHang;
             this.datHangGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.datHangGridControl.Enabled = false;
             this.datHangGridControl.Location = new System.Drawing.Point(0, 98);
             this.datHangGridControl.MainView = this.gridView1;
             this.datHangGridControl.MenuManager = this.barManager1;
