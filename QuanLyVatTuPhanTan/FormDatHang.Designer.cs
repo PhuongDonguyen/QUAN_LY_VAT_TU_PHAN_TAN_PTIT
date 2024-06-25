@@ -69,8 +69,8 @@
             this.colMasoDDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNhaCC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENNV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -79,6 +79,7 @@
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMasoDDH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -96,7 +97,6 @@
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.PhieuNhapTableAdapter();
-            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             mAKHOLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -462,11 +462,12 @@
             // 
             this.datHangGridControl.DataSource = this.bdsDonDatHang;
             this.datHangGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.datHangGridControl.Enabled = false;
             this.datHangGridControl.Location = new System.Drawing.Point(0, 98);
             this.datHangGridControl.MainView = this.gridView1;
             this.datHangGridControl.MenuManager = this.barManager1;
             this.datHangGridControl.Name = "datHangGridControl";
-            this.datHangGridControl.Size = new System.Drawing.Size(1074, 220);
+            this.datHangGridControl.Size = new System.Drawing.Size(1074, 279);
             this.datHangGridControl.TabIndex = 11;
             this.datHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -510,15 +511,6 @@
             this.colNhaCC.VisibleIndex = 2;
             this.colNhaCC.Width = 94;
             // 
-            // colMANV
-            // 
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 25;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 3;
-            this.colMANV.Width = 94;
-            // 
             // colMAKHO
             // 
             this.colMAKHO.FieldName = "MAKHO";
@@ -527,6 +519,15 @@
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 4;
             this.colMAKHO.Width = 94;
+            // 
+            // colMANV
+            // 
+            this.colMANV.FieldName = "MANV";
+            this.colMANV.MinWidth = 25;
+            this.colMANV.Name = "colMANV";
+            this.colMANV.Visible = true;
+            this.colMANV.VisibleIndex = 3;
+            this.colMANV.Width = 94;
             // 
             // colTENNV
             // 
@@ -543,9 +544,9 @@
             this.gcDDH.Controls.Add(this.panelControl3);
             this.gcDDH.Controls.Add(this.panelControl2);
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDH.Location = new System.Drawing.Point(0, 318);
+            this.gcDDH.Location = new System.Drawing.Point(0, 377);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1074, 377);
+            this.gcDDH.Size = new System.Drawing.Size(1074, 318);
             this.gcDDH.TabIndex = 25;
             this.gcDDH.Text = "Thông Tin";
             // 
@@ -555,7 +556,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(490, 28);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(582, 347);
+            this.panelControl3.Size = new System.Drawing.Size(582, 288);
             this.panelControl3.TabIndex = 4;
             // 
             // gcChiTietDonDatHang
@@ -568,7 +569,7 @@
             this.gcChiTietDonDatHang.MainView = this.gvCTDDH;
             this.gcChiTietDonDatHang.MenuManager = this.barManager1;
             this.gcChiTietDonDatHang.Name = "gcChiTietDonDatHang";
-            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(578, 343);
+            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(578, 284);
             this.gcChiTietDonDatHang.TabIndex = 1;
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
@@ -613,6 +614,16 @@
             this.colMAVT.VisibleIndex = 1;
             this.colMAVT.Width = 87;
             // 
+            // colTENVT
+            // 
+            this.colTENVT.Caption = "Tên Vật Tư";
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 2;
+            this.colTENVT.Width = 94;
+            // 
             // colSOLUONG
             // 
             this.colSOLUONG.Caption = "Số lượng";
@@ -620,7 +631,7 @@
             this.colSOLUONG.MinWidth = 23;
             this.colSOLUONG.Name = "colSOLUONG";
             this.colSOLUONG.Visible = true;
-            this.colSOLUONG.VisibleIndex = 2;
+            this.colSOLUONG.VisibleIndex = 3;
             this.colSOLUONG.Width = 87;
             // 
             // colDONGIA
@@ -632,7 +643,7 @@
             this.colDONGIA.MinWidth = 23;
             this.colDONGIA.Name = "colDONGIA";
             this.colDONGIA.Visible = true;
-            this.colDONGIA.VisibleIndex = 3;
+            this.colDONGIA.VisibleIndex = 4;
             this.colDONGIA.Width = 87;
             // 
             // panelControl2
@@ -642,7 +653,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(2, 28);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(488, 347);
+            this.panelControl2.Size = new System.Drawing.Size(488, 288);
             this.panelControl2.TabIndex = 3;
             // 
             // groupBoxDonDatHang
@@ -741,7 +752,7 @@
             this.groupBox1.Controls.Add(this.txtSoLuong);
             this.groupBox1.Controls.Add(sOLUONGLabel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(2, 196);
+            this.groupBox1.Location = new System.Drawing.Point(2, 137);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(484, 149);
             this.groupBox1.TabIndex = 2;
@@ -832,16 +843,6 @@
             // phieuNhapTableAdapter
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
-            // 
-            // colTENVT
-            // 
-            this.colTENVT.Caption = "Tên Vật Tư";
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 2;
-            this.colTENVT.Width = 94;
             // 
             // FormDatHang
             // 

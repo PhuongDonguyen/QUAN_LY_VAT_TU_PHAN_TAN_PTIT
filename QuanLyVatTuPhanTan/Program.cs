@@ -15,9 +15,9 @@ namespace QuanLyVatTuPhanTan
     {
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-       // public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT;Integrated Security=True";
-        public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
-        //public static String connstr_publisher = "Data Source=MSI\\LONG;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        //public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT;Integrated Security=True";
+        //public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=MSI\\LONG;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
         public static SqlConnection conn_publisher = new SqlConnection();
 
         public static SqlDataReader myReader;
@@ -28,8 +28,8 @@ namespace QuanLyVatTuPhanTan
         public static String loginName = "";
         public static String loginPass = "";
 
-        public static String database = "QLVT";
-        //public static String database = "QLVT_DATHANG";
+        //public static String database = "QLVT";
+        public static String database = "QLVT_DATHANG";
 
 
         public static String currentLogin = "";
@@ -46,7 +46,8 @@ namespace QuanLyVatTuPhanTan
         public static string hoTen = "";
         public static string role = "";
         public static string remoteLogin = "HTKN";
-        public static string remotePassword = "12";
+        //public static string remotePassword = "12";
+        public static string remotePassword = "123";
         // public static string remotePassword = "123456";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
@@ -86,7 +87,8 @@ namespace QuanLyVatTuPhanTan
         }
         public static bool ConnectToMainServer()
         {
-            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) conn_publisher.Close();
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) 
+                conn_publisher.Close();
             try
             {
                 conn_publisher.ConnectionString = Program.connstr_publisher;

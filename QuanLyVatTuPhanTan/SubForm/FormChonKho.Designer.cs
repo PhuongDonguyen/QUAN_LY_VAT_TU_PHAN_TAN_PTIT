@@ -1,6 +1,6 @@
 ﻿namespace QuanLyVatTuPhanTan.SubForm
 {
-    partial class FormChonVatTu
+    partial class FormChonKho
     {
         /// <summary>
         /// Required designer variable.
@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DSP = new QuanLyVatTuPhanTan.DataSet_Phuong();
-            this.bdsVatTu = new System.Windows.Forms.BindingSource(this.components);
-            this.vattuTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.VattuTableAdapter();
+            this.bdsKho = new System.Windows.Forms.BindingSource(this.components);
+            this.khoTableAdapter = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.KhoTableAdapter();
             this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager();
-            this.vattuGridControl = new DevExpress.XtraGrid.GridControl();
+            this.khoGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnHuy = new System.Windows.Forms.Button();
+            this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnChon = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +52,14 @@
             this.DSP.DataSetName = "DataSet_Phuong";
             this.DSP.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bdsVatTu
+            // bdsKho
             // 
-            this.bdsVatTu.DataMember = "Vattu";
-            this.bdsVatTu.DataSource = this.DSP;
+            this.bdsKho.DataMember = "Kho";
+            this.bdsKho.DataSource = this.DSP;
             // 
-            // vattuTableAdapter
+            // khoTableAdapter
             // 
-            this.vattuTableAdapter.ClearBeforeFill = true;
+            this.khoTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -69,23 +69,23 @@
             this.tableAdapterManager.CTPNTableAdapter = null;
             this.tableAdapterManager.CTPXTableAdapter = null;
             this.tableAdapterManager.DatHangTableAdapter = null;
-            this.tableAdapterManager.KhoTableAdapter = null;
+            this.tableAdapterManager.KhoTableAdapter = this.khoTableAdapter;
             this.tableAdapterManager.NhanVienTableAdapter = null;
             this.tableAdapterManager.PhieuNhapTableAdapter = null;
             this.tableAdapterManager.PhieuXuatTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VattuTableAdapter = this.vattuTableAdapter;
+            this.tableAdapterManager.VattuTableAdapter = null;
             // 
-            // vattuGridControl
+            // khoGridControl
             // 
-            this.vattuGridControl.DataSource = this.bdsVatTu;
-            this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.vattuGridControl.Location = new System.Drawing.Point(0, 0);
-            this.vattuGridControl.MainView = this.gridView1;
-            this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(475, 220);
-            this.vattuGridControl.TabIndex = 1;
-            this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.khoGridControl.DataSource = this.bdsKho;
+            this.khoGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.khoGridControl.Location = new System.Drawing.Point(0, 0);
+            this.khoGridControl.MainView = this.gridView1;
+            this.khoGridControl.Name = "khoGridControl";
+            this.khoGridControl.Size = new System.Drawing.Size(434, 191);
+            this.khoGridControl.TabIndex = 1;
+            this.khoGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -203,86 +203,86 @@
             this.gridView1.Appearance.VertLine.Options.UseBackColor = true;
             this.gridView1.Appearance.VertLine.Options.UseBorderColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAVT,
-            this.colTENVT,
-            this.colDVT,
-            this.colSOLUONGTON});
-            this.gridView1.GridControl = this.vattuGridControl;
+            this.colMAKHO,
+            this.colTENKHO,
+            this.colDIACHI,
+            this.colMACN});
+            this.gridView1.GridControl = this.khoGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
-            this.gridView1.PaintStyleName = "MixedXP";
+            this.gridView1.PaintStyleName = "Web";
             // 
-            // colMAVT
+            // colMAKHO
             // 
-            this.colMAVT.Caption = "Mã vật tư";
-            this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.Name = "colMAVT";
-            this.colMAVT.Visible = true;
-            this.colMAVT.VisibleIndex = 0;
+            this.colMAKHO.Caption = "Mã kho";
+            this.colMAKHO.FieldName = "MAKHO";
+            this.colMAKHO.Name = "colMAKHO";
+            this.colMAKHO.Visible = true;
+            this.colMAKHO.VisibleIndex = 0;
             // 
-            // colTENVT
+            // colTENKHO
             // 
-            this.colTENVT.Caption = "Tên vật tư";
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 1;
+            this.colTENKHO.Caption = "Tên kho";
+            this.colTENKHO.FieldName = "TENKHO";
+            this.colTENKHO.Name = "colTENKHO";
+            this.colTENKHO.Visible = true;
+            this.colTENKHO.VisibleIndex = 1;
             // 
-            // colDVT
+            // colDIACHI
             // 
-            this.colDVT.Caption = "Đơn vị tính";
-            this.colDVT.FieldName = "DVT";
-            this.colDVT.Name = "colDVT";
-            this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 2;
+            this.colDIACHI.Caption = "Địa chỉ";
+            this.colDIACHI.FieldName = "DIACHI";
+            this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.Visible = true;
+            this.colDIACHI.VisibleIndex = 2;
             // 
-            // colSOLUONGTON
+            // colMACN
             // 
-            this.colSOLUONGTON.Caption = "Tồn kho";
-            this.colSOLUONGTON.FieldName = "SOLUONGTON";
-            this.colSOLUONGTON.Name = "colSOLUONGTON";
-            this.colSOLUONGTON.Visible = true;
-            this.colSOLUONGTON.VisibleIndex = 3;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnHuy.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuy.Location = new System.Drawing.Point(378, 258);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(85, 26);
-            this.btnHuy.TabIndex = 5;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.colMACN.Caption = "Chi nhánh";
+            this.colMACN.FieldName = "TENCN";
+            this.colMACN.Name = "colMACN";
+            this.colMACN.Visible = true;
+            this.colMACN.VisibleIndex = 3;
             // 
             // btnChon
             // 
             this.btnChon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnChon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChon.Location = new System.Drawing.Point(287, 258);
+            this.btnChon.Location = new System.Drawing.Point(246, 245);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(85, 26);
-            this.btnChon.TabIndex = 4;
+            this.btnChon.TabIndex = 2;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
             this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
-            // FormChonVatTu
+            // btnHuy
+            // 
+            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnHuy.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHuy.Location = new System.Drawing.Point(337, 245);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(85, 26);
+            this.btnHuy.TabIndex = 3;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // FormChonKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 296);
+            this.ClientSize = new System.Drawing.Size(434, 283);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnChon);
-            this.Controls.Add(this.vattuGridControl);
-            this.Name = "FormChonVatTu";
-            this.Text = "Chọn vật tư";
-            this.Load += new System.EventHandler(this.FormChonVatTu_Load);
+            this.Controls.Add(this.khoGridControl);
+            this.Name = "FormChonKho";
+            this.Text = "Chọn kho hàng";
+            this.Load += new System.EventHandler(this.FormChonKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -291,16 +291,16 @@
         #endregion
 
         private DataSet_Phuong DSP;
-        private System.Windows.Forms.BindingSource bdsVatTu;
-        private DataSet_PhuongTableAdapters.VattuTableAdapter vattuTableAdapter;
+        private System.Windows.Forms.BindingSource bdsKho;
+        private DataSet_PhuongTableAdapters.KhoTableAdapter khoTableAdapter;
         private DataSet_PhuongTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl vattuGridControl;
+        private DevExpress.XtraGrid.GridControl khoGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colDVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONGTON;
-        private System.Windows.Forms.Button btnHuy;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENKHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private System.Windows.Forms.Button btnChon;
+        private System.Windows.Forms.Button btnHuy;
     }
 }

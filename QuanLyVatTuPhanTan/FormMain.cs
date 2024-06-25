@@ -212,20 +212,30 @@ namespace QuanLyVatTuPhanTan
 
         private void btnDanhSachVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-        }
-
-        private void btnDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form f = this.CheckFormOpen(typeof(FormDanhSachNhanVien));
+            Form f = this.CheckFormOpen(typeof(FormDanhSachVatTu));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormDanhSachNhanVien form = new FormDanhSachNhanVien();
-                form.MdiParent = this;
+                FormDanhSachVatTu form = new FormDanhSachVatTu();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnDonHangKhongPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormDonHangKhongPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDonHangKhongPhieuNhap form = new FormDonHangKhongPhieuNhap();
+                //form.MdiParent = this;
                 form.Show();
             }
         }

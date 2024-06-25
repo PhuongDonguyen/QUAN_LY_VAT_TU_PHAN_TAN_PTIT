@@ -7524,11 +7524,16 @@ SELECT MAKHO, TENKHO, DIACHI, MACN FROM Kho WHERE (MAKHO = @MAKHO)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT MAKHO, TENKHO, DIACHI, MACN FROM dbo.Kho";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "Select \r\n\tkho.MAKHO,\r\n\tkho.TENKHO,\r\n\tkho.DIACHI,\r\n\tcn.ChiNhanh as TENCN\r\nFrom\r\n\tK" +
+                "ho kho\r\nJoin \r\n\tChiNhanh cn\r\non kho.MACN = cn.MACN";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7550,6 +7555,30 @@ SELECT MAKHO, TENKHO, DIACHI, MACN FROM Kho WHERE (MAKHO = @MAKHO)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet_Phuong.KhoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet_Phuong.KhoDataTable dataTable = new DataSet_Phuong.KhoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DataSet_Phuong.KhoDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet_Phuong.KhoDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSet_Phuong.KhoDataTable dataTable = new DataSet_Phuong.KhoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8924,9 +8953,10 @@ SELECT MAPX, NGAY, HOTENKH, MANV, MAKHO FROM PhieuXuat WHERE (MAPX = @MAPX)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "Select\r\n   PX.MAPX,\r\n   PX.NGAY,\r\n   PX.HOTENKH,\r\n   PX.MANV,\r\n   ltrim(rtrim(NV." +
-                "HO)) + \' \' + ltrim(rtrim(NV.TEN)) as HOTEN,\r\n   PX.MAKHO\r\nFrom \r\n   PhieuXuat PX" +
-                "\r\nJoin\r\n   NhanVien NV\r\nOn\r\n   PX.MANV = NV.MANV";
+            this._commandCollection[1].CommandText = "Select\n   PX.MAPX,\n   PX.NGAY,\n   PX.HOTENKH,\n   PX.MANV,\n   ltrim(rtrim(NV.HO)) " +
+                "+ \' \' + ltrim(rtrim(NV.TEN)) + \'     [Mã NV: \' + CAST(NV.MANV AS NVARCHAR(50)) +" +
+                " \']\' as HOTEN,\n   PX.MAKHO\nFrom \n   PhieuXuat PX\nJoin\n   NhanVien NV\nOn\n   PX.MA" +
+                "NV = NV.MANV\n";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
