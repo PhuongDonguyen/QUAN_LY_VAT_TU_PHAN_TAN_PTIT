@@ -46,7 +46,8 @@ namespace QuanLyVatTuPhanTan
         public static string hoTen = "";
         public static string role = "";
         public static string remoteLogin = "HTKN";
-        public static string remotePassword = "12";
+        //public static string remotePassword = "12";
+        public static string remotePassword = "123";
         // public static string remotePassword = "123456";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
@@ -86,7 +87,8 @@ namespace QuanLyVatTuPhanTan
         }
         public static bool ConnectToMainServer()
         {
-            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) conn_publisher.Close();
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) 
+                conn_publisher.Close();
             try
             {
                 conn_publisher.ConnectionString = Program.connstr_publisher;

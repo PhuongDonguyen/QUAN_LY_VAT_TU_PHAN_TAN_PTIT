@@ -69,8 +69,8 @@
             this.colMasoDDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNhaCC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENNV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -79,6 +79,7 @@
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMasoDDH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -96,7 +97,6 @@
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.PhieuNhapTableAdapter();
-            this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             mAKHOLabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -510,15 +510,6 @@
             this.colNhaCC.VisibleIndex = 2;
             this.colNhaCC.Width = 94;
             // 
-            // colMANV
-            // 
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.MinWidth = 25;
-            this.colMANV.Name = "colMANV";
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 3;
-            this.colMANV.Width = 94;
-            // 
             // colMAKHO
             // 
             this.colMAKHO.FieldName = "MAKHO";
@@ -527,6 +518,15 @@
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 4;
             this.colMAKHO.Width = 94;
+            // 
+            // colMANV
+            // 
+            this.colMANV.FieldName = "MANV";
+            this.colMANV.MinWidth = 25;
+            this.colMANV.Name = "colMANV";
+            this.colMANV.Visible = true;
+            this.colMANV.VisibleIndex = 3;
+            this.colMANV.Width = 94;
             // 
             // colTENNV
             // 
@@ -613,6 +613,16 @@
             this.colMAVT.VisibleIndex = 1;
             this.colMAVT.Width = 87;
             // 
+            // colTENVT
+            // 
+            this.colTENVT.Caption = "Tên Vật Tư";
+            this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 25;
+            this.colTENVT.Name = "colTENVT";
+            this.colTENVT.Visible = true;
+            this.colTENVT.VisibleIndex = 2;
+            this.colTENVT.Width = 94;
+            // 
             // colSOLUONG
             // 
             this.colSOLUONG.Caption = "Số lượng";
@@ -620,7 +630,7 @@
             this.colSOLUONG.MinWidth = 23;
             this.colSOLUONG.Name = "colSOLUONG";
             this.colSOLUONG.Visible = true;
-            this.colSOLUONG.VisibleIndex = 2;
+            this.colSOLUONG.VisibleIndex = 3;
             this.colSOLUONG.Width = 87;
             // 
             // colDONGIA
@@ -632,7 +642,7 @@
             this.colDONGIA.MinWidth = 23;
             this.colDONGIA.Name = "colDONGIA";
             this.colDONGIA.Visible = true;
-            this.colDONGIA.VisibleIndex = 3;
+            this.colDONGIA.VisibleIndex = 4;
             this.colDONGIA.Width = 87;
             // 
             // panelControl2
@@ -832,16 +842,6 @@
             // phieuNhapTableAdapter
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
-            // 
-            // colTENVT
-            // 
-            this.colTENVT.Caption = "Tên Vật Tư";
-            this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
-            this.colTENVT.Name = "colTENVT";
-            this.colTENVT.Visible = true;
-            this.colTENVT.VisibleIndex = 2;
-            this.colTENVT.Width = 94;
             // 
             // FormDatHang
             // 

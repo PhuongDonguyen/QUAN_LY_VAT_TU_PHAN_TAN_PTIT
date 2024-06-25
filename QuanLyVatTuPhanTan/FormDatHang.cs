@@ -656,6 +656,7 @@ namespace QuanLyVatTuPhanTan
                     this.txtNhaCungCap.Enabled = true;
                     //this.txtMaNhanVien.Text = Program.userName;
                     this.btnChonKhoHang.Enabled = true;
+                    bds.CancelEdit();
                 }
                 /*dang o che do Chi Tiet Don Dat Hang*/
                 if (btnMENU.Links[0].Caption == "Chi Tiết Đơn Đặt Hàng")
@@ -668,6 +669,7 @@ namespace QuanLyVatTuPhanTan
 
                     this.txtDonGia.Enabled = true;
                     this.txtDonGia.EditValue = 1;
+                    bds.CancelEdit();
                 }
 
                 this.btnTHEM.Enabled = true;
@@ -679,10 +681,9 @@ namespace QuanLyVatTuPhanTan
                 this.btnMENU.Enabled = true;
                 this.btnTHOAT.Enabled = true;
 
-
-                bds.CancelEdit();
+                
                 /*xoa dong hien tai*/
-                bds.RemoveCurrent();
+                //bds.RemoveCurrent();
                 /* trở về lúc đầu con trỏ đang đứng*/
                 bds.Position = viTri;
                 return;
@@ -698,13 +699,14 @@ namespace QuanLyVatTuPhanTan
 
             /*Step 2*/
             bds.CancelEdit();
+            
             String cauTruyVanHoanTac = undoList.Pop().ToString();
 
             Console.WriteLine(cauTruyVanHoanTac);
             int n = Program.ExceSqlNoneQuery(cauTruyVanHoanTac);
-
             this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
             this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
+
 
             bdsDonDatHang.Position = viTri;
         }

@@ -231,6 +231,7 @@
             this.btnDonHangKhongPhieuNhap.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDonHangKhongPhieuNhap.ImageOptions.SvgImage")));
             this.btnDonHangKhongPhieuNhap.LargeWidth = 100;
             this.btnDonHangKhongPhieuNhap.Name = "btnDonHangKhongPhieuNhap";
+            this.btnDonHangKhongPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonHangKhongPhieuNhap_ItemClick);
             // 
             // btnHoatDongNhanVien
             // 
