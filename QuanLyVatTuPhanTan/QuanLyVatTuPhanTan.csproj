@@ -140,6 +140,12 @@
     <Compile Include="ReportForm\FormChiTietSoLuongTriGiaHangHoaNhapXuat.Designer.cs">
       <DependentUpon>FormChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.Designer.cs">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\FormChonKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </Compile>
     <EmbeddedResource Include="ReportForm\FormChiTietSoLuongTriGiaHangHoaNhapXuat.resx">
       <DependentUpon>FormChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.resx">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChonKho.resx">
       <DependentUpon>FormChonKho.cs</DependentUpon>

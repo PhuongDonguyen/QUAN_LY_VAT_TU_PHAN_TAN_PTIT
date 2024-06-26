@@ -129,6 +129,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(26, 24, 26, 24);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -158,16 +159,14 @@
             this.btnPhieuXuat,
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 283;
+            this.ribbon.OptionsMenuMinWidth = 243;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageNhapXuat,
             this.pageBaoCao,
             this.pageHeThong});
-            this.ribbon.Size = new System.Drawing.Size(875, 158);
+            this.ribbon.Size = new System.Drawing.Size(977, 158);
             // 
             // btnNhanVien
             // 
@@ -225,6 +224,7 @@
             this.btnChiTietNhapXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChiTietNhapXuat.ImageOptions.SvgImage")));
             this.btnChiTietNhapXuat.LargeWidth = 100;
             this.btnChiTietNhapXuat.Name = "btnChiTietNhapXuat";
+            this.btnChiTietNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChiTietNhapXuat_ItemClick);
             // 
             // btnDonHangKhongPhieuNhap
             // 
@@ -425,28 +425,29 @@
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 900);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 730);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1140, 26);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(977, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // MANHANVIEN
             // 
             this.MANHANVIEN.Name = "MANHANVIEN";
-            this.MANHANVIEN.Size = new System.Drawing.Size(115, 20);
+            this.MANHANVIEN.Size = new System.Drawing.Size(92, 17);
             this.MANHANVIEN.Text = "MÃ NHÂN VIÊN";
             // 
             // HOTEN
             // 
             this.HOTEN.Name = "HOTEN";
-            this.HOTEN.Size = new System.Drawing.Size(62, 20);
+            this.HOTEN.Size = new System.Drawing.Size(49, 17);
             this.HOTEN.Text = "HỌ TÊN";
             // 
             // NHOM
             // 
             this.NHOM.Name = "NHOM";
-            this.NHOM.Size = new System.Drawing.Size(63, 20);
+            this.NHOM.Size = new System.Drawing.Size(49, 17);
             this.NHOM.Text = "VAI TRÒ";
             // 
             // documentManager1
@@ -459,14 +460,13 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 926);
+            this.ClientSize = new System.Drawing.Size(977, 752);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("FormMain.IconOptions.LargeImage")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Ribbon = this.ribbon;
             this.Text = "Quản lý vật tư";
