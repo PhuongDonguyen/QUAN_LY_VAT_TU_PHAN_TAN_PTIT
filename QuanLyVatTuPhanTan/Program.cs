@@ -37,6 +37,9 @@ namespace QuanLyVatTuPhanTan
 
         public static int chiNhanh = 0;
         public static String maChiNhanhHienTai;
+        //Hoat dong nhan vien
+        public static string hdMaNV;
+        public static string hdHoTen;
         //Kho
         public static String chonKhoPN = "";
         //Phieu Nhap
@@ -46,8 +49,8 @@ namespace QuanLyVatTuPhanTan
         public static string hoTen = "";
         public static string role = "";
         public static string remoteLogin = "HTKN";
-        //public static string remotePassword = "12";
-        public static string remotePassword = "123";
+        public static string remotePassword = "12";
+        //public static string remotePassword = "123";
         // public static string remotePassword = "123456";
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 

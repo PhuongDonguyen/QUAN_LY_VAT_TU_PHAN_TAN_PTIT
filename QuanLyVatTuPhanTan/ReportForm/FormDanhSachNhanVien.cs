@@ -40,7 +40,9 @@ namespace QuanLyVatTuPhanTan.ReportForm
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.chiNhanh;
-        
+            DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
+            String tenCNN = selectedRow["TENCN"].ToString().ToLower();
+            tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
 
@@ -68,8 +70,8 @@ namespace QuanLyVatTuPhanTan.ReportForm
             else
             {
                 DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
-                String tenCN = selectedRow["TENCN"].ToString().ToLower();
-                tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
+                String tenCNN = selectedRow["TENCN"].ToString().ToLower();
+                tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 // bi chay vao khi o nhan vien dang xuat zo dang nhap lai

@@ -94,9 +94,8 @@ namespace QuanLyVatTuPhanTan
         }
         private void FormPhieuNhap_Load(object sender, EventArgs e)
         {
-
+            Console.WriteLine("load pn");
             dS.EnforceConstraints = false;
-            this.btnCTPN.Enabled = false;
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
             this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -104,7 +103,7 @@ namespace QuanLyVatTuPhanTan
             cmbChiNhanh.DataSource = Program.bds_dspm;
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
-            cmbChiNhanh.SelectedIndex = Program.chiNhanh;
+            //cmbChiNhanh.SelectedIndex = Program.chiNhanh;
             gbPN.Enabled = false;
             gbCTPN.Enabled = false;
             cmbChiNhanh.Enabled = true;
@@ -116,6 +115,10 @@ namespace QuanLyVatTuPhanTan
             this.btnHoanTac.Enabled = false;
             this.btnChonCheDo.Enabled = true;
             this.btnThoat.Enabled = true;
+            if (Program.role == "CONGTY")
+            {
+                btnCTPN.Enabled = false;    
+            }
         }
 
 
@@ -624,15 +627,19 @@ namespace QuanLyVatTuPhanTan
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("load cmb: "+ cmbChiNhanh.SelectedValue.ToString());
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            Console.WriteLine(cmbChiNhanh.SelectedIndex +"  ___" + Program.chiNhanh);
             if (cmbChiNhanh.SelectedIndex != Program.chiNhanh)
             {
+                Console.WriteLine("1");
                 Program.loginName = Program.remoteLogin;
                 Program.loginPass = Program.remotePassword;
             }
             else
             {
+                Console.WriteLine("2");
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
             }
@@ -643,6 +650,7 @@ namespace QuanLyVatTuPhanTan
             }
             else
             {
+                Console.WriteLine("3");
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
                 this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
