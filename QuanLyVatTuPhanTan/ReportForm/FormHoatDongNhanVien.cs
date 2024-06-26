@@ -30,7 +30,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
 
         private void btnChonNhanVien_Click(object sender, EventArgs e)
         {
-            FormChonNhanVien form = new FormChonNhanVien();
+            FormChonHDNhanVien form = new FormChonHDNhanVien();
             form.ShowDialog();
             txtHoVaTen.Text = Program.hdHoTen;
             txtMaNhanVien.Text = Program.hdMaNV;

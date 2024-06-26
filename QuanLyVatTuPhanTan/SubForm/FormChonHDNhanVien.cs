@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.SubForm
 {
-    public partial class FormChonNhanVien : DevExpress.XtraEditors.XtraForm
+    public partial class FormChonHDNhanVien : DevExpress.XtraEditors.XtraForm
     {
         string tenCN;
-        public FormChonNhanVien()
+        public FormChonHDNhanVien()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyVatTuPhanTan.SubForm
 {
-    partial class FormChonNhanVien
+    partial class FormChonHDNhanVien
     {
         /// <summary>
         /// Required designer variable.
