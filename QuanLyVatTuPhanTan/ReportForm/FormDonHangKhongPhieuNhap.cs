@@ -1,15 +1,8 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.ReportForm
@@ -18,7 +11,6 @@ namespace QuanLyVatTuPhanTan.ReportForm
     {
         private SqlConnection connPublisher = new SqlConnection();
         private string chiNhanh = "";
-        private String macn = "";
         public FormDonHangKhongPhieuNhap()
         {
             InitializeComponent();
@@ -99,7 +91,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
             }
             else
             {
-                
+
                 this.sp_DonHangKhongPhieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sp_DonHangKhongPhieuNhapTableAdapter.Fill(this.dataSet.sp_DonHangKhongPhieuNhap);
             }
@@ -120,7 +112,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
 
             if (KetNoiDatabaseGoc() == 0) //
                 return;
-             layDanhSachPhanManh("Select top 2 * from [dbo].[V_DS_PHANMANH]");
+            layDanhSachPhanManh("Select top 2 * from [dbo].[V_DS_PHANMANH]");
             //cmbCHINHANH.SelectedIndex = 1;
             //cmbCHINHANH.SelectedIndex = 0;
         }

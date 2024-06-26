@@ -395,7 +395,7 @@
             this.dataSet_Phuong1});
             this.DataAdapter = this.vattuTableAdapter;
             this.DataMember = "Vattu";
-            this.DataSource = this.dataSet1;
+            this.DataSource = this.sqlDataSource1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.PageHeight = 1169;
             this.PageWidth = 827;

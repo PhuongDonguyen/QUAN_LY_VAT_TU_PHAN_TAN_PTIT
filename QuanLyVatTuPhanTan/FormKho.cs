@@ -1,16 +1,10 @@
 ﻿using DevExpress.XtraEditors;
-using QuanLyVatTuPhanTan.DSTableAdapters;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
@@ -62,11 +56,12 @@ namespace QuanLyVatTuPhanTan
             {
                 cmbChiNhanh.Enabled = true;
 
-                this.btnThem.Enabled = this.btnXoa.Enabled 
-                                     = this.btnGhi.Enabled 
-                                     = this.btnHoanTac.Enabled 
+                this.btnThem.Enabled = this.btnXoa.Enabled
+                                     = this.btnGhi.Enabled
+                                     = this.btnHoanTac.Enabled
                                      = this.btnSua.Enabled = false;
-            } else
+            }
+            else
             {
                 cmbChiNhanh.Enabled = false;
                 this.btnGhi.Enabled = false;
@@ -223,13 +218,14 @@ namespace QuanLyVatTuPhanTan
             /* Bước 2: Lấy vị trí con trỏ hiện tại và tìm con trỏ của maKho đang xử lí */
             int viTriConTro = bdsKho.Position;
             int viTriMaKho = bdsKho.Find("MAKHO", txtMaKho.Text);
-            
+
             // Chỉ khi đang thêm mới Kho mới cho xuất hiện lỗi này nếu mã kho bị trùng
             if (result == 1 && viTriConTro != viTriMaKho)
             {
                 MessageBox.Show("Mã kho hàng này đã được sử dụng !", "Thông báo", MessageBoxButtons.OK);
                 return;
-            }  else
+            }
+            else
             {
                 DialogResult dr = MessageBox.Show("Bạn có chắc muốn GHI dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -338,9 +334,9 @@ namespace QuanLyVatTuPhanTan
         {
             dangSua = true;
             viTri = bdsKho.Position;
-            khoGridControl.Enabled = cmbChiNhanh.Enabled 
-                                   = btnThem.Enabled 
-                                   = btnXoa.Enabled 
+            khoGridControl.Enabled = cmbChiNhanh.Enabled
+                                   = btnThem.Enabled
+                                   = btnXoa.Enabled
                                    = btnSua.Enabled
                                    = btnLamMoi.Enabled
                                    = btnThem.Enabled = false;
@@ -435,7 +431,8 @@ namespace QuanLyVatTuPhanTan
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPass = Program.remotePassword;
-            } else
+            }
+            else
             {
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
@@ -444,7 +441,8 @@ namespace QuanLyVatTuPhanTan
             if (Program.Connect() == false) // Kết nối thất bại
             {
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "Thông báo", MessageBoxButtons.OK);
-            } else
+            }
+            else
             {
                 this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.khoTableAdapter.Fill(this.dS.Kho);

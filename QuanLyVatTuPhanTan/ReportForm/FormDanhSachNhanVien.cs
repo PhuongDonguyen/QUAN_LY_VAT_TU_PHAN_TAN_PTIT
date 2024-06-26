@@ -1,14 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.ReportForm
@@ -40,7 +34,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.chiNhanh;
-        
+
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
 
@@ -69,7 +63,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
             {
                 DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
                 String tenCN = selectedRow["TENCN"].ToString().ToLower();
-                tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
+                //tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 // bi chay vao khi o nhan vien dang xuat zo dang nhap lai
@@ -78,7 +72,8 @@ namespace QuanLyVatTuPhanTan.ReportForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReportDanhSachNhanVien report =new ReportDanhSachNhanVien();
+            ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
+            tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
             report.txtChiNhanh.Text = tenCN;
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

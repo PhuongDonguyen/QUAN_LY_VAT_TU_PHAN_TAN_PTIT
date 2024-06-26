@@ -1,13 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.SubForm
 {
@@ -36,7 +28,7 @@ namespace QuanLyVatTuPhanTan.SubForm
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Dispose(); 
+            this.Dispose();
         }
 
         private void btnChon_Click(object sender, EventArgs e)

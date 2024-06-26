@@ -129,6 +129,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(37);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -158,16 +159,15 @@
             this.btnPhieuXuat,
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(5);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 283;
+            this.ribbon.OptionsMenuMinWidth = 354;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageNhapXuat,
             this.pageBaoCao,
             this.pageHeThong});
-            this.ribbon.Size = new System.Drawing.Size(875, 158);
+            this.ribbon.Size = new System.Drawing.Size(1140, 193);
             // 
             // btnNhanVien
             // 
@@ -208,6 +208,7 @@
             this.btnDanhSachNhanVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachNhanVien.ImageOptions.SvgImage")));
             this.btnDanhSachNhanVien.LargeWidth = 100;
             this.btnDanhSachNhanVien.Name = "btnDanhSachNhanVien";
+            this.btnDanhSachNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachNhanVien_ItemClick);
             // 
             // btnDanhSachVatTu
             // 
@@ -365,6 +366,7 @@
             this.btnLapTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLapTaiKhoan.ImageOptions.SvgImage")));
             this.btnLapTaiKhoan.LargeWidth = 100;
             this.btnLapTaiKhoan.Name = "btnLapTaiKhoan";
+            this.btnLapTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapTaiKhoan_ItemClick);
             // 
             // pageNhapXuat
             // 
@@ -448,6 +450,7 @@
             this.NHOM.Name = "NHOM";
             this.NHOM.Size = new System.Drawing.Size(63, 20);
             this.NHOM.Text = "VAI TRÒ";
+            this.NHOM.Click += new System.EventHandler(this.NHOM_Click);
             // 
             // documentManager1
             // 

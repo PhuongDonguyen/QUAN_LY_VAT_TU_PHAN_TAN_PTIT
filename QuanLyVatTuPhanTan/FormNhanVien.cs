@@ -2,17 +2,10 @@
 using QuanLyVatTuPhanTan.SubForm;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -37,7 +30,7 @@ namespace QuanLyVatTuPhanTan
             int viTriHienTai = bdsNhanVien.Position;
             String maNV = ((DataRowView)bdsNhanVien[viTriHienTai])["MANV"].ToString();
             String cauTruyVan = "DECLARE @return_value int; " +
-                " EXEC @return_value =  sp_ChuyenChiNhanh " + maNV + ",'" + maChiNhanhMoi + 
+                " EXEC @return_value =  sp_ChuyenChiNhanh " + maNV + ",'" + maChiNhanhMoi +
                 "' SELECT 'value' = @return_value ";
 
             Console.WriteLine("Cau Truy Van: " + cauTruyVan);
@@ -46,7 +39,8 @@ namespace QuanLyVatTuPhanTan
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
-                if (Program.myReader == null) {
+                if (Program.myReader == null)
+                {
                     MessageBox.Show("Không có dữ liệu trả về trong khi chuyển chi nhánh", "thông báo", MessageBoxButtons.OK);
                     return;
                 };
@@ -82,7 +76,7 @@ namespace QuanLyVatTuPhanTan
             Program.myReader.Read();
             int result = (Program.myReader.GetInt32(0));
             Program.myReader.Close();
-            
+
             if (result > 0 && viTriConTro != vitriNhanVien)
             {
                 XtraMessageBox.Show($"Mã nhân viên đã được sử dụng", "", MessageBoxButtons.OK);
@@ -204,15 +198,15 @@ namespace QuanLyVatTuPhanTan
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DataRowView nv = (DataRowView)bdsNhanVien[bdsNhanVien.Position];
-            String ho="";
-            String ten="";
-            int maNv=-1;
-            String cmnd="";
-            String diaChi="";
+            String ho = "";
+            String ten = "";
+            int maNv = -1;
+            String cmnd = "";
+            String diaChi = "";
             DateTime ns;
-            string ngaySinh="";
-            String luong="";
-            String maCn="";
+            string ngaySinh = "";
+            String luong = "";
+            String maCn = "";
             String ttx = "";
             if (dangSua)
             {
@@ -301,7 +295,7 @@ namespace QuanLyVatTuPhanTan
             {
                 dangSua = false;
                 dangThemMoi = false;
-            
+
                 bdsNhanVien.CancelEdit();
                 gcNhanVien.Enabled = true;
                 btnThem.Enabled = true;
@@ -509,7 +503,7 @@ namespace QuanLyVatTuPhanTan
                 MessageBox.Show("Nhân viên này đã bị xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(maNV == Program.userID)
+            if (maNV == Program.userID)
             {
                 MessageBox.Show("Không thể tự chuyển chính mình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
