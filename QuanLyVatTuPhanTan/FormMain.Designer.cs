@@ -250,6 +250,7 @@
             this.btnTongHopNhapXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTongHopNhapXuat.ImageOptions.SvgImage")));
             this.btnTongHopNhapXuat.LargeWidth = 100;
             this.btnTongHopNhapXuat.Name = "btnTongHopNhapXuat";
+            this.btnTongHopNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTongHopNhapXuat_ItemClick);
             // 
             // barButtonItem4
             // 

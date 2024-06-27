@@ -254,5 +254,20 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        private void btnTongHopNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormTongHopNhapXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTongHopNhapXuat form = new FormTongHopNhapXuat();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }
