@@ -4,14 +4,7 @@ using QuanLyVatTuPhanTan.DSTableAdapters;
 using QuanLyVatTuPhanTan.SubForm;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
@@ -44,7 +37,7 @@ namespace QuanLyVatTuPhanTan
 
             if (txtMaPN.Text.Trim().Length == 0)
             {
-      
+
                 MessageBox.Show("Không được để mã trống mã phiéu nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -130,7 +123,7 @@ namespace QuanLyVatTuPhanTan
             /*Step 0*/
             btnChonCheDo.Links[0].Caption = "Phiếu Nhập";
             Console.WriteLine("count " + undoListPN.Count.ToString());
-           
+
             /*Step 1*/
             bds = bdsPN;
             gc = gcPN;
@@ -220,7 +213,7 @@ namespace QuanLyVatTuPhanTan
                 this.btnLamMoi.Enabled = true;
                 this.btnChonCheDo.Enabled = true;
                 this.btnThoat.Enabled = true;
-               
+
                 this.gbPN.Enabled = false;
 
 
@@ -291,7 +284,7 @@ namespace QuanLyVatTuPhanTan
                 Console.WriteLine("check ctpn");
                 res = KiemTraDulieuDauVaoCTPN();
             }
-            Console.WriteLine( cheDo == "Phiếu Nhập" );
+            Console.WriteLine(cheDo == "Phiếu Nhập");
             if (!res) return;
             DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
                       MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -323,7 +316,7 @@ namespace QuanLyVatTuPhanTan
                         String MAVT = ctpn["MAVT"].ToString().Trim();
                         String sl = ctpn["SOLUONG"].ToString().Trim();
                         String gia = ctpn["DONGIA"].ToString().Trim();
-                        int capNhatSLVTDaSua = int.Parse(seSoLuongCTPN.Value.ToString()) - int.Parse(sl) ;
+                        int capNhatSLVTDaSua = int.Parse(seSoLuongCTPN.Value.ToString()) - int.Parse(sl);
                         string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , {txtMaVtCTPN.Text} , {capNhatSLVTDaSua}";
                         truyVanHoanTac =
                         $@"UPDATE DBO.CTPN 
@@ -339,7 +332,7 @@ namespace QuanLyVatTuPhanTan
                         Program.ExceSqlNoneQuery(capNhatVT);
                         undoListCTPN.Push(truyVanHoanTac);
                         vtHoanTacCTPN.Push(bdsCTPN.Position);
-                     
+
                         vitriContro = bdsPN.Position;
                         vitriContro1 = bdsCTPN.Position;
 
@@ -349,8 +342,8 @@ namespace QuanLyVatTuPhanTan
                         this.btnSua.Enabled = true;
                         gcChiTietPhieuNhap.Enabled = true;
                         gcPN.Enabled = true;
-                           
-                      
+
+
                     }
                     this.btnThem.Enabled = true;
                     this.btnXoa.Enabled = true;
@@ -365,7 +358,7 @@ namespace QuanLyVatTuPhanTan
                     this.seSoLuongCTPN.Enabled = false;
                     this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
                     this.CTPNTableAdapter.FillBy(this.dS.CTPN);
-                    if(cheDo == "PN")
+                    if (cheDo == "PN")
                     {
                         bdsPN.Position = bdsPN.Count;
                     }
@@ -381,7 +374,7 @@ namespace QuanLyVatTuPhanTan
                 }
                 catch (Exception ex)
                 {
-                  
+
                     MessageBox.Show("Da xay ra loi !\n\n" + ex.Message, "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -413,8 +406,8 @@ namespace QuanLyVatTuPhanTan
                 this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
                 this.CTPNTableAdapter.FillBy(this.dS.CTPN);
                 bdsPN.Position = vitriContro;
-                bdsCTPN.Position= vitriContro1;
-                
+                bdsCTPN.Position = vitriContro1;
+
             }
             catch (Exception ex)
             {
@@ -431,7 +424,7 @@ namespace QuanLyVatTuPhanTan
                 {
                     dangThemMoi = false;
                     bdsPN.CancelEdit();
-                
+
                     txtMaPN.Enabled = false;
                     btnThem.Enabled = true;
                     btnXoa.Enabled = true;
@@ -474,7 +467,7 @@ namespace QuanLyVatTuPhanTan
                 if (dangSuaCTPN == true && btnSua.Enabled == false)
                 {
                     dangSuaCTPN = false;
-                   
+
                     bdsCTPN.CancelEdit();
                     btnThem.Enabled = false;
                     btnXoa.Enabled = true;
@@ -499,7 +492,7 @@ namespace QuanLyVatTuPhanTan
                 }
                 String truyVanHoanTac = undoListCTPN.Pop().ToString();
                 int vtCTPN = int.Parse(vtHoanTacCTPN.Pop().ToString());
-            
+
                 if (!Program.Connect())
                 {
                     return;
@@ -540,7 +533,7 @@ namespace QuanLyVatTuPhanTan
                             $@"INSERT INTO DBO.PHIEUNHAP(MAPN,NGAY,MasoDDH,MANV,MAKHO) 
                            VALUES('{txtMaPN.Text}','{formattedDate}','{txtMaDdh.Text}','{txtMaNV.Text}','{txtMaKho.Text}')
                         ";
-                        
+
                         bdsPN.RemoveCurrent();
                         vtHoanTacPN.Push(controCu);
                         undoListPN.Push(cauTruyVanHoanTac);
@@ -568,7 +561,7 @@ namespace QuanLyVatTuPhanTan
                 {
                     try
                     {
-                        controCu = bdsCTPN.Position ;
+                        controCu = bdsCTPN.Position;
                         string capNhatVT = $"EXEC sp_CapNhatSoLuongVatTu 'EXPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}";
                         string cauTruyVanHoanTac =
                           $@"INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
@@ -582,7 +575,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         Program.ExceSqlNoneQuery(capNhatVT);
                         undoListCTPN.Push(cauTruyVanHoanTac);
-                        vtHoanTacCTPN.Push(controCu);                        bdsCTPN.RemoveCurrent();
+                        vtHoanTacCTPN.Push(controCu); bdsCTPN.RemoveCurrent();
                         this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
                         CTPNTableAdapter.Update(this.dS.CTPN);
                         CTPNTableAdapter.FillBy(this.dS.CTPN);

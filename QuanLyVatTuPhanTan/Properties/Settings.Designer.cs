@@ -58,6 +58,27 @@ namespace QuanLyVatTuPhanTan.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NHAT-PC\\SERVER02;Initial Catalog=QLVT;User ID=tt;Password=12")]
+        public string QLVT_ConnectXRPT {
+            get {
+                return ((string)(this["QLVT_ConnectXRPT"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\MSSQLSERVER01;Initial Catalog=QLVT_DATHANG;User ID=lt; Password =" +
+            " 123;Encrypt=True;TrustServerCertificate=True")]
+        public string QLVT_DATHANGConnectionString1 {
+            get {
+                return ((string)(this["QLVT_DATHANGConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PHUONG-HPLAP\\MSSQLSERVER1;Initial Catalog=QLVT;User ID=tt;Password=12" +
             "3456;Encrypt=True;TrustServerCertificate=True")]
         public string QLVTConnectionString2 {

@@ -1,15 +1,7 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraBars.Customization;
 using DevExpress.XtraEditors;
 using QuanLyVatTuPhanTan.ReportForm;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
@@ -20,7 +12,7 @@ namespace QuanLyVatTuPhanTan
         {
             InitializeComponent();
         }
-  
+
         private void FormMain_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +41,7 @@ namespace QuanLyVatTuPhanTan
             foreach (Form f in MdiChildren)
             {
                 f.Dispose();
-           
+
             }
         }
 
@@ -94,11 +86,11 @@ namespace QuanLyVatTuPhanTan
             if (f != null) f.Activate();
             else
             {
-             
+
                 FormLogin login = new FormLogin();
-             
+
                 login.Show();
-          }
+            }
 
         }
 
@@ -238,6 +230,40 @@ namespace QuanLyVatTuPhanTan
                 //form.MdiParent = this;
                 form.Show();
             }
+        }
+
+        private void btnDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormDanhSachNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachNhanVien form = new FormDanhSachNhanVien();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnLapTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormTaoTaiKhoan));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                form.Show();
+            }
+        }
+
+        private void NHOM_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnChiTietNhapXuat_ItemClick(object sender, ItemClickEventArgs e)

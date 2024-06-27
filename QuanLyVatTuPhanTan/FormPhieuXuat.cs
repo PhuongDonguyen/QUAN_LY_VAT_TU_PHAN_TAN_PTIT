@@ -1,17 +1,10 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using DevExpress.XtraGrid;
 using QuanLyVatTuPhanTan.SubForm;
-using System.Data.SqlClient;
+using System;
 using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -85,10 +78,11 @@ namespace QuanLyVatTuPhanTan
                 btnLamMoi.Enabled = btnMenu.Enabled = btnThoat.Enabled = true;
 
                 this.groupBoxPhieuNhap.Enabled = false;
-            } else /* Role CHINHANH || USER */
+            }
+            else /* Role CHINHANH || USER */
             {
                 cmbChiNhanh.Enabled = false;
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnHoanTac.Enabled 
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnHoanTac.Enabled
                                 = btnLamMoi.Enabled = btnMenu.Enabled = btnThoat.Enabled = true;
             }
         }
@@ -276,7 +270,7 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
 
-                groupBoxVatTu.Visible= true;
+                groupBoxVatTu.Visible = true;
                 this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
                 this.btnChonVatTu.Enabled = true;
 
@@ -683,7 +677,7 @@ namespace QuanLyVatTuPhanTan
                 this.gcPhieuXuat.Enabled = true;
                 this.gcChiTietPhieuXuat.Enabled = true;
 
-                
+
                 Console.WriteLine("Vi tri hien tai: " + bds.Position);
                 //bds.RemoveCurrent();
 

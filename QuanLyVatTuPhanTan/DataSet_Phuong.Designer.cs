@@ -8953,10 +8953,20 @@ SELECT MAPX, NGAY, HOTENKH, MANV, MAKHO FROM PhieuXuat WHERE (MAPX = @MAPX)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "Select\n   PX.MAPX,\n   PX.NGAY,\n   PX.HOTENKH,\n   PX.MANV,\n   ltrim(rtrim(NV.HO)) " +
-                "+ \' \' + ltrim(rtrim(NV.TEN)) + \'     [Mã NV: \' + CAST(NV.MANV AS NVARCHAR(50)) +" +
-                " \']\' as HOTEN,\n   PX.MAKHO\nFrom \n   PhieuXuat PX\nJoin\n   NhanVien NV\nOn\n   PX.MA" +
-                "NV = NV.MANV\n";
+            this._commandCollection[1].CommandText = @"Select
+   PX.MAPX,
+   PX.NGAY,
+   PX.HOTENKH,
+   PX.MANV,
+   ltrim(rtrim(NV.HO)) + ' ' + ltrim(rtrim(NV.TEN)) + '     [Mã NV: ' + CAST(NV.MANV AS NVARCHAR(50)) + ']' as HOTEN,
+   PX.MAKHO
+From 
+   PhieuXuat PX
+Join
+   NhanVien NV
+On
+   PX.MANV = NV.MANV
+";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
