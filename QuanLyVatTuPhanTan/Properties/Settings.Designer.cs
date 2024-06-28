@@ -30,7 +30,7 @@ namespace QuanLyVatTuPhanTan.Properties {
         public string QLVTConnectionString {
             get {
                 return ((string)(this["QLVTConnectionString"]));
-            }
+            }   
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
