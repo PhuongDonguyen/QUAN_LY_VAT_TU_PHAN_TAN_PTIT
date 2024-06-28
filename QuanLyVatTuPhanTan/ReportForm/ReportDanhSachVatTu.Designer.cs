@@ -40,6 +40,16 @@
             DevExpress.DataAccess.Sql.Column column4 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression4 = new DevExpress.DataAccess.Sql.ColumnExpression();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDanhSachVatTu));
+            DevExpress.DataAccess.Sql.SelectQuery selectQuery2 = new DevExpress.DataAccess.Sql.SelectQuery();
+            DevExpress.DataAccess.Sql.Column column5 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression5 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table4 = new DevExpress.DataAccess.Sql.Table();
+            DevExpress.DataAccess.Sql.Column column6 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression6 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column7 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression7 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
@@ -71,6 +81,7 @@
             this.vattuTableAdapter2 = new QuanLyVatTuPhanTan.DSTableAdapters.VattuTableAdapter();
             this.cTDDHTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTDDHTableAdapter();
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
@@ -384,6 +395,33 @@
             selectQuery1});
             this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
             // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "QuanLyVatTuPhanTan.Properties.Settings.QLVT_DATHANGConnectionString1";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            columnExpression5.ColumnName = "MAVT";
+            table4.Name = "Vattu";
+            columnExpression5.Table = table4;
+            column5.Expression = columnExpression5;
+            columnExpression6.ColumnName = "TENVT";
+            columnExpression6.Table = table4;
+            column6.Expression = columnExpression6;
+            columnExpression7.ColumnName = "DVT";
+            columnExpression7.Table = table4;
+            column7.Expression = columnExpression7;
+            columnExpression8.ColumnName = "SOLUONGTON";
+            columnExpression8.Table = table4;
+            column8.Expression = columnExpression8;
+            selectQuery2.Columns.Add(column5);
+            selectQuery2.Columns.Add(column6);
+            selectQuery2.Columns.Add(column7);
+            selectQuery2.Columns.Add(column8);
+            selectQuery2.Name = "Vattu";
+            selectQuery2.Tables.Add(table4);
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery2});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            // 
             // ReportDanhSachVatTu
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -394,10 +432,11 @@
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.dataSet1,
-            this.sqlDataSource2});
+            this.sqlDataSource2,
+            this.sqlDataSource1});
             this.DataAdapter = this.vattuTableAdapter;
             this.DataMember = "Vattu";
-            this.DataSource = this.sqlDataSource2;
+            this.DataSource = this.sqlDataSource1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.PageHeight = 1169;
             this.PageWidth = 827;
@@ -449,5 +488,6 @@
         private DSTableAdapters.VattuTableAdapter vattuTableAdapter2;
         private DSTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
     }
 }

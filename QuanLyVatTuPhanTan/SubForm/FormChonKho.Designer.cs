@@ -80,10 +80,12 @@
             // 
             this.khoGridControl.DataSource = this.bdsKho;
             this.khoGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.khoGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.khoGridControl.Location = new System.Drawing.Point(0, 0);
             this.khoGridControl.MainView = this.gridView1;
+            this.khoGridControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.khoGridControl.Name = "khoGridControl";
-            this.khoGridControl.Size = new System.Drawing.Size(434, 191);
+            this.khoGridControl.Size = new System.Drawing.Size(506, 235);
             this.khoGridControl.TabIndex = 1;
             this.khoGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -207,6 +209,7 @@
             this.colTENKHO,
             this.colDIACHI,
             this.colMACN});
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.khoGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
@@ -217,41 +220,50 @@
             // 
             this.colMAKHO.Caption = "Mã kho";
             this.colMAKHO.FieldName = "MAKHO";
+            this.colMAKHO.MinWidth = 23;
             this.colMAKHO.Name = "colMAKHO";
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 0;
+            this.colMAKHO.Width = 87;
             // 
             // colTENKHO
             // 
             this.colTENKHO.Caption = "Tên kho";
             this.colTENKHO.FieldName = "TENKHO";
+            this.colTENKHO.MinWidth = 23;
             this.colTENKHO.Name = "colTENKHO";
             this.colTENKHO.Visible = true;
             this.colTENKHO.VisibleIndex = 1;
+            this.colTENKHO.Width = 87;
             // 
             // colDIACHI
             // 
             this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
+            this.colDIACHI.MinWidth = 23;
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 2;
+            this.colDIACHI.Width = 87;
             // 
             // colMACN
             // 
             this.colMACN.Caption = "Chi nhánh";
             this.colMACN.FieldName = "TENCN";
+            this.colMACN.MinWidth = 23;
             this.colMACN.Name = "colMACN";
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 3;
+            this.colMACN.Width = 87;
             // 
             // btnChon
             // 
             this.btnChon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnChon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChon.Location = new System.Drawing.Point(246, 245);
+            this.btnChon.Location = new System.Drawing.Point(287, 302);
+            this.btnChon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(85, 26);
+            this.btnChon.Size = new System.Drawing.Size(99, 32);
             this.btnChon.TabIndex = 2;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
@@ -261,9 +273,10 @@
             // 
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnHuy.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuy.Location = new System.Drawing.Point(337, 245);
+            this.btnHuy.Location = new System.Drawing.Point(393, 302);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(85, 26);
+            this.btnHuy.Size = new System.Drawing.Size(99, 32);
             this.btnHuy.TabIndex = 3;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -271,13 +284,15 @@
             // 
             // FormChonKho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 283);
+            this.ClientSize = new System.Drawing.Size(506, 348);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnChon);
             this.Controls.Add(this.khoGridControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormChonKho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn kho hàng";
             this.Load += new System.EventHandler(this.FormChonKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DSP)).EndInit();

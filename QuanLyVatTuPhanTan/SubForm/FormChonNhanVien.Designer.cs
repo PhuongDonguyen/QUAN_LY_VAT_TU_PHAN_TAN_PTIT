@@ -32,6 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCHINHANH = new System.Windows.Forms.ComboBox();
             this.nhanVienGridControl = new DevExpress.XtraGrid.GridControl();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new QuanLyVatTuPhanTan.DataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,20 +45,18 @@
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnCHON = new System.Windows.Forms.Button();
             this.btnTHOAT = new System.Windows.Forms.Button();
-            this.dataSet = new QuanLyVatTuPhanTan.DataSet();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCHON = new System.Windows.Forms.Button();
             this.nhanVienTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.NhanVienTableAdapter();
             this.tableAdapterManager = new QuanLyVatTuPhanTan.DataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -93,6 +93,16 @@
             this.nhanVienGridControl.TabIndex = 6;
             this.nhanVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -216,19 +226,6 @@
             this.panelControl2.Size = new System.Drawing.Size(940, 86);
             this.panelControl2.TabIndex = 8;
             // 
-            // btnCHON
-            // 
-            this.btnCHON.BackColor = System.Drawing.Color.Blue;
-            this.btnCHON.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCHON.ForeColor = System.Drawing.Color.White;
-            this.btnCHON.Location = new System.Drawing.Point(189, 29);
-            this.btnCHON.Name = "btnCHON";
-            this.btnCHON.Size = new System.Drawing.Size(122, 32);
-            this.btnCHON.TabIndex = 8;
-            this.btnCHON.Text = "CHỌN";
-            this.btnCHON.UseVisualStyleBackColor = false;
-            this.btnCHON.Click += new System.EventHandler(this.btnCHON_Click);
-            // 
             // btnTHOAT
             // 
             this.btnTHOAT.BackColor = System.Drawing.Color.Red;
@@ -242,15 +239,18 @@
             this.btnTHOAT.UseVisualStyleBackColor = false;
             this.btnTHOAT.Click += new System.EventHandler(this.btnTHOAT_Click);
             // 
-            // dataSet
+            // btnCHON
             // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.dataSet;
+            this.btnCHON.BackColor = System.Drawing.Color.Blue;
+            this.btnCHON.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCHON.ForeColor = System.Drawing.Color.White;
+            this.btnCHON.Location = new System.Drawing.Point(189, 29);
+            this.btnCHON.Name = "btnCHON";
+            this.btnCHON.Size = new System.Drawing.Size(122, 32);
+            this.btnCHON.TabIndex = 8;
+            this.btnCHON.Text = "CHỌN";
+            this.btnCHON.UseVisualStyleBackColor = false;
+            this.btnCHON.Click += new System.EventHandler(this.btnCHON_Click);
             // 
             // nhanVienTableAdapter
             // 
@@ -280,17 +280,18 @@
             this.Controls.Add(this.nhanVienGridControl);
             this.Controls.Add(this.panelControl1);
             this.Name = "FormChonNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChonNhanVien";
             this.Load += new System.EventHandler(this.FormChonNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

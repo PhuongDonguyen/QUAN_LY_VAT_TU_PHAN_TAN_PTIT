@@ -408,7 +408,7 @@ namespace QuanLyVatTuPhanTan
                     DateTime dateValue = Convert.ToDateTime(dteNgaySinh.EditValue);
                     string formattedDate = dateValue.ToString("yyyy-MM-dd");
                     string cauTruyVanHoanTac =
-                        $"INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,SOCMND,DIACHI,NGAYSINH,LUONG,MACN,TrangThaiXoa) VALUES({txtMaNV.Text},'{txtHo.Text}','{txtTen.Text}','{txtCMND.Text}','{txtDiaChi.Text}',CAST({formattedDate} AS DATETIME), {soLuong.Value},'{txtMaCN.Text.Trim()}','{cbTrangThaiXoa.Checked}')";
+                        $"INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,SOCMND,DIACHI,NGAYSINH,LUONG,MACN,TrangThaiXoa) VALUES({txtMaNV.Text},N'{txtHo.Text}',N'{txtTen.Text}','{txtCMND.Text}',N'{txtDiaChi.Text}',CAST({formattedDate} AS DATETIME), {soLuong.Value},'{txtMaCN.Text.Trim()}','{cbTrangThaiXoa.Checked}')";
 
                     undoList.Push(cauTruyVanHoanTac);
                     listMaNV.Push(txtMaNV.Text);

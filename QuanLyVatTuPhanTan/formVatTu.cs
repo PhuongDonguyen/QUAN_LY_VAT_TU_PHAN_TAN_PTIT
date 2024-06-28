@@ -366,7 +366,7 @@ namespace QuanLyVatTuPhanTan
                             cauTruyVanHoanTac =
                                 "UPDATE DBO.VATTU " +
                                 "SET " +
-                                "TENVT = '" + tenVatTu + "'," +
+                                "TENVT = N'" + tenVatTu + "'," +
                                 "DVT = '" + donViTinh + "'," +
                                 "SOLUONGTON = " + soLuongTon + " " +
                                 "WHERE MAVT = '" + maVatTu + "'";
@@ -451,8 +451,6 @@ namespace QuanLyVatTuPhanTan
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine("line 535");
-            //Console.WriteLine(result);
             Program.myReader.Close();
 
             /*result = 1 nghia la vat tu nay dang duoc su dung o chi nhanh con lai*/
@@ -514,8 +512,8 @@ namespace QuanLyVatTuPhanTan
 
             string cauTruyVanHoanTac =
             "INSERT INTO DBO.VATTU( MAVT,TENVT,DVT,SOLUONGTON) " +
-            " VALUES( '" + txtMAVT.Text + "','" +
-                        txtTENVT.Text + "','" +
+            " VALUES( '" + txtMAVT.Text + "',N'" +
+                        txtTENVT.Text + "',N'" +
                         txtDONVIVATTU.Text + "', " +
                         txtSOLUONGTON.Value + " ) ";
 

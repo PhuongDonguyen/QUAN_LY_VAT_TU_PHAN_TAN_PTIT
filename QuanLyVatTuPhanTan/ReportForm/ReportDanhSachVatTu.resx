@@ -120,4 +120,7 @@
   <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlZhdHR1Ij48RmllbGQgTmFtZT0iTUFWVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJURU5WVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEVlQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU09MVU9OR1RPTiIgVHlwZT0iSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
   </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlZhdHR1Ij48RmllbGQgTmFtZT0iTUFWVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJURU5WVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEVlQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU09MVU9OR1RPTiIgVHlwZT0iSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+  </data>
 </root>

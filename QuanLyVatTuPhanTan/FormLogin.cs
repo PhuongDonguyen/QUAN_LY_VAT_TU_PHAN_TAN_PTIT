@@ -15,9 +15,9 @@ namespace QuanLyVatTuPhanTan
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            usernameInput.Text = "TT";
-            //pwdInput.Text = "123456";
-            pwdInput.Text = "12";
+            usernameInput.Text = "LT";
+            pwdInput.Text = "123";
+            //pwdInput.Text = "12";
 
             if (!ConnectToMainServer()) return;
             LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
@@ -100,7 +100,7 @@ namespace QuanLyVatTuPhanTan
             Program.currentPass = Program.loginPass;
 
             // Chạy SP để lấy ra thông tin của user
-            string queryStr = "exec [SP_LayThongTinNhanVien] '" + Program.loginName + "'";
+            string queryStr = "exec [SP_LayThongTinNhanVien] N'" + Program.loginName + "'";
             Program.myReader = Program.ExecSqlDataReader(queryStr);
             if (Program.myReader == null) return;
             Program.myReader.Read();

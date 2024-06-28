@@ -80,10 +80,12 @@
             // 
             this.vattuGridControl.DataSource = this.bdsVatTu;
             this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.vattuGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.vattuGridControl.Location = new System.Drawing.Point(0, 0);
             this.vattuGridControl.MainView = this.gridView1;
+            this.vattuGridControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(475, 220);
+            this.vattuGridControl.Size = new System.Drawing.Size(554, 271);
             this.vattuGridControl.TabIndex = 1;
             this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -207,6 +209,7 @@
             this.colTENVT,
             this.colDVT,
             this.colSOLUONGTON});
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.vattuGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
@@ -217,41 +220,50 @@
             // 
             this.colMAVT.Caption = "Mã vật tư";
             this.colMAVT.FieldName = "MAVT";
+            this.colMAVT.MinWidth = 23;
             this.colMAVT.Name = "colMAVT";
             this.colMAVT.Visible = true;
             this.colMAVT.VisibleIndex = 0;
+            this.colMAVT.Width = 87;
             // 
             // colTENVT
             // 
             this.colTENVT.Caption = "Tên vật tư";
             this.colTENVT.FieldName = "TENVT";
+            this.colTENVT.MinWidth = 23;
             this.colTENVT.Name = "colTENVT";
             this.colTENVT.Visible = true;
             this.colTENVT.VisibleIndex = 1;
+            this.colTENVT.Width = 87;
             // 
             // colDVT
             // 
             this.colDVT.Caption = "Đơn vị tính";
             this.colDVT.FieldName = "DVT";
+            this.colDVT.MinWidth = 23;
             this.colDVT.Name = "colDVT";
             this.colDVT.Visible = true;
             this.colDVT.VisibleIndex = 2;
+            this.colDVT.Width = 87;
             // 
             // colSOLUONGTON
             // 
             this.colSOLUONGTON.Caption = "Tồn kho";
             this.colSOLUONGTON.FieldName = "SOLUONGTON";
+            this.colSOLUONGTON.MinWidth = 23;
             this.colSOLUONGTON.Name = "colSOLUONGTON";
             this.colSOLUONGTON.Visible = true;
             this.colSOLUONGTON.VisibleIndex = 3;
+            this.colSOLUONGTON.Width = 87;
             // 
             // btnHuy
             // 
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnHuy.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuy.Location = new System.Drawing.Point(378, 258);
+            this.btnHuy.Location = new System.Drawing.Point(441, 318);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(85, 26);
+            this.btnHuy.Size = new System.Drawing.Size(99, 32);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -261,9 +273,10 @@
             // 
             this.btnChon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnChon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnChon.Location = new System.Drawing.Point(287, 258);
+            this.btnChon.Location = new System.Drawing.Point(335, 318);
+            this.btnChon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(85, 26);
+            this.btnChon.Size = new System.Drawing.Size(99, 32);
             this.btnChon.TabIndex = 4;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = true;
@@ -271,13 +284,15 @@
             // 
             // FormChonVatTu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 296);
+            this.ClientSize = new System.Drawing.Size(554, 364);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnChon);
             this.Controls.Add(this.vattuGridControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormChonVatTu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn vật tư";
             this.Load += new System.EventHandler(this.FormChonVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DSP)).EndInit();

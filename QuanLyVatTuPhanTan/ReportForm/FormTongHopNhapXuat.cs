@@ -70,7 +70,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
         {
             DateTime fromDate = (DateTime)dteTuNgay.DateTime;
             DateTime toDate = (DateTime)dteToiNgay.DateTime;
-            string chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Hồ Chí Minh" : "Cần Thơ";
+            string chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi Nhánh 1" : "Chi Nhánh 2";
 
 
 

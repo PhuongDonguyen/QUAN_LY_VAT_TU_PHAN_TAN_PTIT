@@ -407,7 +407,7 @@ namespace QuanLyVatTuPhanTan
                 cauTruyVan = "UPDATE DBO.DATHANG " +
                     "SET " +
                     "NGAY = CAST('" + ngay.ToString("yyyy-MM-dd") + "' AS DATETIME), " +
-                    "NhaCC = '" + drv["NhaCC"].ToString().Trim() + "', " +
+                    "NhaCC = N'" + drv["NhaCC"].ToString().Trim() + "', " +
                     "MANV = '" + drv["MANV"].ToString().Trim() + "', " +
                     "MAKHO = '" + drv["MAKHO"].ToString().Trim() + "' " +
                     "WHERE MasoDDH = '" + drv["MasoDDH"].ToString().Trim() + "'";
@@ -792,8 +792,6 @@ namespace QuanLyVatTuPhanTan
             }
 
             cauTruyVan = taoCauTruyVanHoanTac(cheDo);
-            //Console.WriteLine("Line 753");
-            //Console.WriteLine(cauTruyVan);
             undoList.Push(cauTruyVan);
 
             /*Step 2*/

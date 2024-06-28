@@ -200,7 +200,7 @@ namespace QuanLyVatTuPhanTan
                 cauTruyVan = "UPDATE DBO.PHIEUXUAT " +
                     "SET " +
                     "NGAY = CAST('" + ngay.ToString("yyyy-MM-dd") + "' AS DATETIME), " +
-                    "HOTENKH = '" + drv["HOTENKH"].ToString().Trim() + "', " +
+                    "HOTENKH = N'" + drv["HOTENKH"].ToString().Trim() + "', " +
                     "MANV = '" + drv["MANV"].ToString().Trim() + "', " +
                     "MAKHO = '" + drv["MAKHO"].ToString().Trim() + "' " +
                     "WHERE MAPX = '" + drv["MAPX"].ToString().Trim() + "' ";

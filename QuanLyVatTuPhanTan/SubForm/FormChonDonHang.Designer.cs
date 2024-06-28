@@ -208,6 +208,7 @@
             this.Controls.Add(this.btnTHOAT);
             this.Controls.Add(this.btnCHON);
             this.Name = "formChonDonHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn đơn hàng";
             this.Load += new System.EventHandler(this.formChonDonHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();

@@ -438,7 +438,7 @@
             this.dataSet1});
             this.DataAdapter = this.sp_DonHangKhongPhieuNhapTableAdapter;
             this.DataMember = "sp_DonHangKhongPhieuNhap";
-            this.DataSource = this.dataSet1;
+            this.DataSource = this.sqlDataSource1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.Margins = new DevExpress.Drawing.DXMargins(79F, 82F, 28.33333F, 100F);
             this.PageHeight = 1169;
