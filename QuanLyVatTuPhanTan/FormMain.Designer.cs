@@ -160,7 +160,7 @@
             this.btnPhieuXuat,
             this.btnLapTaiKhoan});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 243;
@@ -242,11 +242,12 @@
             // 
             // btnHoatDongNhanVien
             // 
-            this.btnHoatDongNhanVien.Caption = "HOẠT ĐỒNG NHÂN VIÊN";
+            this.btnHoatDongNhanVien.Caption = "HOẠT ĐỘNG NHÂN VIÊN";
             this.btnHoatDongNhanVien.Id = 9;
             this.btnHoatDongNhanVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHoatDongNhanVien.ImageOptions.SvgImage")));
             this.btnHoatDongNhanVien.LargeWidth = 100;
             this.btnHoatDongNhanVien.Name = "btnHoatDongNhanVien";
+            this.btnHoatDongNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoatDongNhanVien_ItemClick);
             // 
             // btnTongHopNhapXuat
             // 

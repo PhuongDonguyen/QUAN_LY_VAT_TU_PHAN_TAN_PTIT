@@ -295,5 +295,35 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        //private void btnDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    Form f = this.CheckFormOpen(typeof(FormDanhSachNhanVien));
+        //    if (f != null)
+        //    {
+        //        f.Activate();
+        //    }
+        //    else
+        //    {
+        //        FormDanhSachNhanVien form = new FormDanhSachNhanVien();
+        //        form.MdiParent = this;
+        //        form.Show();
+        //    }
+        //}
+
+        private void btnHoatDongNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckFormOpen(typeof(FormHoatDongNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormHoatDongNhanVien form = new FormHoatDongNhanVien();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

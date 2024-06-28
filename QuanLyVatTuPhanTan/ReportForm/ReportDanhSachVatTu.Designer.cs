@@ -60,7 +60,6 @@
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailData1 = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -68,12 +67,13 @@
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.dataSet1 = new QuanLyVatTuPhanTan.DataSet();
             this.vattuTableAdapter = new QuanLyVatTuPhanTan.DataSetTableAdapters.VattuTableAdapter();
-            this.dataSet_Phuong1 = new QuanLyVatTuPhanTan.DataSet_Phuong();
             this.vattuTableAdapter1 = new QuanLyVatTuPhanTan.DataSet_PhuongTableAdapters.VattuTableAdapter();
+            this.vattuTableAdapter2 = new QuanLyVatTuPhanTan.DSTableAdapters.VattuTableAdapter();
+            this.cTDDHTableAdapter = new QuanLyVatTuPhanTan.DSTableAdapters.CTDDHTableAdapter();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -283,33 +283,6 @@
             this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.tableCell8.Weight = 0.2022131039447928D;
             // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "QuanLyVatTuPhanTan.Properties.Settings.QLVT_DATHANGConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            columnExpression1.ColumnName = "MAVT";
-            table3.Name = "Vattu";
-            columnExpression1.Table = table3;
-            column1.Expression = columnExpression1;
-            columnExpression2.ColumnName = "TENVT";
-            columnExpression2.Table = table3;
-            column2.Expression = columnExpression2;
-            columnExpression3.ColumnName = "DVT";
-            columnExpression3.Table = table3;
-            column3.Expression = columnExpression3;
-            columnExpression4.ColumnName = "SOLUONGTON";
-            columnExpression4.Table = table3;
-            column4.Expression = columnExpression4;
-            selectQuery1.Columns.Add(column1);
-            selectQuery1.Columns.Add(column2);
-            selectQuery1.Columns.Add(column3);
-            selectQuery1.Columns.Add(column4);
-            selectQuery1.Name = "Vattu";
-            selectQuery1.Tables.Add(table3);
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            selectQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
             // Title
             // 
             this.Title.BackColor = System.Drawing.Color.Transparent;
@@ -372,14 +345,44 @@
             // 
             this.vattuTableAdapter.ClearBeforeFill = true;
             // 
-            // dataSet_Phuong1
-            // 
-            this.dataSet_Phuong1.DataSetName = "DataSet_Phuong";
-            this.dataSet_Phuong1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // vattuTableAdapter1
             // 
             this.vattuTableAdapter1.ClearBeforeFill = true;
+            // 
+            // vattuTableAdapter2
+            // 
+            this.vattuTableAdapter2.ClearBeforeFill = true;
+            // 
+            // cTDDHTableAdapter
+            // 
+            this.cTDDHTableAdapter.ClearBeforeFill = true;
+            // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "QuanLyVatTuPhanTan.Properties.Settings.QLVT_ConnectXRPT";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            columnExpression1.ColumnName = "MAVT";
+            table3.Name = "Vattu";
+            columnExpression1.Table = table3;
+            column1.Expression = columnExpression1;
+            columnExpression2.ColumnName = "TENVT";
+            columnExpression2.Table = table3;
+            column2.Expression = columnExpression2;
+            columnExpression3.ColumnName = "DVT";
+            columnExpression3.Table = table3;
+            column3.Expression = columnExpression3;
+            columnExpression4.ColumnName = "SOLUONGTON";
+            columnExpression4.Table = table3;
+            column4.Expression = columnExpression4;
+            selectQuery1.Columns.Add(column1);
+            selectQuery1.Columns.Add(column2);
+            selectQuery1.Columns.Add(column3);
+            selectQuery1.Columns.Add(column4);
+            selectQuery1.Name = "Vattu";
+            selectQuery1.Tables.Add(table3);
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery1});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
             // 
             // ReportDanhSachVatTu
             // 
@@ -390,12 +393,11 @@
             this.GroupHeader1,
             this.Detail});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1,
             this.dataSet1,
-            this.dataSet_Phuong1});
+            this.sqlDataSource2});
             this.DataAdapter = this.vattuTableAdapter;
             this.DataMember = "Vattu";
-            this.DataSource = this.sqlDataSource1;
+            this.DataSource = this.sqlDataSource2;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
             this.PageHeight = 1169;
             this.PageWidth = 827;
@@ -410,7 +412,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet_Phuong1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -437,7 +438,6 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell6;
         private DevExpress.XtraReports.UI.XRTableCell tableCell7;
         private DevExpress.XtraReports.UI.XRTableCell tableCell8;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle DetailCaption1;
         private DevExpress.XtraReports.UI.XRControlStyle DetailData1;
@@ -445,7 +445,9 @@
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
         private DataSet dataSet1;
         private DataSetTableAdapters.VattuTableAdapter vattuTableAdapter;
-        private DataSet_Phuong dataSet_Phuong1;
         private DataSet_PhuongTableAdapters.VattuTableAdapter vattuTableAdapter1;
+        private DSTableAdapters.VattuTableAdapter vattuTableAdapter2;
+        private DSTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }

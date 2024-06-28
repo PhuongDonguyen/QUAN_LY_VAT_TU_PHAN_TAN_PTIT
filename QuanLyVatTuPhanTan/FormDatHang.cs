@@ -885,5 +885,10 @@ namespace QuanLyVatTuPhanTan
                 this.phieuNhapTableAdapter.Fill(this.dataSet.PhieuNhap);
             }
         }
+
+        private void cmbCHINHANH_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
