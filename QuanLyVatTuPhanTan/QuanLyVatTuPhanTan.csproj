@@ -157,6 +157,30 @@
     <Compile Include="FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuongTriGiaHangHoaNhapXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormChiTietSoLuongTriGiaHangHoaNhapXuat.Designer.cs">
+      <DependentUpon>FormChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\FormTongHopNhapXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm\FormTongHopNhapXuat.Designer.cs">
+      <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.Designer.cs">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm\ReportTongHopNhapXuat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportForm\ReportTongHopNhapXuat.Designer.cs">
+      <DependentUpon>ReportTongHopNhapXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\FormChonKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +321,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportForm\FormChiTietSoLuongTriGiaHangHoaNhapXuat.resx">
+      <DependentUpon>FormChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\FormTongHopNhapXuat.resx">
+      <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.resx">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm\ReportTongHopNhapXuat.resx">
+      <DependentUpon>ReportTongHopNhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChonKho.resx">
       <DependentUpon>FormChonKho.cs</DependentUpon>
     </EmbeddedResource>
