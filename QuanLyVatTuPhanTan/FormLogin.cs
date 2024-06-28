@@ -98,7 +98,7 @@ namespace QuanLyVatTuPhanTan
             Program.currentPass = Program.loginPass;
 
             // Chạy SP để lấy ra thông tin của user
-            string queryStr = "exec [SP_LayThongTinNhanVien] '" + Program.loginName + "'";
+            string queryStr = "exec [SP_LayThongTinNhanVien] N'" + Program.loginName + "'";
             Program.myReader = Program.ExecSqlDataReader(queryStr);
             if (Program.myReader == null) return;
             Program.myReader.Read();

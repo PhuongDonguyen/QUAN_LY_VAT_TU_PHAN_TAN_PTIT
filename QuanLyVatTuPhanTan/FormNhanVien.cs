@@ -245,7 +245,7 @@ namespace QuanLyVatTuPhanTan
                     else // Sua nv
                     {
                         truyVanHoanTac =
-                  $"UPDATE DBO.NHANVIEN SET  HO ='{ho}',TEN ='{ten}',SOCMND ={cmnd},DIACHI ='{diaChi}',NGAYSINH ='{ngaySinh}',LUONG ={luong},MACN ='{maCn}',TrangThaiXoa='{ttx}' where MANV = {maNv}";
+                  $"UPDATE DBO.NHANVIEN SET  HO =N'{ho}',TEN =N'{ten}',SOCMND ={cmnd},DIACHI =N'{diaChi}',NGAYSINH ='{ngaySinh}',LUONG ={luong},MACN ='{maCn}',TrangThaiXoa='{ttx}' where MANV = {maNv}";
                         listMaNV.Push(maNv);
                     }
                     Console.WriteLine("ht them sua: " + truyVanHoanTac);
@@ -405,7 +405,7 @@ namespace QuanLyVatTuPhanTan
                     DateTime dateValue = Convert.ToDateTime(dteNgaySinh.EditValue);
                     string formattedDate = dateValue.ToString("yyyy-MM-dd");
                     string cauTruyVanHoanTac =
-                        $"INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,SOCMND,DIACHI,NGAYSINH,LUONG,MACN,TrangThaiXoa) VALUES({txtMaNV.Text},'{txtHo.Text}','{txtTen.Text}','{txtCMND.Text}','{txtDiaChi.Text}',CAST({formattedDate} AS DATETIME), {soLuong.Value},'{txtMaCN.Text.Trim()}','{cbTrangThaiXoa.Checked}')";
+                        $"INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,SOCMND,DIACHI,NGAYSINH,LUONG,MACN,TrangThaiXoa) VALUES({txtMaNV.Text},N'{txtHo.Text}',N'{txtTen.Text}','{txtCMND.Text}',N'{txtDiaChi.Text}',CAST({formattedDate} AS DATETIME), {soLuong.Value},'{txtMaCN.Text.Trim()}','{cbTrangThaiXoa.Checked}')";
 
                     undoList.Push(cauTruyVanHoanTac);
                     listMaNV.Push(txtMaNV.Text);

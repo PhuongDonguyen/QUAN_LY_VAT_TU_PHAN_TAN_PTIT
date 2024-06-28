@@ -52,7 +52,7 @@ namespace QuanLyVatTuPhanTan.SubForm
         private void FormChuyenChiNhanh_Load(object sender, EventArgs e)
         {
 
-            String cmd = $"EXEC [dbo].[sp_LayCacChiNhanhConLai] @ten_server =N'{Program.servername}'";
+            String cmd = $"EXEC sp_LayCacChiNhanhConLai @ten_server =N'{Program.servername}'";
             LayDanhSachChiNhanh(cmd);
 
 

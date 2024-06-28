@@ -63,7 +63,7 @@
             // usernameInput
             // 
             this.usernameInput.Location = new System.Drawing.Point(166, 148);
-            this.usernameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameInput.Margin = new System.Windows.Forms.Padding(4);
             this.usernameInput.Name = "usernameInput";
             this.usernameInput.Size = new System.Drawing.Size(226, 23);
             this.usernameInput.TabIndex = 2;
@@ -91,7 +91,7 @@
             // pwdInput
             // 
             this.pwdInput.Location = new System.Drawing.Point(166, 198);
-            this.pwdInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pwdInput.Margin = new System.Windows.Forms.Padding(4);
             this.pwdInput.Name = "pwdInput";
             this.pwdInput.PasswordChar = '*';
             this.pwdInput.Size = new System.Drawing.Size(226, 23);
@@ -103,7 +103,7 @@
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(166, 98);
-            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(226, 24);
             this.cmbChiNhanh.TabIndex = 3;
@@ -115,7 +115,7 @@
             this.btnDangNhap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDangNhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDangNhap.Location = new System.Drawing.Point(103, 255);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(100, 34);
             this.btnDangNhap.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancel.Location = new System.Drawing.Point(251, 255);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 34);
             this.btnCancel.TabIndex = 5;
@@ -149,8 +149,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);

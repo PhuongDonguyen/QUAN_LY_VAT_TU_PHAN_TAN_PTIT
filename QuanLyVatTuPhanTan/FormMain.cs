@@ -111,6 +111,9 @@ namespace QuanLyVatTuPhanTan
                 logout();
                 disableButtons();
             }
+            Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN:";
+            Program.formMain.HOTEN.Text = "HỌ TÊN:";
+            Program.formMain.NHOM.Text = "VAI TRÒ:";
         }
 
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)

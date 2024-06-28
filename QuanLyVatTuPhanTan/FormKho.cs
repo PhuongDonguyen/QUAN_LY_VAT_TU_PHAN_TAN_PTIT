@@ -247,8 +247,8 @@ namespace QuanLyVatTuPhanTan
                             cauTruyVanHoanTac =
                                 "UPDATE DBO.KHO " +
                                 "SET " +
-                                "TENKHO = '" + tenKhoHang + "'," +
-                                "DIACHI = '" + diaChi + "'" +
+                                "TENKHO = N'" + tenKhoHang + "'," +
+                                "DIACHI = N'" + diaChi + "'" +
                                 "WHERE MAKHO = '" + maKho + "'";
                         }
 

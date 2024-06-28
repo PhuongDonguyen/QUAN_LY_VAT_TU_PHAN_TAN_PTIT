@@ -178,6 +178,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.khoGridControl);
             this.Name = "FormChonKhoHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChonKhoHang";
             this.Load += new System.EventHandler(this.FormChonKhoHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).EndInit();
