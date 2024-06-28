@@ -567,9 +567,10 @@ namespace QuanLyVatTuPhanTan
                         controCu = bdsCTPN.Position;
                         string capNhatVT = $"EXEC sp_CapNhatSoLuongVatTu 'EXPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}";
                         string cauTruyVanHoanTac =
-                          $@"INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
+                          $@"
+                           INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
                            VALUES('{txtMaPN.Text}','{txtMaVtCTPN.Text}','{seSoLuongCTPN.EditValue}','{seGia.EditValue}')
-                            
+                          
                            EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}
                            ";
                         if (!Program.Connect())

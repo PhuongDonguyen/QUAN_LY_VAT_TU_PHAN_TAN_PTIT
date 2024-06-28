@@ -48,6 +48,8 @@ namespace QuanLyVatTuPhanTan.ReportForm
             report.txtHoTenNV.Text = txtHoVaTen.Text;
             report.txtTuNgay.Text = dteTuNgay.EditValue.ToString();
             report.txtDenNgay.Text = dteToiNgay.EditValue.ToString();
+            report.tbTongCong.Text = report.tbTongCong.Text + " " + "đồng";
+            Console.WriteLine(report.tbTongCong.Text);
 
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

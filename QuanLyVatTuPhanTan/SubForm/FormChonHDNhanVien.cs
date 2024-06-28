@@ -26,6 +26,15 @@ namespace QuanLyVatTuPhanTan.SubForm
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.chiNhanh;
             DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
+            if (Program.role == "CONGTY")
+            {
+                cmbChiNhanh.Enabled = true;
+
+            }
+            else
+            {
+                cmbChiNhanh.Enabled = false;
+            }
             String tenCNN = selectedRow["TENCN"].ToString().ToLower();
             tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
