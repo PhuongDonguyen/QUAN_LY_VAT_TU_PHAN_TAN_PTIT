@@ -75,13 +75,13 @@ namespace QuanLyVatTuPhanTan
             }
             if (txtEdit.Text.Length > max)
             {
-                XtraMessageBox.Show($"{value} phải bé hơn {max} kí tự", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"{value} phải <= {max} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
                 return false;
             }
             if (txtEdit.Text.Length < min)
             {
-                XtraMessageBox.Show($"{value} phải lớn hơn {min} kí tự", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"{value} phải >= {min} kí tự", "", MessageBoxButtons.OK);
                 txtEdit.Focus();
                 return false;
             }
@@ -148,6 +148,7 @@ namespace QuanLyVatTuPhanTan
         public static DataTable ExecDataTable(String cmd)
         {
             DataTable dt = new DataTable();
+            
             if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, Program.conn);
             try
@@ -165,6 +166,7 @@ namespace QuanLyVatTuPhanTan
         }
         public static int ExceSqlNoneQuery(string str)
         {
+      
             SqlCommand sqlCmd = new SqlCommand(str, Program.conn);
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandTimeout = 600;// 10 phut 
@@ -176,11 +178,8 @@ namespace QuanLyVatTuPhanTan
             }
             catch (SqlException ex)
             {
-                if (ex.Message.Contains("Error converting data type varchar to int"))
-                    MessageBox.Show("Bạn format Cell lại cột \"Ngày Thi\" qua kiểu Number hoặc mở File Excel.");
-                else MessageBox.Show(ex.Message);
                 conn.Close();
-                return ex.State; // trang thai lỗi gởi từ RAISERROR trong SQL Server qua
+                return -1;
             }
         }
         [STAThread]

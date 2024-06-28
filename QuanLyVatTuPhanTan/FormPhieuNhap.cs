@@ -1,5 +1,8 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.CodeParser;
+using DevExpress.Utils.About;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraPrinting.Native;
 using QuanLyVatTuPhanTan.DSTableAdapters;
 using QuanLyVatTuPhanTan.SubForm;
 using System;
@@ -279,12 +282,12 @@ namespace QuanLyVatTuPhanTan
             bool res = false;
             if (cheDo == "PN" && dangThemMoi)
             {
-                Console.WriteLine("Check pn");
+     
                 res = KiemTraDulieuDauVaoPN();
             }
             if (cheDo == "CTPN" && dangSuaCTPN)
             {
-                Console.WriteLine("check ctpn");
+                
                 res = KiemTraDulieuDauVaoCTPN();
             }
             Console.WriteLine(cheDo == "Phiếu Nhập");
@@ -311,6 +314,7 @@ namespace QuanLyVatTuPhanTan
                         this.phieuNhapTableAdapter.Update(this.dS.PhieuNhap);
                         saoChepCTDDHVaoCTPN(txtMaPN.Text, txtMaDdh.Text);
                         this.btnSua.Enabled = false;
+                   
                     }
                     if (cheDo == "CTPN" && dangSuaCTPN)
                     {
@@ -322,29 +326,48 @@ namespace QuanLyVatTuPhanTan
                         int capNhatSLVTDaSua = int.Parse(seSoLuongCTPN.Value.ToString()) - int.Parse(sl);
                         string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , {txtMaVtCTPN.Text} , {capNhatSLVTDaSua}";
                         truyVanHoanTac =
-                        $@"UPDATE DBO.CTPN 
-                        SET  MAPN ='{MAPN}',MAVT ='{MAVT}',SOLUONG={sl},DONGIA ={gia} where MAPN = '{MAPN}' AND MAVT= '{MAVT}'
-                        
-                        EXEC sp_CapNhatSoLuongVatTu 'EXPORT' , {txtMaVtCTPN.Text} , {capNhatSLVTDaSua}
+                        $@"
+                        DECLARE	@slMoi int
+                        EXEC	@slMoi = [dbo].[sp_CapNhatSoLuongVatTu]
+                                @CHEDO = N'EXPORT',
+                                @MAVT = '{txtMaVtCTPN.Text}',
+                                @SOLUONG = '{seSoLuongCTPN.Value}'
+
+                        if @slMoi = 0
+                        begin
+                               INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
+                               VALUES('{txtMaPN.Text}','{txtMaVtCTPN.Text}','{seSoLuongCTPN.EditValue}','{seGia.EditValue}')
+                        end
                         ";
                         if (!Program.Connect())
                         {
                             return;
                         }
                         // cập nhật số lượng vậtt tư khi thêm
-                        Program.ExceSqlNoneQuery(capNhatVT);
-                        undoListCTPN.Push(truyVanHoanTac);
-                        vtHoanTacCTPN.Push(bdsCTPN.Position);
+                        int err = Program.ExceSqlNoneQuery(capNhatVT);
+                        if(err==0) {
+                            undoListCTPN.Push(truyVanHoanTac);
+                            vtHoanTacCTPN.Push(bdsCTPN.Position);
 
-                        vitriContro = bdsPN.Position;
-                        vitriContro1 = bdsCTPN.Position;
+                            vitriContro = bdsPN.Position;
+                            vitriContro1 = bdsCTPN.Position;
 
-                        this.bdsCTPN.EndEdit();
-                        bdsCTPN.ResetCurrentItem();
-                        this.CTPNTableAdapter.Update(this.dS.CTPN);
-                        this.btnSua.Enabled = true;
-                        gcChiTietPhieuNhap.Enabled = true;
-                        gcPN.Enabled = true;
+                            this.bdsCTPN.EndEdit();
+                            bdsCTPN.ResetCurrentItem();
+                            this.CTPNTableAdapter.Update(this.dS.CTPN);
+                           
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đan có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            seSoLuongCTPN.EditValue = sl;
+                            seGia.EditValue = gia;
+                            return;
+                        }
+                       
+                            this.btnSua.Enabled = true;
+                            gcChiTietPhieuNhap.Enabled = true;
+                            gcPN.Enabled = true;
 
 
                     }
@@ -372,7 +395,7 @@ namespace QuanLyVatTuPhanTan
                     }
                     dangThemMoi = false;
                     dangSuaCTPN = false;
-                    MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 catch (Exception ex)
@@ -501,7 +524,11 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
                 Console.WriteLine(truyVanHoanTac);
-                Program.ExceSqlNoneQuery(truyVanHoanTac);
+                int res = Program.ExceSqlNoneQuery(truyVanHoanTac);
+                if (res == -1 && truyVanHoanTac.Contains("@slMoi"))
+                {
+                    MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đan có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 this.CTPNTableAdapter.FillBy(this.dS.CTPN);
                 bdsCTPN.Position = vtCTPN;
                 if (undoListPN.Count == 0)
@@ -567,23 +594,30 @@ namespace QuanLyVatTuPhanTan
                         controCu = bdsCTPN.Position;
                         string capNhatVT = $"EXEC sp_CapNhatSoLuongVatTu 'EXPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}";
                         string cauTruyVanHoanTac =
-                          $@"
+                              $@"
                            INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
                            VALUES('{txtMaPN.Text}','{txtMaVtCTPN.Text}','{seSoLuongCTPN.EditValue}','{seGia.EditValue}')
                           
-                           EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}
+                           EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , '{txtMaVtCTPN.Text}' , {seSoLuongCTPN.Value}
                            ";
                         if (!Program.Connect())
                         {
                             return;
                         }
-                        Program.ExceSqlNoneQuery(capNhatVT);
-                        undoListCTPN.Push(cauTruyVanHoanTac);
-                        vtHoanTacCTPN.Push(controCu); bdsCTPN.RemoveCurrent();
-                        this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
-                        CTPNTableAdapter.Update(this.dS.CTPN);
+                        int err = Program.ExceSqlNoneQuery(capNhatVT);
+                        if (err==0)
+                        {
+                            undoListCTPN.Push(cauTruyVanHoanTac);
+                            vtHoanTacCTPN.Push(controCu); bdsCTPN.RemoveCurrent();
+                            this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;
+                            CTPNTableAdapter.Update(this.dS.CTPN);
+                            MessageBox.Show("Xoá chi tiết phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Khổng thể xoá vì số lượng tồn sản phẩm này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         CTPNTableAdapter.FillBy(this.dS.CTPN);
-                        MessageBox.Show("Xoá chi tiết phiếu nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnHoanTac.Enabled = true;
                         this.btnSua.Enabled = true;
                         return;
@@ -621,19 +655,19 @@ namespace QuanLyVatTuPhanTan
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("load cmb: "+ cmbChiNhanh.SelectedValue.ToString());
+
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.servername = cmbChiNhanh.SelectedValue.ToString();
             Console.WriteLine(cmbChiNhanh.SelectedIndex +"  ___" + Program.chiNhanh);
             if (cmbChiNhanh.SelectedIndex != Program.chiNhanh)
             {
-                Console.WriteLine("1");
+              
                 Program.loginName = Program.remoteLogin;
                 Program.loginPass = Program.remotePassword;
             }
             else
             {
-                Console.WriteLine("2");
+               
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
             }
@@ -644,7 +678,7 @@ namespace QuanLyVatTuPhanTan
             }
             else
             {
-                Console.WriteLine("3");
+           
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.FillPN(this.dS.PhieuNhap);
                 this.CTPNTableAdapter.Connection.ConnectionString = Program.connstr;

@@ -38,8 +38,8 @@
             System.Windows.Forms.Label sOLUONGLabel;
             System.Windows.Forms.Label dONGIALabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuNhap));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleDateOccuring formatConditionRuleDateOccuring2 = new DevExpress.XtraEditors.FormatConditionRuleDateOccuring();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleDateOccuring formatConditionRuleDateOccuring1 = new DevExpress.XtraEditors.FormatConditionRuleDateOccuring();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barMan = new DevExpress.XtraBars.Bar();
@@ -522,10 +522,10 @@
             this.colTENNV,
             this.colMAKHO,
             this.colTENKHO});
-            gridFormatRule2.Name = "Format0";
-            gridFormatRule2.Rule = formatConditionRuleDateOccuring2;
-            gridFormatRule2.Tag = true;
-            this.gvPN.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.Name = "Format0";
+            gridFormatRule1.Rule = formatConditionRuleDateOccuring1;
+            gridFormatRule1.Tag = true;
+            this.gvPN.FormatRules.Add(gridFormatRule1);
             this.gvPN.GridControl = this.gcPN;
             this.gvPN.Name = "gvPN";
             this.gvPN.OptionsBehavior.Editable = false;
@@ -746,6 +746,12 @@
             this.seGia.Name = "seGia";
             this.seGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seGia.Properties.DisplayFormat.FormatString = "n0";
+            this.seGia.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seGia.Properties.EditFormat.FormatString = "n0";
+            this.seGia.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seGia.Properties.IsFloatValue = false;
+            this.seGia.Properties.MaskSettings.Set("mask", "N00");
             this.seGia.Size = new System.Drawing.Size(125, 24);
             this.seGia.TabIndex = 27;
             // 
@@ -763,6 +769,12 @@
             this.seSoLuongCTPN.Name = "seSoLuongCTPN";
             this.seSoLuongCTPN.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seSoLuongCTPN.Properties.DisplayFormat.FormatString = "n0";
+            this.seSoLuongCTPN.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seSoLuongCTPN.Properties.EditFormat.FormatString = "n0";
+            this.seSoLuongCTPN.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seSoLuongCTPN.Properties.IsFloatValue = false;
+            this.seSoLuongCTPN.Properties.MaskSettings.Set("mask", "N00");
             this.seSoLuongCTPN.Size = new System.Drawing.Size(125, 24);
             this.seSoLuongCTPN.TabIndex = 26;
             // 

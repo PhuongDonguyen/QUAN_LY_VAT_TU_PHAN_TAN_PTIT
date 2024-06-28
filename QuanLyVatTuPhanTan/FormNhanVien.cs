@@ -34,8 +34,8 @@ namespace QuanLyVatTuPhanTan
                 "' SELECT 'value' = @return_value ";
 
             Console.WriteLine("Cau Truy Van: " + cauTruyVan);
-            SqlCommand sqlcommand = new SqlCommand(cauTruyVan, Program.conn);
-
+            if (Program.Connect() == false)
+            { return; }
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
@@ -47,11 +47,10 @@ namespace QuanLyVatTuPhanTan
                 Program.myReader.Read();
                 int maNvMoi = Program.myReader.GetInt32(0);
                 Program.myReader.Close();
-                MessageBox.Show("Chuyển chi nhánh thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Chuyển chi nhánh thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh " + maNvMoi + ",'" + Program.maChiNhanhHienTai + "'";
                 undoList.Push(cauTruyVanHoanTac);
                 listMaNV.Push(maNV);
-                //this.nhanVienTableAdapter.Update(this.dS.NhanVien);
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
             }
             catch (Exception ex)
@@ -90,8 +89,9 @@ namespace QuanLyVatTuPhanTan
             if (!check) return false;
             check = Program.checkText(txtTen, "Ten", 0, 10);
             if (!check) return false;
-            check = Program.checkText(txtCMND, "CMND", 0, 20);
+            check = Program.checkText(txtCMND, "CMND", 0, 12);
             if (!check) return false;
+
             if (!Regex.IsMatch(txtMaNV.Text, @"^[0-9]+$"))
             {
                 XtraMessageBox.Show($"Mã nhân viên chỉ nhận số", "", MessageBoxButtons.OK);
@@ -111,18 +111,20 @@ namespace QuanLyVatTuPhanTan
                 txtHo.Focus();
                 return false;
             }
-            if (soLuong.Value < 4000)
-            {
-                XtraMessageBox.Show($"Lương phải >= 4000", "", MessageBoxButtons.OK);
-                soLuong.Focus();
-                return false;
-            }
+
             if (CalculateAge(dteNgaySinh.DateTime) < 18)
             {
                 XtraMessageBox.Show($"Nhân viên chưa đủ 18 tuổi", "", MessageBoxButtons.OK);
                 dteNgaySinh.Focus();
                 return false;
             }
+            if (soLuong.Value < 4000)
+            {
+                XtraMessageBox.Show($"Lương phải >= 4000", "", MessageBoxButtons.OK);
+                soLuong.Focus();
+                return false;
+            }
+
             return true;
         }
         public int CalculateAge(DateTime birthday)
@@ -182,6 +184,7 @@ namespace QuanLyVatTuPhanTan
                 panelNhapLieu.Enabled = btnGhi.Enabled = false;
                 cmbChiNhanhNV.Enabled = false;
             }
+            btnGhi.Enabled = false;
             if (bdsNhanVien.Count == 0)
             {
                 btnXoa.Enabled = false;
@@ -208,6 +211,7 @@ namespace QuanLyVatTuPhanTan
             String luong = "";
             String maCn = "";
             String ttx = "";
+
             if (dangSua)
             {
                 maNv = int.Parse(nv["MANV"].ToString());
@@ -232,8 +236,10 @@ namespace QuanLyVatTuPhanTan
                 {
 
                     bdsNhanVien.EndEdit();
+
                     bdsNhanVien.ResetCurrentItem();
                     nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+
                     nhanVienTableAdapter.Update(dS.NhanVien);
                     String truyVanHoanTac = "";
                     // Them nv
@@ -245,7 +251,7 @@ namespace QuanLyVatTuPhanTan
                     else // Sua nv
                     {
                         truyVanHoanTac =
-                  $"UPDATE DBO.NHANVIEN SET  HO ='{ho}',TEN ='{ten}',SOCMND ={cmnd},DIACHI ='{diaChi}',NGAYSINH ='{ngaySinh}',LUONG ={luong},MACN ='{maCn}',TrangThaiXoa='{ttx}' where MANV = {maNv}";
+                  $"UPDATE DBO.NHANVIEN SET  HO =N'{ho}',TEN =N'{ten}',SOCMND ={cmnd},DIACHI =N'{diaChi}',NGAYSINH ='{ngaySinh}',LUONG ={luong},MACN ='{maCn}',TrangThaiXoa='{ttx}' where MANV = {maNv}";
                         listMaNV.Push(maNv);
                     }
                     Console.WriteLine("ht them sua: " + truyVanHoanTac);
@@ -279,11 +285,9 @@ namespace QuanLyVatTuPhanTan
             btnHoanTac.Enabled = true;
             gcNhanVien.Enabled = false;
             bdsNhanVien.AddNew();
-
+            dteNgaySinh.EditValue = "01-05-2003";
             txtMaCN.Text = maChiNhanh;
-            dteNgaySinh.EditValue = "2003-05-01";
             soLuong.Value = 4000000;
-            txtCMND.Text = "123456789";
             txtDiaChi.Text = "HCM";
             cbTrangThaiXoa.Checked = false;
 
@@ -317,12 +321,11 @@ namespace QuanLyVatTuPhanTan
                 return;
             }
             String truyVanHoanTac = undoList.Pop().ToString();
-            Console.WriteLine("truy van hoan tac___ : " + truyVanHoanTac);
+            Console.WriteLine("truy vấn hoàn tác: " + truyVanHoanTac);
             if (truyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
             {
                 // server chi nhanh chuyen toi
                 String chiNhanhHienTai = Program.servername;
-                Console.WriteLine("tranfer server: " + Program.servernameTranfer);
                 Program.servername = Program.servernameTranfer;
                 Program.loginName = Program.remoteLogin;
                 Program.loginPass = Program.remotePassword;
@@ -331,7 +334,7 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
                 Program.ExceSqlNoneQuery(truyVanHoanTac);
-                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Program.servername = chiNhanhHienTai;
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
@@ -428,8 +431,6 @@ namespace QuanLyVatTuPhanTan
             };
 
         }
-
-
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             dangSua = true;

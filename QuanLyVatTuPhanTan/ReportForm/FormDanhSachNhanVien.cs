@@ -34,7 +34,6 @@ namespace QuanLyVatTuPhanTan.ReportForm
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.chiNhanh;
-            DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
             if(Program.role == "CONGTY")
             {
                 cmbChiNhanh.Enabled = true;
@@ -44,6 +43,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
             {
                 cmbChiNhanh.Enabled=false;
             }
+            DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
             String tenCNN = selectedRow["TENCN"].ToString().ToLower();
             tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -73,8 +73,7 @@ namespace QuanLyVatTuPhanTan.ReportForm
             else
             {
                 DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
-                String tenCNN = selectedRow["TENCN"].ToString().ToLower();
-                tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
+                tenCN =  selectedRow["TENCN"].ToString().ToLower();
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 // bi chay vao khi o nhan vien dang xuat zo dang nhap lai
@@ -84,7 +83,6 @@ namespace QuanLyVatTuPhanTan.ReportForm
         private void button1_Click(object sender, EventArgs e)
         {
             ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
-            tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
             report.txtChiNhanh.Text = tenCN;
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

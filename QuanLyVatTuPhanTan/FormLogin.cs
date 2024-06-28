@@ -92,7 +92,9 @@ namespace QuanLyVatTuPhanTan
 
             // Cập nhật chi nhánh hiện tại
             Program.chiNhanh = cmbChiNhanh.SelectedIndex;
-
+            DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
+            String tenCN = selectedRow["TENCN"].ToString().ToLower();
+            Program.maChiNhanhHienTai = tenCN.Contains("chi nhánh 1") ? "CN1" : tenCN.Contains("chi nhánh 2") ? "CN2" : "";
             // Cập nhật currentLogin & currentPassword
             Program.currentLogin = Program.loginName;
             Program.currentPass = Program.loginPass;
