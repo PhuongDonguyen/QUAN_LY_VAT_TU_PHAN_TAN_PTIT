@@ -414,6 +414,7 @@
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(316, 24);
             this.cmbCHINHANH.TabIndex = 1;
+            this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
             // label1
             // 
