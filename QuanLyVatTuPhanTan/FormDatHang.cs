@@ -1,16 +1,9 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
-using System;
+﻿using DevExpress.XtraGrid;
 using QuanLyVatTuPhanTan.SubForm;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
@@ -456,7 +449,7 @@ namespace QuanLyVatTuPhanTan
                     drv["MAVT"].ToString() + "', '" +
                     drv["SOLUONG"].ToString() + "', '" +
                     drv["DONGIA"].ToString() + "' )";
-                
+
             }
             return cauTruyVan;
         }
@@ -682,7 +675,7 @@ namespace QuanLyVatTuPhanTan
                 this.btnMENU.Enabled = true;
                 this.btnTHOAT.Enabled = true;
 
-                
+
                 /*xoa dong hien tai*/
                 //bds.RemoveCurrent();
                 /* trở về lúc đầu con trỏ đang đứng*/
@@ -700,7 +693,7 @@ namespace QuanLyVatTuPhanTan
 
             /*Step 2*/
             bds.CancelEdit();
-            
+
             String cauTruyVanHoanTac = undoList.Pop().ToString();
 
             Console.WriteLine(cauTruyVanHoanTac);
@@ -718,7 +711,7 @@ namespace QuanLyVatTuPhanTan
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.donDatHangTableAdapter.FillBy(this.dataSet.DatHang);
-                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);    
+                this.chiTietDonDatHangTableAdapter.FillBy(this.dataSet.CTDDH);
 
                 this.datHangGridControl.Enabled = true;
                 this.gcChiTietDonDatHang.Enabled = true;

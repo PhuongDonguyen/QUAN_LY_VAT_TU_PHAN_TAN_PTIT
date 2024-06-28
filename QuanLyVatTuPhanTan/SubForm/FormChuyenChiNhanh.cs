@@ -1,13 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.SubForm
@@ -58,7 +51,7 @@ namespace QuanLyVatTuPhanTan.SubForm
         }
         private void FormChuyenChiNhanh_Load(object sender, EventArgs e)
         {
-      
+
             String cmd = $"EXEC [dbo].[sp_LayCacChiNhanhConLai] @ten_server =N'{Program.servername}'";
             LayDanhSachChiNhanh(cmd);
 
@@ -82,7 +75,7 @@ namespace QuanLyVatTuPhanTan.SubForm
                 String maChiNhanhMoi = tenCN.Contains("chi nhánh 1") ? "CN1" : tenCN.Contains("chi nhánh 2") ? "CN2" : "";
                 Program.servernameTranfer = cmbChiNhanh.SelectedValue.ToString();
                 chuyenChiNhanh(maChiNhanhMoi);
-           
+
             }
 
             this.Dispose();

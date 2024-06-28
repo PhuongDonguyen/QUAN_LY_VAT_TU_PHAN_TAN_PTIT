@@ -1,14 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan.ReportForm
@@ -80,7 +74,8 @@ namespace QuanLyVatTuPhanTan.ReportForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReportDanhSachNhanVien report =new ReportDanhSachNhanVien();
+            ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
+            tenCN = tenCN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCN.Contains("chi nhánh 2") ? "Chi nhánh 2" :
             report.txtChiNhanh.Text = tenCN;
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();

@@ -129,6 +129,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(37);
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -161,7 +162,7 @@
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
             this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
-            this.ribbon.OptionsMenuMinWidth = 283;
+            this.ribbon.OptionsMenuMinWidth = 354;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.pageNhapXuat,
             this.pageBaoCao,
@@ -366,6 +367,7 @@
             this.btnLapTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLapTaiKhoan.ImageOptions.SvgImage")));
             this.btnLapTaiKhoan.LargeWidth = 100;
             this.btnLapTaiKhoan.Name = "btnLapTaiKhoan";
+            this.btnLapTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapTaiKhoan_ItemClick);
             // 
             // pageNhapXuat
             // 
@@ -449,6 +451,7 @@
             this.NHOM.Name = "NHOM";
             this.NHOM.Size = new System.Drawing.Size(63, 20);
             this.NHOM.Text = "VAI TRÒ";
+            this.NHOM.Click += new System.EventHandler(this.NHOM_Click);
             // 
             // documentManager1
             // 

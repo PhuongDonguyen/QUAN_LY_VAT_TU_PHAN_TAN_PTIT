@@ -1,10 +1,4 @@
-﻿using DevExpress.XtraReports.UI;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-
-namespace QuanLyVatTuPhanTan.ReportForm
+﻿namespace QuanLyVatTuPhanTan.ReportForm
 {
     public partial class ReportDanhSachNhanVien : DevExpress.XtraReports.UI.XtraReport
     {
@@ -13,6 +7,8 @@ namespace QuanLyVatTuPhanTan.ReportForm
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
             this.sqlDataSource1.Fill();
+            //this.sqlDataSource2.Connection.ConnectionString = Program.connstr;
+            //this.sqlDataSource2.Fill();
         }
 
     }

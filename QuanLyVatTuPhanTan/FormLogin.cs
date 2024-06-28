@@ -1,15 +1,7 @@
-﻿using DevExpress.XtraEditors;
-using QuanLyVatTuPhanTan;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -125,7 +117,7 @@ namespace QuanLyVatTuPhanTan
 
             Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userID;
             Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen.ToUpper();
-            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY": "CHI NHÁNH");
+            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY" : "CHI NHÁNH");
 
             this.Hide();
             Program.formMain.enableButtons();

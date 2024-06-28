@@ -7,9 +7,11 @@
     }
 }
 
-namespace QuanLyVatTuPhanTan.DSTableAdapters {
-    
-    
-    public partial class PhieuNhapTableAdapter {
+namespace QuanLyVatTuPhanTan.DSTableAdapters
+{
+
+
+    public partial class PhieuNhapTableAdapter
+    {
     }
 }

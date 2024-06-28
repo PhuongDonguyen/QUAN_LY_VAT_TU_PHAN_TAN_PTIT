@@ -1,13 +1,8 @@
-﻿using DevExpress.Skins;
-using DevExpress.UserSkins;
+﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.LookAndFeel;
-using System.Data.SqlClient;
 using System.Data;
-using DevExpress.XtraEditors;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace QuanLyVatTuPhanTan
 {
@@ -16,20 +11,20 @@ namespace QuanLyVatTuPhanTan
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
         //public static String connstr_publisher = "Data Source=PHUONG-HPLAP;Initial Catalog=QLVT;Integrated Security=True";
-        public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
-       // public static String connstr_publisher = "Data Source=MSI\\LONG;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
+        //public static String connstr_publisher = "Data Source=NHAT-PC\\SERVER01;Initial Catalog=QLVT;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=MSI\\LONG;Initial Catalog=QLVT_DATHANG;Integrated Security=True";
         public static SqlConnection conn_publisher = new SqlConnection();
 
         public static SqlDataReader myReader;
         // server chuyen chi nhanh toi
-        public static String servernameTranfer="";
+        public static String servernameTranfer = "";
         public static String servername = "";
         public static String userID = "";
         public static String loginName = "";
         public static String loginPass = "";
 
-        public static String database = "QLVT";
-       // public static String database = "QLVT_DATHANG";
+        //public static String database = "QLVT";
+        public static String database = "QLVT_DATHANG";
 
 
         public static String currentLogin = "";
@@ -56,17 +51,21 @@ namespace QuanLyVatTuPhanTan
 
 
 
-
+        public static string hoTen1 = "";
         public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
         public static int soLuongVatTu = 0;
+
+        public static string maNhanVienDuocChon = "";
+        public static string diaChi = "";
+        public static string ngaySinh = "";
 
         /// <summary>
         /// Biến toàn cục của các form sẽ được viết dưới đây
         /// </summary>
         //public static FormLogin formLogin;
         public static FormMain formMain;
-        public static bool checkText(TextEdit txtEdit, String value, int min = 0, int max=0)
+        public static bool checkText(TextEdit txtEdit, String value, int min = 0, int max = 0)
         {
             if (txtEdit.Text.Trim() == "")
             {
@@ -90,7 +89,7 @@ namespace QuanLyVatTuPhanTan
         }
         public static bool ConnectToMainServer()
         {
-            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open) 
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open)
                 conn_publisher.Close();
             try
             {
@@ -117,7 +116,7 @@ namespace QuanLyVatTuPhanTan
                 Program.connstr = "Data Source=" + Program.servername + "; Initial Catalog=" +
                   Program.database + ";User ID=" + Program.loginName + ";password=" + Program.loginPass;
 
-                Console.WriteLine("Connect:  "+connstr);
+                Console.WriteLine("Connect:  " + connstr);
                 Program.conn.ConnectionString = connstr;
                 Program.conn.Open();
                 return true;
