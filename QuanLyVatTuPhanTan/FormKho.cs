@@ -185,8 +185,8 @@ namespace QuanLyVatTuPhanTan
             String maKho = txtMaKho.Text.Trim();
             /* Lấy ra tên kho & địa chỉ từ dataRowView */
             DataRowView drv = ((DataRowView)bdsKho[bdsKho.Position]);
-            String tenKhoHang = Encoding.UTF8.GetString(Encoding.Default.GetBytes(drv["TENKHO"].ToString()));
-            String diaChi = Encoding.UTF8.GetString(Encoding.Default.GetBytes(drv["DIACHI"].ToString()));
+            String tenKhoHang =(drv["TENKHO"].ToString());
+            String diaChi = (drv["DIACHI"].ToString());
 
             String sqlKiemTraTonTai =
                     "DECLARE @result nchar(4) " +

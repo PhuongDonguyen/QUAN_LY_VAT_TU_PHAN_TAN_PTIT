@@ -324,12 +324,12 @@ namespace QuanLyVatTuPhanTan
                         String sl = ctpn["SOLUONG"].ToString().Trim();
                         String gia = ctpn["DONGIA"].ToString().Trim();
                         int capNhatSLVTDaSua = int.Parse(seSoLuongCTPN.Value.ToString()) - int.Parse(sl);
-                        string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , {txtMaVtCTPN.Text} , {capNhatSLVTDaSua}";
+                        string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'NHAP' , '{MAVT}' , {capNhatSLVTDaSua}";
                         truyVanHoanTac =
                         $@"
                         DECLARE	@slMoi int
                         EXEC	@slMoi = [dbo].[sp_CapNhatSoLuongVatTu]
-                                @CHEDO = N'EXPORT',
+                                @CHEDO = N'XUAT',
                                 @MAVT = '{txtMaVtCTPN.Text}',
                                 @SOLUONG = '{seSoLuongCTPN.Value}'
 
