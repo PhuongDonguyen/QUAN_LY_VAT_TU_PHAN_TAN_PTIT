@@ -359,7 +359,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         else
                         {
-                            MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đan có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đang có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             seSoLuongCTPN.EditValue = sl;
                             seGia.EditValue = gia;
                             return;
@@ -615,7 +615,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         else
                         {
-                            MessageBox.Show("Khổng thể xoá vì số lượng tồn sản phẩm này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Khổng thể xoá vì số lượng tồn sản phẩm này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         CTPNTableAdapter.FillBy(this.dS.CTPN);
                         btnHoanTac.Enabled = true;

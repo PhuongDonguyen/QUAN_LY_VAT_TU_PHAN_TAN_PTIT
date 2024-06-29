@@ -96,6 +96,7 @@ namespace QuanLyVatTuPhanTan
                 return false;
             }
             bool check;
+            txtDiaChi.Text = txtDiaChi.Text.Trim();
             check = Program.checkText(txtDiaChi, "Địa chỉ", 0, 100);
             if (!check) return false;
             check = Program.checkText(txtHo, "Họ", 0, 20);
@@ -117,6 +118,7 @@ namespace QuanLyVatTuPhanTan
                 txtHo.Focus();
                 return false;
             }
+            txtTen.Text = txtTen.Text.Trim();
             if (!Regex.IsMatch(txtTen.Text, @"^[a-zA-ZÀ-ỹà-ỹ]+$"))
             {
                 XtraMessageBox.Show($"Tên chỉ nhận chữ cái và k nhận khoảng trắng", "", MessageBoxButtons.OK);
@@ -130,6 +132,7 @@ namespace QuanLyVatTuPhanTan
                 dteNgaySinh.Focus();
                 return false;
             }
+            txtCMND.Text = txtCMND.Text.Trim();
             if (!Regex.IsMatch(txtCMND.Text, @"^[0-9]+$"))
             {
                 XtraMessageBox.Show($"CMND chỉ nhận số", "", MessageBoxButtons.OK);
