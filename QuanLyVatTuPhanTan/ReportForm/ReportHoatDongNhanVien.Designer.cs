@@ -842,7 +842,7 @@
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(730.6644F, 24F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(743.0402F, 24F);
             // 
             // xrTableRow1
             // 
@@ -887,7 +887,6 @@
             this.tbTongCong.SummaryCalculated += new DevExpress.XtraReports.UI.TextFormatEventHandler(this.tbTongCong_SummaryCalculated);
             this.tbTongCong.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.tbTongCong_SummaryGetResult);
             this.tbTongCong.BeforePrint += new DevExpress.XtraReports.UI.BeforePrintEventHandler(this.tbTongCong_BeforePrint);
- 
             // 
             // tbChu
             // 
@@ -898,8 +897,7 @@
             this.tbChu.StylePriority.UseBorders = false;
             this.tbChu.StylePriority.UseTextAlignment = false;
             this.tbChu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.tbChu.Weight = 6.7710853238523576D;
-          
+            this.tbChu.Weight = 6.8999992012963745D;
             // 
             // sqlDataSource1
             // 
