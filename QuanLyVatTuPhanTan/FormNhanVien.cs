@@ -81,21 +81,33 @@ namespace QuanLyVatTuPhanTan
                 XtraMessageBox.Show($"Mã nhân viên đã được sử dụng", "", MessageBoxButtons.OK);
                 return false;
             }
-            bool check;
+            String ktCMND = $"DECLARE @return_value int " +
+            $"EXEC @return_value = [dbo].[SP_KiemTraCMNDTonTai] '{txtCMND.Text.Trim()}' " +
+            $"SELECT 'value' = @return_value";
+            Program.myReader = Program.ExecSqlDataReader(ktCMND);
+            if (Program.myReader == null) return false;
+            Program.myReader.Read();
+            int res = (Program.myReader.GetInt32(0));
+            Program.myReader.Close();
 
+            if (res > 0 && viTriConTro != vitriNhanVien)
+            {
+                XtraMessageBox.Show($"Số CMND đã tồn tại", "", MessageBoxButtons.OK);
+                return false;
+            }
+            bool check;
             check = Program.checkText(txtDiaChi, "Địa chỉ", 0, 100);
             if (!check) return false;
             check = Program.checkText(txtHo, "Họ", 0, 20);
             if (!check) return false;
             check = Program.checkText(txtTen, "Ten", 0, 10);
-            if (!check) return false;
-            check = Program.checkText(txtCMND, "CMND", 0, 12);
+ 
             if (!check) return false;
 
             if (!Regex.IsMatch(txtMaNV.Text, @"^[0-9]+$"))
             {
                 XtraMessageBox.Show($"Mã nhân viên chỉ nhận số", "", MessageBoxButtons.OK);
-                txtHo.Focus();
+                txtMaNV.Focus();
                 return false;
             }
             txtHo.Text = txtHo.Text.Trim();
@@ -108,7 +120,7 @@ namespace QuanLyVatTuPhanTan
             if (!Regex.IsMatch(txtTen.Text, @"^[a-zA-ZÀ-ỹà-ỹ]+$"))
             {
                 XtraMessageBox.Show($"Tên chỉ nhận chữ cái và k nhận khoảng trắng", "", MessageBoxButtons.OK);
-                txtHo.Focus();
+                txtTen.Focus();
                 return false;
             }
 
@@ -118,9 +130,22 @@ namespace QuanLyVatTuPhanTan
                 dteNgaySinh.Focus();
                 return false;
             }
-            if (soLuong.Value < 4000)
+            if (!Regex.IsMatch(txtCMND.Text, @"^[0-9]+$"))
             {
-                XtraMessageBox.Show($"Lương phải >= 4000", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"CMND chỉ nhận số", "", MessageBoxButtons.OK);
+                txtCMND.Focus();
+                return false;
+            }
+            if(txtCMND.Text.Length != 12)
+            {
+
+                XtraMessageBox.Show($"CMND phaỉ có 12 số", "", MessageBoxButtons.OK);
+                txtCMND.Focus();
+                return false;
+            }
+            if (soLuong.Value < 1000000)
+            {
+                XtraMessageBox.Show($"Lương phải >= 1000000", "", MessageBoxButtons.OK);
                 soLuong.Focus();
                 return false;
             }
@@ -234,9 +259,7 @@ namespace QuanLyVatTuPhanTan
             {
                 try
                 {
-
                     bdsNhanVien.EndEdit();
-
                     bdsNhanVien.ResetCurrentItem();
                     nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
 
@@ -295,6 +318,7 @@ namespace QuanLyVatTuPhanTan
 
         private void btnHoanTac_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            int manv;
             if ((dangThemMoi == true && btnThem.Enabled == false) || (dangSua == true && btnSua.Enabled == false))
             {
                 dangSua = false;
@@ -324,11 +348,16 @@ namespace QuanLyVatTuPhanTan
             Console.WriteLine("truy vấn hoàn tác: " + truyVanHoanTac);
             if (truyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
             {
+               
                 // server chi nhanh chuyen toi
                 String chiNhanhHienTai = Program.servername;
                 Program.servername = Program.servernameTranfer;
                 Program.loginName = Program.remoteLogin;
                 Program.loginPass = Program.remotePassword;
+                if (undoList.Count == 0)
+                {
+                    btnHoanTac.Enabled = btnGhi.Enabled = false;
+                }
                 if (!Program.Connect())
                 {
                     return;
@@ -343,6 +372,16 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
+                manv = int.Parse(listMaNV.Pop().ToString());
+                if (manv >= 0)
+                {
+                    bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
+                }
+                if (!Program.Connect())
+                {
+                    MessageBox.Show($"Không thể kết nối đến server {Program.servername}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 return;
             }
             else
@@ -357,7 +396,7 @@ namespace QuanLyVatTuPhanTan
 
             }
             this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
-            int manv = int.Parse(listMaNV.Pop().ToString());
+             manv = int.Parse(listMaNV.Pop().ToString());
             if (manv >= 0)
             {
                 bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);

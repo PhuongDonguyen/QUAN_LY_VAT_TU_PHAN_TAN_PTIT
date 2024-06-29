@@ -324,7 +324,7 @@ namespace QuanLyVatTuPhanTan
                         String sl = ctpn["SOLUONG"].ToString().Trim();
                         String gia = ctpn["DONGIA"].ToString().Trim();
                         int capNhatSLVTDaSua = int.Parse(seSoLuongCTPN.Value.ToString()) - int.Parse(sl);
-                        string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'NHAP' , '{MAVT}' , {capNhatSLVTDaSua}";
+                        string capNhatVT = $" EXEC sp_CapNhatSoLuongVatTu 'NHAP' , {txtMaVtCTPN.Text} , {capNhatSLVTDaSua}";
                         truyVanHoanTac =
                         $@"
                         DECLARE	@slMoi int
@@ -592,13 +592,13 @@ namespace QuanLyVatTuPhanTan
                     try
                     {
                         controCu = bdsCTPN.Position;
-                        string capNhatVT = $"EXEC sp_CapNhatSoLuongVatTu 'EXPORT' , {txtMaVtCTPN.Text} , {seSoLuongCTPN.Value}";
+                        string capNhatVT = $"EXEC sp_CapNhatSoLuongVatTu 'XUAT' , '{txtMaVtCTPN.Text}' , {seSoLuongCTPN.Value}";
                         string cauTruyVanHoanTac =
                               $@"
                            INSERT INTO DBO.CTPN(MAPN,MAVT,SOLUONG,DONGIA) 
                            VALUES('{txtMaPN.Text}','{txtMaVtCTPN.Text}','{seSoLuongCTPN.EditValue}','{seGia.EditValue}')
                           
-                           EXEC sp_CapNhatSoLuongVatTu 'IMPORT' , '{txtMaVtCTPN.Text}' , {seSoLuongCTPN.Value}
+                           EXEC sp_CapNhatSoLuongVatTu 'NHAP' , '{txtMaVtCTPN.Text}' , {seSoLuongCTPN.Value}
                            ";
                         if (!Program.Connect())
                         {

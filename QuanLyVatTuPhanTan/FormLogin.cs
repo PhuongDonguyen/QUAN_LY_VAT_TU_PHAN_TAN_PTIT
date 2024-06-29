@@ -15,9 +15,9 @@ namespace QuanLyVatTuPhanTan
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            usernameInput.Text = "LT";
-            pwdInput.Text = "123";
-            //pwdInput.Text = "12";
+            usernameInput.Text = "tT";
+            //pwdInput.Text = "123";
+            pwdInput.Text = "12";
 
             if (!ConnectToMainServer()) return;
             LayDanhSachPhanManh("Select * from [dbo].[V_DS_PHANMANH]");
