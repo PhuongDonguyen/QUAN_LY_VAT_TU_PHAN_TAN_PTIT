@@ -506,6 +506,7 @@ namespace QuanLyVatTuPhanTan
                             string maVatTu = txtMaVatTuChiTietPhieuXuat.Text.Trim();
                             string soLuong = txtSoLuongChiTietPhieuXuat.Text.Trim();
 
+                            Console.WriteLine("maVT: " + maVatTu + ", soluong: " + soLuong);
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                         }
 
@@ -528,6 +529,9 @@ namespace QuanLyVatTuPhanTan
 
                         this.gcPhieuXuat.Enabled = true;
                         this.gcChiTietPhieuXuat.Enabled = true;
+
+                        this.phieuXuatTableAdapter.FillBy(this.DSP.PhieuXuat);
+                        this.chiTietPhieuXuatTableAdapter.Fill(this.DSP.CTPX);
 
                         dangThem = false;
                         MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);

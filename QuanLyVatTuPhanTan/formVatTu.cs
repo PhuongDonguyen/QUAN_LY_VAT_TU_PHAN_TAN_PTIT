@@ -265,10 +265,10 @@ namespace QuanLyVatTuPhanTan
          * Step 0 : Kiem tra du lieu dau vao
          * Step 1 : Dung stored procedure sp_KiemTraMaVatTu de kiem tra txtMANV
          * Step 2 : Ket hop ket qua tu Step 1 & vi tri cua txtMAVT co 2 truong hop xay ra
-         * + TH0: ketQua = 1 && viTriConTro != viTriMaVatTu -> them moi nhung MANV da ton tai
+         * + TH0: ketQua = 1 && viTriConTro != viTriMaVatTu -> them moi nhung MAVT da ton tai
          * + TH1: ketQua = 1 && viTriConTro == viTriMaVatTu -> sua nhan vien cu
-         * + TH2: ketQua = 0 && viTriConTro == viTriMaVatTu -> co the them moi nhan vien
-         * + TH3: ketQua = 0 && viTriConTro != viTriMaVatTu -> co the them moi nhan vien
+         * + TH2: ketQua = 0 && viTriConTro == viTriMaVatTu -> co the them moi vat tu
+         * + TH3: ketQua = 0 && viTriConTro != viTriMaVatTu -> co the them moi vat tu
          *          
          * Step 3 : Neu khong phai TH0 thi cac TH1 - TH2 - TH3 deu hop le 
          ***********************************************************************/

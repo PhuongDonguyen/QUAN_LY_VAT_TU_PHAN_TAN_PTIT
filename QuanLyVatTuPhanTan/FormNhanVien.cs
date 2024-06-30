@@ -97,6 +97,7 @@ namespace QuanLyVatTuPhanTan
                 return false;
             }
             bool check;
+            txtDiaChi.Text = txtDiaChi.Text.Trim();
             check = Program.checkText(txtDiaChi, "Địa chỉ", 0, 100);
             if (!check) return false;
             check = Program.checkText(txtHo, "Họ", 0, 20);
@@ -132,6 +133,7 @@ namespace QuanLyVatTuPhanTan
                 dteNgaySinh.Focus();
                 return false;
             }
+            txtCMND.Text = txtCMND.Text.Trim();
             if (!Regex.IsMatch(txtCMND.Text, @"^[0-9]+$"))
             {
                 XtraMessageBox.Show($"CMND chỉ nhận số", "", MessageBoxButtons.OK);
@@ -370,6 +372,10 @@ namespace QuanLyVatTuPhanTan
                 Program.servername = chiNhanhHienTai;
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
+                if (!Program.Connect())
+                {
+                    return;
+                }
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 manv = int.Parse(listMaNV.Pop().ToString());
                 if (manv >= 0)
@@ -515,10 +521,13 @@ namespace QuanLyVatTuPhanTan
             {
                 this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.datHangTableAdapter.Fill(this.dS.DatHang);
+
                 this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuXuatTableAdapter.Fill(this.dS.PhieuXuat);
+
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
+
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 // bi loi khi o nhan vien dang xuat zo dang nhap lai

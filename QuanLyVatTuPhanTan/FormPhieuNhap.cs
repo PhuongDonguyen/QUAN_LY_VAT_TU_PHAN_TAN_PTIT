@@ -628,7 +628,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         else
                         {
-                            MessageBox.Show("Khổng thể xoá vì số lượng sản phẩm tồn này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Khổng thể xoá vì số lượng tồn sản phẩm này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         CTPNTableAdapter.FillBy(this.dS.CTPN);
                         btnHoanTac.Enabled = true;
