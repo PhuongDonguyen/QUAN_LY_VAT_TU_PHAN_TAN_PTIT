@@ -406,6 +406,7 @@
             // btnHoanTac
             // 
             this.btnHoanTac.Caption = "Hoàn tác";
+            this.btnHoanTac.Enabled = false;
             this.btnHoanTac.Id = 3;
             this.btnHoanTac.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHoanTac.ImageOptions.Image")));
             this.btnHoanTac.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHoanTac.ImageOptions.LargeImage")));

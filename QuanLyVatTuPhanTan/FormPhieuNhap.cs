@@ -171,7 +171,7 @@ namespace QuanLyVatTuPhanTan
                 this.btnThem.Enabled = true;
                 bool turnOn = (bdsPN.Count > 0) ? true : false;
                 this.btnXoa.Enabled = turnOn;
-                this.btnGhi.Enabled = true;
+                this.btnGhi.Enabled = false;
                 this.btnSua.Enabled = false;
 
                 this.btnLamMoi.Enabled = true;
@@ -359,7 +359,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         else
                         {
-                            MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đan có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Không thể giảm. Vì số lượng sản phẩm giảm đi lớn hơn số lượng tồn đang có", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             seSoLuongCTPN.EditValue = sl;
                             seGia.EditValue = gia;
                             return;
@@ -542,6 +542,13 @@ namespace QuanLyVatTuPhanTan
         {
             String cheDo = (btnChonCheDo.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
             int controCu = 0;
+            DataRowView pn = (DataRowView)bdsPN[bdsPN.Position];
+            String manv = pn["MANV"].ToString().Trim();
+            if (manv != Program.userID)
+            {
+                MessageBox.Show("Chỉ nhân viên lập phiếu này mới được xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (cheDo == "Phiếu Nhập")
             {
                 if (bdsCTPN.Count > 0)
@@ -584,11 +591,17 @@ namespace QuanLyVatTuPhanTan
 
             }
             else
-            {
+            {   if(bdsCTPN.Count == 0)
+                {
+                    MessageBox.Show("Phiếu nhập này không có chi tiết phiếu nhập", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 DialogResult dr = MessageBox.Show("Bạn có chắc muốn xoá chi tiết phiếu nhập này ?", "Thông báo",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)
                 {
+                    
                     try
                     {
                         controCu = bdsCTPN.Position;
@@ -615,7 +628,7 @@ namespace QuanLyVatTuPhanTan
                         }
                         else
                         {
-                            MessageBox.Show("Khổng thể xoá vì số lượng tồn sản phẩm này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Khổng thể xoá vì số lượng sản phẩm tồn này nhỏ hơn phiếu này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         CTPNTableAdapter.FillBy(this.dS.CTPN);
                         btnHoanTac.Enabled = true;
@@ -634,6 +647,13 @@ namespace QuanLyVatTuPhanTan
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            DataRowView pn = (DataRowView)bdsPN[bdsPN.Position];
+            String manv = pn["MANV"].ToString().Trim();
+            if (manv != Program.userID)
+            {
+                MessageBox.Show("Chỉ nhân viên lập phiếu này mới được sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             dangSuaCTPN = true;
             vitriContro = bdsCTPN.Position;
             gcPN.Enabled = false;

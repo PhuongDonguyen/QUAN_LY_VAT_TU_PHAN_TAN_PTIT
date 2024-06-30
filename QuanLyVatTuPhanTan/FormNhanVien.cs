@@ -29,9 +29,9 @@ namespace QuanLyVatTuPhanTan
         {
             int viTriHienTai = bdsNhanVien.Position;
             String maNV = ((DataRowView)bdsNhanVien[viTriHienTai])["MANV"].ToString();
-            String cauTruyVan = "DECLARE @return_value int; " +
-                " EXEC @return_value =  sp_ChuyenChiNhanh " + maNV + ",'" + maChiNhanhMoi +
-                "' SELECT 'value' = @return_value ";
+            String cauTruyVan = $@"DECLARE @return_value int; 
+                 EXEC @return_value =  sp_ChuyenChiNhanh {maNV} , '{ maChiNhanhMoi}' , 0 
+                 SELECT 'value' = @return_value ";
 
             Console.WriteLine("Cau Truy Van: " + cauTruyVan);
             if (Program.Connect() == false)
@@ -48,9 +48,10 @@ namespace QuanLyVatTuPhanTan
                 int maNvMoi = Program.myReader.GetInt32(0);
                 Program.myReader.Close();
                 MessageBox.Show("Chuyển chi nhánh thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh " + maNvMoi + ",'" + Program.maChiNhanhHienTai + "'";
+                String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh " + maNvMoi + ",'" + Program.maChiNhanhHienTai + "' , 1 " ;
                 undoList.Push(cauTruyVanHoanTac);
                 listMaNV.Push(maNV);
+                btnHoanTac.Enabled=true;
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
             }
             catch (Exception ex)
@@ -103,7 +104,7 @@ namespace QuanLyVatTuPhanTan
             check = Program.checkText(txtTen, "Ten", 0, 10);
  
             if (!check) return false;
-
+            txtMaNV.Text = txtMaNV.Text.Trim();
             if (!Regex.IsMatch(txtMaNV.Text, @"^[0-9]+$"))
             {
                 XtraMessageBox.Show($"Mã nhân viên chỉ nhận số", "", MessageBoxButtons.OK);
@@ -117,6 +118,7 @@ namespace QuanLyVatTuPhanTan
                 txtHo.Focus();
                 return false;
             }
+            txtTen.Text = txtTen.Text.Trim();
             if (!Regex.IsMatch(txtTen.Text, @"^[a-zA-ZÀ-ỹà-ỹ]+$"))
             {
                 XtraMessageBox.Show($"Tên chỉ nhận chữ cái và k nhận khoảng trắng", "", MessageBoxButtons.OK);
@@ -136,7 +138,8 @@ namespace QuanLyVatTuPhanTan
                 txtCMND.Focus();
                 return false;
             }
-            if(txtCMND.Text.Length != 12)
+            txtCMND.Text = txtCMND.Text.Trim();
+            if (txtCMND.Text.Length != 12)
             {
 
                 XtraMessageBox.Show($"CMND phaỉ có 12 số", "", MessageBoxButtons.OK);
@@ -190,7 +193,7 @@ namespace QuanLyVatTuPhanTan
             cmbChiNhanhNV.SelectedIndex = Program.chiNhanh;
             if (Program.role == "CONGTY")
             {
-                cmbChiNhanhNV.Enabled = true;
+
                 this.panelNhapLieu.Enabled = false;
                 btnThem.Enabled = btnXoa.Enabled = false;
                 panelNhapLieu.Enabled = btnSua.Enabled = btnGhi.Enabled = btnHoanTac.Enabled = false;
@@ -199,8 +202,8 @@ namespace QuanLyVatTuPhanTan
             }
             else if (Program.role == "CHINHANH")
             {
-                btnThem.Enabled = btnHoanTac.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
-                panelNhapLieu.Enabled = btnGhi.Enabled = false;
+                btnThem.Enabled =  btnXoa.Enabled = btnSua.Enabled = true;
+                btnHoanTac.Enabled = panelNhapLieu.Enabled = btnGhi.Enabled = false;
                 cmbChiNhanhNV.Enabled = false;
             }
             else
@@ -214,6 +217,7 @@ namespace QuanLyVatTuPhanTan
             {
                 btnXoa.Enabled = false;
             };
+
 
         }
 
@@ -348,7 +352,7 @@ namespace QuanLyVatTuPhanTan
             Console.WriteLine("truy vấn hoàn tác: " + truyVanHoanTac);
             if (truyVanHoanTac.Contains("sp_ChuyenChiNhanh"))
             {
-               
+
                 // server chi nhanh chuyen toi
                 String chiNhanhHienTai = Program.servername;
                 Program.servername = Program.servernameTranfer;
@@ -363,7 +367,6 @@ namespace QuanLyVatTuPhanTan
                     return;
                 }
                 Program.ExceSqlNoneQuery(truyVanHoanTac);
-                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Program.servername = chiNhanhHienTai;
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
@@ -373,6 +376,7 @@ namespace QuanLyVatTuPhanTan
                 {
                     bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
                 }
+                MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (!Program.Connect())
                 {
                     MessageBox.Show($"Không thể kết nối đến server {Program.servername}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -427,17 +431,17 @@ namespace QuanLyVatTuPhanTan
             }
             if (bdsPhieuNhap.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá PHIEU NHAP ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không thể xoá vì nhân viên này đang có phiếu nhập ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (bdsPhieuXuat.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá PHIEU XUAT ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không thể xoá vì nhân viên này đang có phiếu xuất ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (bdsDatHang.Count > 0)
             {
-                XtraMessageBox.Show("Không thể xoá DAT HANG ( > 0 ) ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không thể xoá vì nhân viên này đang có đơn đặt hàng ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (XtraMessageBox.Show("Bạn có muốn xoá không ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
@@ -489,7 +493,7 @@ namespace QuanLyVatTuPhanTan
 
         private void cmbChiNhanhNV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("vao chon cmb" + this.cmbChiNhanhNV.SelectedValue.ToString());
+          
             if (cmbChiNhanhNV.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.servername = cmbChiNhanhNV.SelectedValue.ToString();
             if (cmbChiNhanhNV.SelectedIndex != Program.chiNhanh)
