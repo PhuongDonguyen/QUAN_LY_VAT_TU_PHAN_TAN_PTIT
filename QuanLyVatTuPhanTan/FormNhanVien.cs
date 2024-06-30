@@ -186,8 +186,8 @@ namespace QuanLyVatTuPhanTan
 
             this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
             this.phieuNhapTableAdapter.Fill(this.dS.PhieuNhap);
-            // còn phát sinh lỗi
-            maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
+            
+         
             //
             cmbChiNhanhNV.DataSource = Program.bds_dspm;
             cmbChiNhanhNV.DisplayMember = "TENCN";
@@ -210,8 +210,8 @@ namespace QuanLyVatTuPhanTan
             }
             else
             { //User
-                btnThem.Enabled = btnHoanTac.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
-                panelNhapLieu.Enabled = btnGhi.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
+                btnHoanTac.Enabled = panelNhapLieu.Enabled = btnGhi.Enabled = false;
                 cmbChiNhanhNV.Enabled = false;
             }
             btnGhi.Enabled = false;
@@ -372,10 +372,6 @@ namespace QuanLyVatTuPhanTan
                 Program.servername = chiNhanhHienTai;
                 Program.loginName = Program.currentLogin;
                 Program.loginPass = Program.currentPass;
-                if (!Program.Connect())
-                {
-                    return;
-                }
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
                 manv = int.Parse(listMaNV.Pop().ToString());
                 if (manv >= 0)

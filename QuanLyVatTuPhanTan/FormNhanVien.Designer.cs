@@ -197,7 +197,7 @@
             // lUONGLabel
             // 
             lUONGLabel.AutoSize = true;
-            lUONGLabel.Location = new System.Drawing.Point(739, 104);
+            lUONGLabel.Location = new System.Drawing.Point(731, 104);
             lUONGLabel.Name = "lUONGLabel";
             lUONGLabel.Size = new System.Drawing.Size(51, 16);
             lUONGLabel.TabIndex = 33;
@@ -206,7 +206,7 @@
             // sOCMNDLabel
             // 
             sOCMNDLabel.AutoSize = true;
-            sOCMNDLabel.Location = new System.Drawing.Point(967, 103);
+            sOCMNDLabel.Location = new System.Drawing.Point(950, 104);
             sOCMNDLabel.Name = "sOCMNDLabel";
             sOCMNDLabel.Size = new System.Drawing.Size(63, 16);
             sOCMNDLabel.TabIndex = 35;
@@ -216,7 +216,7 @@
             // trangThaiXoaLabel
             // 
             trangThaiXoaLabel.AutoSize = true;
-            trangThaiXoaLabel.Location = new System.Drawing.Point(1160, 32);
+            trangThaiXoaLabel.Location = new System.Drawing.Point(1174, 31);
             trangThaiXoaLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             trangThaiXoaLabel.Name = "trangThaiXoaLabel";
             trangThaiXoaLabel.Size = new System.Drawing.Size(101, 16);
@@ -751,7 +751,7 @@
             // cbTrangThaiXoa
             // 
             this.cbTrangThaiXoa.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNhanVien, "TrangThaiXoa", true));
-            this.cbTrangThaiXoa.Location = new System.Drawing.Point(1269, 31);
+            this.cbTrangThaiXoa.Location = new System.Drawing.Point(1283, 30);
             this.cbTrangThaiXoa.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbTrangThaiXoa.Name = "cbTrangThaiXoa";
             this.cbTrangThaiXoa.Size = new System.Drawing.Size(81, 20);
@@ -764,7 +764,7 @@
             this.txtCMND.Location = new System.Drawing.Point(1035, 102);
             this.txtCMND.MenuManager = this.barManager1;
             this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(93, 22);
+            this.txtCMND.Size = new System.Drawing.Size(120, 22);
             this.txtCMND.TabIndex = 36;
             // 
             // soLuong
@@ -818,10 +818,10 @@
             // txtMaCN
             // 
             this.txtMaCN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MACN", true));
-            this.txtMaCN.Location = new System.Drawing.Point(1019, 29);
+            this.txtMaCN.Location = new System.Drawing.Point(1035, 29);
             this.txtMaCN.MenuManager = this.barManager1;
             this.txtMaCN.Name = "txtMaCN";
-            this.txtMaCN.Size = new System.Drawing.Size(110, 22);
+            this.txtMaCN.Size = new System.Drawing.Size(120, 22);
             this.txtMaCN.TabIndex = 31;
             // 
             // txtTen
