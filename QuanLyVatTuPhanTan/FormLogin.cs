@@ -119,7 +119,7 @@ namespace QuanLyVatTuPhanTan
 
             Program.formMain.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userID;
             Program.formMain.HOTEN.Text = "HỌ TÊN: " + Program.hoTen.ToUpper();
-            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY" : "CHI NHÁNH");
+            Program.formMain.NHOM.Text = "VAI TRÒ: " + (Program.role == "CONGTY" ? "CÔNG TY" : Program.role == "USER" ? "USER"  : "CHI NHÁNH") ;
 
             this.Hide();
             Program.formMain.enableButtons();

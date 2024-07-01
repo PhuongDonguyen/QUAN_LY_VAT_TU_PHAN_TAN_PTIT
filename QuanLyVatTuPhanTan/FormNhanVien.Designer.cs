@@ -633,6 +633,7 @@
             this.gridView1.DetailHeight = 294;
             this.gridView1.GridControl = this.gcNhanVien;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.PaintStyleName = "MixedXP";
@@ -818,6 +819,7 @@
             // txtMaCN
             // 
             this.txtMaCN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MACN", true));
+            this.txtMaCN.Enabled = false;
             this.txtMaCN.Location = new System.Drawing.Point(1035, 29);
             this.txtMaCN.MenuManager = this.barManager1;
             this.txtMaCN.Name = "txtMaCN";

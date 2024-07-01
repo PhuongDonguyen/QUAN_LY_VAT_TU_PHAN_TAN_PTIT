@@ -53,6 +53,7 @@ namespace QuanLyVatTuPhanTan
                 listMaNV.Push(maNV);
                 btnHoanTac.Enabled=true;
                 nhanVienTableAdapter.Fill(this.dS.NhanVien);
+                bdsNhanVien.Position = viTriHienTai;
             }
             catch (Exception ex)
             {
@@ -332,6 +333,7 @@ namespace QuanLyVatTuPhanTan
 
                 bdsNhanVien.CancelEdit();
                 gcNhanVien.Enabled = true;
+                panelNhapLieu.Enabled = false;
                 btnThem.Enabled = true;
                 btnXoa.Enabled = true;
                 btnSua.Enabled = true;

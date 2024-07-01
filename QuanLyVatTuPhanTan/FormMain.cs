@@ -328,5 +328,7 @@ namespace QuanLyVatTuPhanTan
                 form.Show();
             }
         }
+
+        
     }
 }
