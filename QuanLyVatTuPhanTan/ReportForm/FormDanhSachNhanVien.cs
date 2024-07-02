@@ -46,8 +46,9 @@ namespace QuanLyVatTuPhanTan.ReportForm
             DataRowView selectedRow = (DataRowView)cmbChiNhanh.SelectedItem;
             String tenCNN = selectedRow["TENCN"].ToString().ToLower();
             tenCN = tenCNN.Contains("chi nhánh 1") ? "Chi nhánh 1" : tenCNN.Contains("chi nhánh 2") ? "Chi nhánh 2" : "";
+            dS.EnforceConstraints = false;
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.nhanVienTableAdapter.Fill(this.dS.NhanVien);
+            this.nhanVienTableAdapter.FillNhanVienOrder(this.dS.NhanVien);
 
         }
 

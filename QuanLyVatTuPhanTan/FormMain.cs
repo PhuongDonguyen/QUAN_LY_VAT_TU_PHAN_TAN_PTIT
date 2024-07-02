@@ -324,7 +324,7 @@ namespace QuanLyVatTuPhanTan
             else
             {
                 FormHoatDongNhanVien form = new FormHoatDongNhanVien();
-                form.MdiParent = this;
+
                 form.Show();
             }
         }

@@ -123,7 +123,7 @@ namespace QuanLyVatTuPhanTan
             txtTen.Text = txtTen.Text.Trim();
             if (!Regex.IsMatch(txtTen.Text, @"^[a-zA-ZÀ-ỹà-ỹ]+$"))
             {
-                XtraMessageBox.Show($"Tên chỉ nhận chữ cái và k nhận khoảng trắng", "", MessageBoxButtons.OK);
+                XtraMessageBox.Show($"Tên chỉ nhận chữ cái và không nhận khoảng trắng", "", MessageBoxButtons.OK);
                 txtTen.Focus();
                 return false;
             }
@@ -134,6 +134,12 @@ namespace QuanLyVatTuPhanTan
                 dteNgaySinh.Focus();
                 return false;
             }
+            if (soLuong.Value < 4000000)
+            {
+                XtraMessageBox.Show($"Lương phải >= 4000000", "", MessageBoxButtons.OK);
+                soLuong.Focus();
+                return false;
+            }
             txtCMND.Text = txtCMND.Text.Trim();
             if (!Regex.IsMatch(txtCMND.Text, @"^[0-9]+$"))
             {
@@ -141,6 +147,7 @@ namespace QuanLyVatTuPhanTan
                 txtCMND.Focus();
                 return false;
             }
+
             txtCMND.Text = txtCMND.Text.Trim();
             if (txtCMND.Text.Length != 12)
             {
@@ -149,12 +156,7 @@ namespace QuanLyVatTuPhanTan
                 txtCMND.Focus();
                 return false;
             }
-            if (soLuong.Value < 1000000)
-            {
-                XtraMessageBox.Show($"Lương phải >= 1000000", "", MessageBoxButtons.OK);
-                soLuong.Focus();
-                return false;
-            }
+           
 
             return true;
         }
@@ -201,6 +203,7 @@ namespace QuanLyVatTuPhanTan
                 btnThem.Enabled = btnXoa.Enabled = false;
                 panelNhapLieu.Enabled = btnSua.Enabled = btnGhi.Enabled = btnHoanTac.Enabled = false;
                 cmbChiNhanhNV.Enabled = true;
+                btnChuyenChiNhanh.Enabled = false;
 
             }
             else if (Program.role == "CHINHANH")
@@ -214,6 +217,7 @@ namespace QuanLyVatTuPhanTan
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
                 btnHoanTac.Enabled = panelNhapLieu.Enabled = btnGhi.Enabled = false;
                 cmbChiNhanhNV.Enabled = false;
+                btnChuyenChiNhanh.Enabled = false;
             }
             btnGhi.Enabled = false;
             if (bdsNhanVien.Count == 0)
@@ -315,10 +319,7 @@ namespace QuanLyVatTuPhanTan
             btnHoanTac.Enabled = true;
             gcNhanVien.Enabled = false;
             bdsNhanVien.AddNew();
-            dteNgaySinh.EditValue = "01-05-2003";
-            txtMaCN.Text = maChiNhanh;
-            soLuong.Value = 4000000;
-            txtDiaChi.Text = "HCM";
+            txtMaCN.Text = Program.maChiNhanhHienTai;
             cbTrangThaiXoa.Checked = false;
 
         }

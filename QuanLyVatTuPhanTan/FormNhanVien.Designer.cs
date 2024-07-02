@@ -785,6 +785,8 @@
             this.soLuong.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.soLuong.Properties.EditFormat.FormatString = "n0";
             this.soLuong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.soLuong.Properties.IsFloatValue = false;
+            this.soLuong.Properties.MaskSettings.Set("mask", "N00");
             this.soLuong.Size = new System.Drawing.Size(106, 24);
             this.soLuong.TabIndex = 34;
             // 

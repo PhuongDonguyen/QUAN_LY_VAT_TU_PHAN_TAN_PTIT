@@ -426,7 +426,17 @@ SELECT MANV, HO, TEN, SOCMND, DIACHI, NGAYSINH, LUONG, MACN, TrangThaiXoa FROM N
               <Mapping SourceColumn="MACN" DataSetColumn="MACN" />
               <Mapping SourceColumn="TrangThaiXoa" DataSetColumn="TrangThaiXoa" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="QLVTConnectionString (Settings)" DbObjectName="QLVT.dbo.NhanVien" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillNhanVienOrder" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillNhanVienOrder" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillNhanVienOrder">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM NHANVIEN
+order by TEN , HO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PhieuNhapTableAdapter" GeneratorDataComponentClassName="PhieuNhapTableAdapter" Name="PhieuNhap" UserDataComponentName="PhieuNhapTableAdapter">
             <MainSource>

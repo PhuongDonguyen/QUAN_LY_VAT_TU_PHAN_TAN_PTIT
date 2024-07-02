@@ -313,7 +313,7 @@
             // 
             this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HO]")});
-            this.tableCell10.InteractiveSorting.FieldName = "TEN";
+            this.tableCell10.InteractiveSorting.FieldName = "HO";
             this.tableCell10.InteractiveSorting.TargetBand = this.Detail;
             this.tableCell10.Name = "tableCell10";
             this.tableCell10.StyleName = "DetailData1";

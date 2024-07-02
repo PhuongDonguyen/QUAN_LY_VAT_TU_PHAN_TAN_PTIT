@@ -166,7 +166,6 @@ namespace QuanLyVatTuPhanTan
         }
         public static int ExceSqlNoneQuery(string str)
         {
-      
             SqlCommand sqlCmd = new SqlCommand(str, Program.conn);
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandTimeout = 600;// 10 phut 
